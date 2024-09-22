@@ -111,4 +111,13 @@ nav{
 .whyText{
     text-align: justify;
     font-weight: bold;
+    padding: 0 5% 1% 5%;
 }
+.highlight {
+    font-size: larger;
+    color: #7E965D;
+}
+.swiper {
+    width: 800px;
+    height: 400px;
+  }
