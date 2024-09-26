@@ -10,6 +10,9 @@
          rel="stylesheet"
          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
     
 </head>
@@ -27,12 +30,18 @@
                 <div class="tombolLogin">
                     <div class="signIn">
                         <button id="signInBtn">
-                            Sign In <i class="bi bi-box-arrow-in-right"></i>
+                            <a href="signIn.html">
+                                Sign In <i class="bi bi-box-arrow-in-right"></i>
+                            </a>
+                            
                         </button>
                     </div>
                     <div class="signUp">
                         <button id="signUpBtn">
-                            Sign Up <i class="bi bi-person"></i>
+                            <a href="signUp.html">
+                                Sign Up <i class="bi bi-person"></i>
+                            </a>
+                            
                         </button>
                     </div>
                         
@@ -60,6 +69,7 @@
             </div>
 
             <div class="artikel swiper">
+                <h2 id="artikelHariIni">Artikel Hari Ini</h2>
                 <ul class="swiper-wrapper">
                     <li class="swiper-slide">
                         <img src="img/ikon.png" alt="Artikel 1">
@@ -84,12 +94,8 @@
                 </ul>
                 <div class="swiper-pagination"></div>
         
-          <!-- If we need navigation buttons -->
                 <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-        
-          <!-- If we need scrollbar -->
-                
+                <div class="swiper-button-next"></div>                
             </div>
 
             <div class="why">
