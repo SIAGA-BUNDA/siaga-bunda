@@ -11,9 +11,12 @@ class user_model {
     // }
     public function getUsers() {
             $query = "select * from " . $this->table ;
-            echo "<br> Query: " . $query . "<br>"; 
             $this->db->query($query);
-            $this->db->execute();
             return $this->db->resultSet();
+    }
+    public function tambahUser($nama){
+        $query = "insert into " . $this->table . "(nama) values ('" . $nama . "')";
+        $this->db->query($query);
+        $this->db->execute();
     }
 }

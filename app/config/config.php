@@ -1,5 +1,5 @@
 <?php
-define ('BASEURL', 'http://localhost/siaga%20bunda/web/public/');
+define ('BASEURL', 'http://localhost/Siaga%20Bunda/web/public/');
 
 define('host', 'localhost');
 

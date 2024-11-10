@@ -8,4 +8,9 @@ class signUp extends controller{
         $this->view('signUp/index', $data);
         $this->view('templates/footer');
     }
+    public function tambah(){
+        $this->model('User_model')->tambahUser($_POST['nama']);
+        header('Location: '. BASEURL. '/signUp');
+        
+    }
 }
