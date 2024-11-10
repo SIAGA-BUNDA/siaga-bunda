@@ -3,9 +3,8 @@ class home extends Controller{
     public function index(){
         $data ['judul'] = 'Home';
         $data ['css'] = 'sebelumLogin';
-        $data['nama']= $this->model('user_model')->getUser();
         $this->view('templates/header', $data);
-        $this->view('home/index', $data);
+        $this->view('home/index');
         $this->view('templates/footer');
     }
     public function sesudahLogin(){
