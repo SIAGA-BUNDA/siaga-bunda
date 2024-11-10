@@ -2,7 +2,7 @@
     <div class="menu">
         <p>Siaga Bunda</p>
         <div class="menu-list">
-            <a href="#" class="isiMenu home"><?=$data['nama']?></a>
+            <a href="#" class="isiMenu home"></a>
             <a href="#" class="isiMenu">Calc</a>
             <a href="#" class="isiMenu">Awikwok</a>
         </div>

@@ -18,7 +18,6 @@ class database{
     ];
     try {
         $this->dbh = new PDO($dsn, $this->username, $this->password, $option);
-        echo "Koneksi berhasil!";
 
     } catch(PDOException $e) {
         echo($e->getMessage());
@@ -56,12 +55,19 @@ public function bind($param, $value, $type = null){
     }
 }
     public function execute(){
+        try{
         $this->stmt->execute(); 
+        }
+     catch(PDOException $e) {
+        echo("execute query gagal: " . $e->getMessage());
+    }
     }
     public function resultSet(){
+        $this->execute();
         return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     public function single(){
+        $this->execute();
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
