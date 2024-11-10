@@ -2,7 +2,7 @@
     <div class="menu">
         <p>Siaga Bunda</p>
         <div class="menu-list">
-            <a href="#" class="isiMenu home">Home</a>
+            <a href="#" class="isiMenu home"><?=$data['nama']?></a>
             <a href="#" class="isiMenu">Calc</a>
             <a href="#" class="isiMenu">Awikwok</a>
         </div>
@@ -26,7 +26,7 @@
             <img src="img/ikon.png" alt="">
             <span>
                 <h1>Selamat Datang di Siaga Bunda</h1>
-                <p>Platform yang dirancang khusus untuk mendukung kesehatan para ibu hamil. Kami memahami bahwa masa kehamilan adalah perjalanan yang istimewa, namun juga penuh tantangan.</p>
+                <p>Platform yang dirancang khusus untuk mendukung kesehatan para bapak hamil. Kami memahami bahwa masa kehamilan adalah perjalanan yang istimewa, namun juga penuh tantangan.</p>
             </span>
             
         </div>
@@ -34,14 +34,6 @@
         <div class="content2">
             <img src="<?=BASEURL?>/img/ibuBayi.png" width="100%" alt="">
         </div>
-        <div class="content3">
-            <p class="content3">Jelajahi setiap fitur pada Siaga Bunda</p>
-        </div>
-        <div class="content3">
-            <a href="SignUp.html">
-                <h2 class="content3">Jelajahi Sekarang</h2>
-            </a>
-            
-        </div>
+     
     </div>
 </div>
