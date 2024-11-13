@@ -1,7 +1,7 @@
 <?php
 class user_model extends model
 {
-    private $table = 'USERACCOUNT';
+    private $table = 'user_account';
     private $db;
     public function __construct()
     {
@@ -18,7 +18,7 @@ class user_model extends model
         $query = "select IDUSER from " . $this->table . " where TOKEN = :token";
         $this->db->query($query);
         $this->db->bind('token', $token);
-        return $this->db->single()['IDUSER'];
+        return $this->db->single()['ID_USER'];
     }
     public function updateRegis($id)
     {
@@ -29,14 +29,14 @@ class user_model extends model
     }
     public function tambahUser($data, $token)
     {
-        $nama = $data['nama'];
-        $password = $data['password'];
+        $nama = $data['NAMA'];
+        $password = $data['PASSWORD'];
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-        $no_telepon = $data['no_telepon'];
-        $tanggal_lahir = $data['tanggal_lahir'];
-        $email = $data['email'];
-        $lmp = $data['lmp'];
-        $query = "INSERT INTO " . $this->table . " (nama, password, no_telepon, tanggal_lahir, lmp, email, is_register, token) VALUES (:nama, :password, :no_telepon, TO_DATE(:tanggal_lahir, 'YYYY-MM-DD'), TO_DATE(:lmp, 'YYYY-MM-DD'), :email, '0', :token)";
+        $no_telepon = $data['NO_TELPON'];
+        $tanggal_lahir = $data['TANGGAL_LAHIR'];
+        $email = $data['EMAIL'];
+        $lmp = $data['LMP'];
+        $query = "INSERT INTO " . $this->table . " (    nama , password, no_telepon, tanggal_lahir, lmp, email, is_register, token) VALUES (:nama, :password, :no_telepon, TO_DATE(:tanggal_lahir, 'YYYY-MM-DD'), TO_DATE(:lmp, 'YYYY-MM-DD'), :email, '0', :token)";
         $this->db->query($query);
         $this->db->bind('nama', $nama);
         $this->db->bind('password', $hashed_password);
