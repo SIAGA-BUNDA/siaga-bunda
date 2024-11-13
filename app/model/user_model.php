@@ -1,28 +1,34 @@
 <?php
-class user_model {
+class user_model extends model
+{
     private $table = 'USERACCOUNT';
     private $db;
-    public function __construct(){
+    public function __construct()
+    {
         $this->db = new database;
     }
-    public function getUsers() {
-            $query = "select * from " . $this->table ;
-            $this->db->query($query);
-            return $this->db->resultSet();
+    public function getUsers()
+    {
+        $query = "select * from " . $this->table;
+        $this->db->query($query);
+        return $this->db->resultSet();
     }
-    public function getIdByToken($token) {
+    public function getIdByToken($token)
+    {
         $query = "select IDUSER from " . $this->table . " where TOKEN = :token";
         $this->db->query($query);
         $this->db->bind('token', $token);
         return $this->db->single()['IDUSER'];
-}
-    public function updateRegis($id){
-        $query = "UPDATE ". $this->table. " SET is_register = '1' WHERE iduser = :id";
+    }
+    public function updateRegis($id)
+    {
+        $query = "UPDATE " . $this->table . " SET is_register = '1' WHERE iduser = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
         $this->db->execute();
     }
-    public function tambahUser($data, $token){
+    public function tambahUser($data, $token)
+    {
         $nama = $data['nama'];
         $password = $data['password'];
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
@@ -30,7 +36,7 @@ class user_model {
         $tanggal_lahir = $data['tanggal_lahir'];
         $email = $data['email'];
         $lmp = $data['lmp'];
-        $query = "INSERT INTO " . $this->table . " (NAMA, PASSWORD, no_telepon, TANGGALLAHIR, LMP, EMAIL, is_register, token) VALUES (:nama, :password, :no_telepon, TO_DATE(:tanggal_lahir, 'YYYY-MM-DD'), TO_DATE(:lmp, 'YYYY-MM-DD'), :email, '0', :token)";
+        $query = "INSERT INTO " . $this->table . " (nama, password, no_telepon, tanggal_lahir, lmp, email, is_register, token) VALUES (:nama, :password, :no_telepon, TO_DATE(:tanggal_lahir, 'YYYY-MM-DD'), TO_DATE(:lmp, 'YYYY-MM-DD'), :email, '0', :token)";
         $this->db->query($query);
         $this->db->bind('nama', $nama);
         $this->db->bind('password', $hashed_password);
@@ -41,5 +47,17 @@ class user_model {
         $this->db->bind('token', $token);
         $this->db->execute();
     }
-    
+
+    public function rules(): array
+    {
+        return [
+            'nama' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max' => 30]],
+            'password' => [self::RULE_REQUIRED],
+            'no_telepon' => [self::RULE_REQUIRED, self::RULE_NUMBER],
+            'tanggal_lahir' => [self::RULE_REQUIRED],
+            'lmp' => [self::RULE_REQUIRED],
+            'email' => [self::RULE_REQUIRED, self::RULE_EMAIL]
+
+        ];
+    }
 }

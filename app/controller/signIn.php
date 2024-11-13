@@ -7,4 +7,8 @@ class signIn extends controller{
         $this->view('signIn/index');
         $this->view('templates/footer');
     }
+
+    public function login(){
+
+    }
 }
