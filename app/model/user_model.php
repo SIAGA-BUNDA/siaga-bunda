@@ -15,20 +15,21 @@ class user_model extends model
     }
     public function getIdByToken($token)
     {
-        $query = "select IDUSER from " . $this->table . " where TOKEN = :token";
+        $query = "select ID_USER from " . $this->table . " where TOKEN = :token";
         $this->db->query($query);
         $this->db->bind('token', $token);
-        return $this->db->single()['IDUSER'];
+        return $this->db->single()['ID_USER'];
     }
     public function updateRegis($id)
     {
-        $query = "UPDATE " . $this->table . " SET is_register = '1' WHERE iduser = :id";
+        $query = "UPDATE " . $this->table . " SET is_register = '1' WHERE ID_USER = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
         $this->db->execute();
     }
     public function tambahUser($data, $token)
     {
+        var_dump($data);
         $nama = $data['nama'];
         $password = $data['password'];
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
@@ -36,7 +37,8 @@ class user_model extends model
         $tanggal_lahir = $data['tanggal_lahir'];
         $email = $data['email'];
         $lmp = $data['lmp'];
-        $query = "INSERT INTO " . $this->table . " (nama, password, no_telepon, tanggal_lahir, lmp, email, is_register, token) VALUES (:nama, :password, :no_telepon, TO_DATE(:tanggal_lahir, 'YYYY-MM-DD'), TO_DATE(:lmp, 'YYYY-MM-DD'), :email, '0', :token)";
+        $tinggi_badan = $data['tinggi_badan'];
+        $query = "INSERT INTO " . $this->table . " (nama, password, no_telepon, tanggal_lahir, lmp, email, is_register, token, tinggi_badan) VALUES (:nama, :password, :no_telepon, TO_DATE(:tanggal_lahir, 'YYYY-MM-DD'), TO_DATE(:lmp, 'YYYY-MM-DD'), :email, '0', :token, :tinggi_badan)";
         $this->db->query($query);
         $this->db->bind('nama', $nama);
         $this->db->bind('password', $hashed_password);
@@ -45,6 +47,7 @@ class user_model extends model
         $this->db->bind('lmp', $lmp);
         $this->db->bind('email', $email);
         $this->db->bind('token', $token);
+        $this->db->bind('tinggi_badan', $tinggi_badan);
         $this->db->execute();
     }
 
