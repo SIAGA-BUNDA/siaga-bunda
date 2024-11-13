@@ -9,7 +9,7 @@
     </div>
     <div class="login">
         <div class="loginDaftar">
-            <a href="SignUp.html">
+            <a href="<?=BASEURL?>signUp">
                 <button id="signup">
                     Daftar Sekarang
                 </button>
