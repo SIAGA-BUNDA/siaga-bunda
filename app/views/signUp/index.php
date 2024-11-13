@@ -40,7 +40,7 @@
                 </div>
                 <div>
                     <label for="phone" class="ml-1 block text-sm font-semibold text-[#4D5A32]">No. Telpon</label>
-                    <input type="tel" id="phone" name="no_telepon" placeholder="Masukkan No Telpon" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]">
+                    <input type="number" id="phone" name="no_telepon" placeholder="Masukkan No Telpon" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]">
                 </div>
             </div>
 
@@ -52,13 +52,13 @@
                 </div>
                 <div>
                     <label for="height" class="ml-1 block text-sm font-semibold text-[#4D5A32]">Tinggi Badan</label>
-                    <input type="text" name="tinggi_badan" id="height" placeholder="Masukkan tinggi badan anda..." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]">
+                    <input type="number" name="tinggi_badan" id="height" placeholder="Masukkan tinggi badan anda..." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]">
                 </div>
             </div>
 
             <!-- Link Login -->
             <div class="text-sm text-[#4D5A32] mb-4">
-                Sudah memiliki akun? <a href="#" class="font-semibold"> login disini</a>
+                Sudah memiliki akun? <a href="<?=BASEURL?>signIn" class="font-semibold"> login disini</a>
             </div>
 
             <!-- Tombol Daftar -->
