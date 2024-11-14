@@ -14,6 +14,13 @@ class signIn extends controller{
         $this->view('signIn/forgotPassword');
         $this->view('templates/footer');
     }
+    public function resetPassword(){
+        $data['judul'] = 'Reset Password';
+        $data['css'] = 'resetPassword';
+        $this->view('templates/header', $data);
+        $this->view('signIn/resetPassword');
+        $this->view('templates/footer');
+    }
 
     public function login(){
 

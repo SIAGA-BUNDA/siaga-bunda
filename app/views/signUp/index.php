@@ -57,13 +57,15 @@
             </div>
 
             <!-- Link Login -->
-            <div class="text-sm text-[#4D5A32] mb-4">
-                Sudah memiliki akun? <a href="<?=BASEURL?>signIn" class="font-semibold"> login disini</a>
+            <div class="flex items-center justify-center text-sm text-[#4D5A32] mb-4">
+                Sudah memiliki akun?&nbsp <a href="<?=BASEURL?>signIn" class="font-semibold"> login disini</a>
             </div>
 
             <!-- Tombol Daftar -->
-            <button type="submit" class=" w-40 bg-[#4D5A32] font-semibold text-white py-2 rounded-2xl hover:bg-white hover:text-[#4D5A32] hover:border-gray-300 hover:border focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-md">Daftar</button>
-        </form>
+            <div class="flex items-center justify-center">
+                <button type="submit" class=" w-40 bg-[#4D5A32] font-semibold text-white py-2 rounded-2xl hover:bg-white hover:text-[#4D5A32] hover:border-gray-300 hover:border focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-md">Daftar</button>
+            </div>
+            </form>
     </div>
 
 </body>
