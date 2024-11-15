@@ -17,21 +17,21 @@
             <!-- Nama -->
             <div class="mb-4">
                 <label for="name" class="ml-1 block text-sm font-semibold text-[#4D5A32]">Nama</label>
-                <input name="nama" type="text" id="name" placeholder="Masukkan Nama Anda..." class="mt-1 block w-full px-3 py-2 border <?= empty ($data['errors']['nama']) ? 'border-gray-300' : 'border-red-400'?> rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['nama']?>>
+                <input name="nama" type="text" id="name" placeholder="Masukkan Nama Anda..." class="mt-1 block w-full px-3 py-2 border <?= empty ($data['errors']['nama']) ? 'border-gray-300' : 'border-red-400'?> rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['nama'] ?? ''?>>
                 <?=  empty($data['errors']['nama']) ? '' :  '<label class = "text-red-500">'. $data ['errors']['nama'][0] . '</label>' ?>
             </div>
 
             <!-- Email -->
              <div class="mb-4">
                 <label for="email" class="ml-1 block text-sm font-semibold text-[#4D5A32]">Email</label>
-                <input name="email" type="text" id="email" placeholder="Masukkan email anda..." class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['email']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1] "value= <?=$data['email']?>>
+                <input name="email" type="text" id="email" placeholder="Masukkan email anda..." class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['email']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1] "value= <?=$data['email'] ?? ''?>>
                 <?=  empty($data['errors']['email']) ? '' :  '<label class = "text-red-500">'. $data ['errors']['email'][0] . '</label>' ?>
              </div>
 
             <!-- Kata Sandi -->
             <div class="mb-4">
                 <label for="password" class="ml-1 block text-sm font-semibold text-[#4D5A32]">Buat Kata Sandi</label>
-                <input name="password" type="password" id="password" placeholder="Buat Kata Sandi Anda..." class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['password']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['password']?>>
+                <input name="password" type="password" id="password" placeholder="Buat Kata Sandi Anda..." class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['password']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['password'] ?? ''?>>
                 <?=  empty($data['errors']['password']) ? '' :  '<label class = "text-red-500">'. $data ['errors']['password'][0] . '</label>' ?>
             </div>
 
@@ -39,12 +39,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                     <label for="birthdate" class="ml-1 block text-sm font-semibold text-[#4D5A32]">Tanggal Lahir</label>
-                    <input type="date" name="tanggal_lahir" id="birthdate" class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['tanggal_lahir']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['tanggal_lahir']?>>
+                    <input type="date" name="tanggal_lahir" id="birthdate" class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['tanggal_lahir']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['tanggal_lahir'] ?? ''?>>
                     <?=  empty($data['errors']['tanggal_lahir']) ? '' :  '<label class = "text-red-500">'. $data ['errors']['tanggal_lahir'][0] . '</label>' ?>
                 </div>
                 <div>
                     <label for="phone" class="ml-1 block text-sm font-semibold text-[#4D5A32]">No. Telpon</label>
-                    <input type="text" id="phone" name="no_telepon" placeholder="Masukkan No Telpon" class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['no_telepon']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['no_telepon']?>>
+                    <input type="text" id="phone" name="no_telepon" placeholder="Masukkan No Telpon" class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['no_telepon']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['no_telepon'] ?? ''?>>
                     <?=  empty($data['errors']['no_telepon']) ? '' :  '<label class = "text-red-500">'. $data['errors']['no_telepon'][0] . '</label>' ?>
                 </div>
             </div>
@@ -53,13 +53,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                     <label for="last-period" class="ml-1 block text-sm font-semibold text-[#4D5A32]">Last Menstrual Period</label>
-                    <input name="lmp" type="date" id="last-period" class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['lmp']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['lmp']?>>
+                    <input name="lmp" type="date" id="last-period" class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['lmp']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['lmp'] ?? '' ?>>
                     <?=  empty($data['errors']['lmp']) ? '' :  '<label class = "text-red-500">'. $data ['errors']['lmp'][0] . '</label>' ?>
 
                 </div>
                 <div>
                     <label for="height" class="ml-1 block text-sm font-semibold text-[#4D5A32]">Tinggi Badan</label>
-                    <input type="number" name="tinggi_badan" id="height" placeholder="Masukkan tinggi badan anda..." class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['tinggi_badan']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['tinggi_badan']?>>
+                    <input type="number" name="tinggi_badan" id="height" placeholder="Masukkan tinggi badan anda..." class="mt-1 block w-full px-3 py-2 border <?= empty($data['errors']['tinggi_badan']) ? 'border-grey-300' : ' border-red-400' ?>  rounded-lg focus:outline-none focus:ring-[#C1CFA1] focus:border-[#C1CFA1]" value= <?=$data['tinggi_badan'] ?? ''?>>
                     <?=  empty($data['errors']['tinggi_badan']) ? '' :  '<label class = "text-red-500">'. $data ['errors']['tinggi_badan'][0] . '</label>' ?>
 
                 </div>
