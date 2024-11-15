@@ -3,8 +3,8 @@ class controller{
     public function view($view, $data = []){
         require_once "../app/views/{$view}.php";
     }
-    public function model ($model){
+    public function model ($model, $data = []){
         require_once "../app/model/{$model}.php";
-        return new $model;
+        return new $model($data);
     }
 }
