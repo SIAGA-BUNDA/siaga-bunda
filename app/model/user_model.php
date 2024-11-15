@@ -2,20 +2,35 @@
 class user_model extends model
 {
     private $table = 'USERACCOUNT';
-    private $db;
-    public function __construct()
+
+    private $db,$data;
+
+    public  $id_user, $password ,$nama, $email, $no_telepon, $tanggal_lahir, $lmp, $token, $tinggi_badan; 
+    public function __construct($data = [])
     {
-        $this->db = new database;
+        $this->db = new database();
+
+        //get data user
+        $this->id_user = $data['id_user']??null;
+        $this->nama = $data['nama'] ?? null;
+        $this->password = $data['password'] ?? null;
+        $this->email = $data['email']?? null ;
+        $this->no_telepon = $data['no_telepon']??null ;
+        $this->tanggal_lahir = $data['tanggal_lahir']?? null ;
+        $this->lmp = $data['lmp'] ?? null;
+        $this->token = $data['token'] ?? null;
+        $this->tinggi_badan =  $data ['tinggi_badan']??null ;
     }
+    
     public function getUsers()
     {
-        $query = "select * from " . $this->table;
+        $query = "SELECT * from " . $this->table;
         $this->db->query($query);
         return $this->db->resultSet();
     }
     public function getIdByToken($token)
     {
-        $query = "select ID_USER from " . $this->table . " where TOKEN = :token";
+        $query = "SELECT ID_USER from " . $this->table . " where TOKEN = :token";
         $this->db->query($query);
         $this->db->bind('token', $token);
         return $this->db->single()['ID_USER'];
@@ -29,7 +44,6 @@ class user_model extends model
     }
     public function tambahUser($data, $token)
     {
-        var_dump($data);
         $nama = $data['nama'];
         $password = $data['password'];
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
@@ -55,11 +69,12 @@ class user_model extends model
     {
         return [
             'nama' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max' => 30]],
-            'password' => [self::RULE_REQUIRED],
+            'password' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max'=> 8]],
             'no_telepon' => [self::RULE_REQUIRED, self::RULE_NUMBER],
-            'tanggal_lahir' => [self::RULE_REQUIRED],
-            'lmp' => [self::RULE_REQUIRED],
-            'email' => [self::RULE_REQUIRED, self::RULE_EMAIL]
+            'tanggal_lahir' => [self::RULE_REQUIRED, self::RULE_DATE],
+            'lmp' => [self::RULE_REQUIRED, self::RULE_DATE],
+            'email' => [self::RULE_EMAIL, [self::RULE_MAX, 'max' => 50]],
+            'tinggi_badan' => [self::RULE_REQUIRED,self::RULE_NUMBER]
 
         ];
     }

@@ -6,10 +6,17 @@ abstract class model
     public const RULE_EMAIL = "email";
     public const RULE_MIN = "min";
     public const RULE_MAX = "max";
+    public const RULE_DATE = "date";
+
 
     public array $errors = [];
 
     abstract public function rules(): array;
+    function validateDate($date, $format = 'Y-m-d H:i:s')
+    {
+        $d = DateTime::createFromFormat($format, $date);
+        return $d && $d->format($format) == $date;
+    }
 
     public function validate()
     {
@@ -37,9 +44,13 @@ abstract class model
                 if ($ruleName === self::RULE_NUMBER && !is_numeric($value)) {
                     $this->addError($attribute, self::RULE_NUMBER);
                 }
-                return empty($this->errors);
+                if ($ruleName === self::RULE_DATE && !$this->validateDate($value, 'Y-m-d')) {
+                    echo $value.'<br>';
+                    $this->addError($attribute, self::RULE_DATE);
+                }
             }
         }
+        return empty($this->errors);
     }
 
     public function addError(string $attribute, string $rule, $params = [])
@@ -48,19 +59,20 @@ abstract class model
         foreach ($params as $key => $rule) {
             $message = str_replace("{{$key}}", $rule, $message);
         }
-        if (empty($this->errors[$attribute])) {
-            $this->errors[$attribute][] = $message;
-        }
+
+        $this->errors[$attribute][] = $message;
+
     }
 
     public function errorMessages($field): array
     {
         return [
-            self::RULE_REQUIRED => 'Field ' . $field . ' is required',
-            self::RULE_EMAIL => 'Field ' . $field . ' must be a valid email address',
-            self::RULE_MIN => 'Min length of field ' . $field . ' must be  greter than  {min}',
-            self::RULE_MAX => 'Max length of field ' . $field . ' must be less than {max}',
-            self::RULE_NUMBER => 'Field ' . $field . ' must be a valid number',
+            self::RULE_REQUIRED => str_replace('_', ' ', ucfirst($field)) . ' tidak boleh kosong',
+            self::RULE_EMAIL => 'Alamat ' . $field . ' tidak valid',
+            self::RULE_MIN =>  str_replace('', ' ', ucfirst($field)) . ' harus lebih besar dari {min}',
+            self::RULE_MAX => str_replace('', ' ', ucfirst($field)) . ' tidak boleh lebih besar dari {max}',
+            self::RULE_NUMBER => str_replace('_', ' ', ucfirst($field)) . ' harus angka',
+            self::RULE_DATE => 'Format '. str_replace('_', ' ', $field) . ' tidak valid',
         ];
     }
 }
