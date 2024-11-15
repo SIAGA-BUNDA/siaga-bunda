@@ -25,7 +25,6 @@ abstract class model
             foreach ($rules as $rule) {
                 $ruleName = $rule;
                 //jika rule berupa array 
-                $this->getUsers()
                 if (!is_string($ruleName)) {
                     $ruleName = $rule[0];
                 }
