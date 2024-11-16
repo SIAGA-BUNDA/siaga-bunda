@@ -3,30 +3,38 @@ class user_model extends model
 {
     private $table = 'USERACCOUNT';
 
-    private $db,$data;
+    private $db, $data;
 
-    public  $id_user, $password ,$nama, $email, $no_telepon, $tanggal_lahir, $lmp, $token, $tinggi_badan; 
+    public $id_user, $password, $nama, $email, $no_telepon, $tanggal_lahir, $lmp, $token, $tinggi_badan;
     public function __construct($data = [])
     {
         $this->db = new database();
 
         //get data user
-        $this->id_user = $data['id_user']??null;
+        $this->id_user = $data['id_user'] ?? null;
         $this->nama = $data['nama'] ?? null;
         $this->password = $data['password'] ?? null;
-        $this->email = $data['email']?? null ;
-        $this->no_telepon = $data['no_telepon']??null ;
-        $this->tanggal_lahir = $data['tanggal_lahir']?? null ;
+        $this->email = $data['email'] ?? null;
+        $this->no_telepon = $data['no_telepon'] ?? null;
+        $this->tanggal_lahir = $data['tanggal_lahir'] ?? null;
         $this->lmp = $data['lmp'] ?? null;
         $this->token = $data['token'] ?? null;
-        $this->tinggi_badan =  $data ['tinggi_badan']??null ;
+        $this->tinggi_badan = $data['tinggi_badan'] ?? null;
     }
-    
+
     public function getUsers()
     {
         $query = "SELECT * from " . $this->table;
         $this->db->query($query);
         return $this->db->resultSet();
+    }
+
+    public function getUserByEmail($email)
+    {
+        $query = "SELECT * FROM " . $this->table . " WHERE EMAIL = :email";
+        $this->db->query($query);
+        $this->db->bind('email', $email);
+        return $this->db->single();
     }
     public function getIdByToken($token)
     {
@@ -65,17 +73,27 @@ class user_model extends model
         $this->db->execute();
     }
 
-    public function rules(): array
+    public function rules($page): array
     {
-        return [
-            'nama' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max' => 30]],
-            'password' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max'=> 8]],
-            'no_telepon' => [self::RULE_REQUIRED, self::RULE_NUMBER],
-            'tanggal_lahir' => [self::RULE_REQUIRED, self::RULE_DATE],
-            'lmp' => [self::RULE_REQUIRED, self::RULE_DATE],
-            'email' => [self::RULE_EMAIL, [self::RULE_MAX, 'max' => 50]],
-            'tinggi_badan' => [self::RULE_REQUIRED,self::RULE_NUMBER]
+        switch ($page) {
+            case 'signIn':
+                return [
+                    'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [self::RULE_MAX, 'max' => 50],self::RULE_REGISTERED_EMAIL],
+                    'password' => [self::RULE_REQUIRED, self::RULE_CORRECT_PASSWORD],
+                ]
+                ;
+            case 'signUp':
+                return [
+                    'nama' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max' => 30]],
+                    'password' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max'=> 8]],
+                    'no_telepon' => [self::RULE_REQUIRED, self::RULE_NUMBER],
+                    'tanggal_lahir' => [self::RULE_REQUIRED, self::RULE_DATE],
+                    'lmp' => [self::RULE_REQUIRED, self::RULE_DATE],
+                    'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [self::RULE_MAX, 'max' => 50], self::RULE_UNIQUE_EMAIL],
+                    'tinggi_badan' => [self::RULE_REQUIRED, self::RULE_NUMBER]
+                ];
+        }
+        return [];
 
-        ];
     }
 }
