@@ -16,38 +16,23 @@ class signIn extends controller
         $data['judul'] = 'Login';
         $data['css'] = 'signIn';
         $data['builder'] = $this->builder;
+
         $_SESSION['phrase'] = $this->builder->getPhrase();
         $this->view('templates/header', $data);
         $this->view('signIn/index', $data);
         $this->view('templates/footer');
-    }
-    public function forgotPassword()
-    {
-        $data['judul'] = 'Forgot Password';
-        $data['css'] = 'forgotPassword';
-        $this->view('templates/header', $data);
-        $this->view('signIn/forgotPassword');
-        $this->view('templates/footer');
-    }
-    public function resetPassword()
-    {
-        $data['judul'] = 'Reset Password';
-        $data['css'] = 'resetPassword';
-        $this->view('templates/header', $data);
-        $this->view('signIn/resetPassword');
-        $this->view('templates/footer');
+
     }
 
-    public function submit()
+    public function submit_login()
     {
         $data = $_POST;
         $model = $this->model('user_model', $data);
         $data['builder'] = $this->builder;
         if ($model->validate('signIn')) {
-            // echo $_SESSION['phrase'];  
-            // echo $data['user_captcha'];
             if($_SESSION['phrase'] === $data['user_captcha']) {
-                header("Location: " . BASEURL . "home");
+                $_SESSION['user'] = $model->getUserByEmail($data['email'])['ID_USER'];
+                header("Location: " . BASEURL . "signUp");
             }
             else {   
                 $this->index($data);
@@ -58,4 +43,5 @@ class signIn extends controller
         }
 
     }
+
 }

@@ -10,6 +10,7 @@ abstract class model
 
     public const RULE_UNIQUE_EMAIL = "unique_email";
 
+    public const RULE_MATCH = "match";
     public const RULE_REGISTERED_EMAIL = "registered_email";
     public const RULE_CORRECT_PASSWORD = "correct_password";
 
@@ -69,6 +70,10 @@ abstract class model
                     echo $value.'<br>';
                     $this->addError($attribute, self::RULE_DATE);
                 }
+                
+                if($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']}){
+                    $this->addError($attribute, self::RULE_MATCH);
+                }
             }
         }
         return empty($this->errors);
@@ -96,7 +101,8 @@ abstract class model
             self::RULE_DATE => 'Format '. str_replace('_', ' ', $field) . ' tidak valid',
             self::RULE_UNIQUE_EMAIL => 'Email sudah terdaftar',
             self::RULE_REGISTERED_EMAIL => 'Email belum terdaftar',
-            self::RULE_CORRECT_PASSWORD => 'Kata sandi salah'
+            self::RULE_CORRECT_PASSWORD => 'Kata sandi salah',
+            self::RULE_MATCH => 'Kata sandi tidak sama'
         ];
     }
 }

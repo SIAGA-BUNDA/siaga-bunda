@@ -5,7 +5,7 @@ class user_model extends model
 
     private $db, $data;
 
-    public $id_user, $password, $nama, $email, $no_telepon, $tanggal_lahir, $lmp, $token, $tinggi_badan;
+    public $id_user, $password, $nama, $email, $no_telepon, $tanggal_lahir, $lmp, $token, $tinggi_badan, $confirmPassword;
     public function __construct($data = [])
     {
         $this->db = new database();
@@ -20,6 +20,7 @@ class user_model extends model
         $this->lmp = $data['lmp'] ?? null;
         $this->token = $data['token'] ?? null;
         $this->tinggi_badan = $data['tinggi_badan'] ?? null;
+        $this->confirmPassword = $data['confirmPassword'] ?? null;
     }
 
     public function getUsers()
@@ -50,6 +51,17 @@ class user_model extends model
         $this->db->bind('id', $id);
         $this->db->execute();
     }
+
+    public function updatePassword($token, $password)
+    {
+        $id = $this->getIdByToken($token);
+        $query = "UPDATE " . $this->table . " SET password = :password WHERE ID_USER = :id";
+        $this->db->query($query);
+        $this->db->bind('password', $password);
+        $this->db->bind('id', $id);
+        $this->db->execute();
+    }
+
     public function tambahUser($data, $token)
     {
         $nama = $data['nama'];
@@ -78,19 +90,28 @@ class user_model extends model
         switch ($page) {
             case 'signIn':
                 return [
-                    'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [self::RULE_MAX, 'max' => 50],self::RULE_REGISTERED_EMAIL],
+                    'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [self::RULE_MAX, 'max' => 50], self::RULE_REGISTERED_EMAIL],
                     'password' => [self::RULE_REQUIRED, self::RULE_CORRECT_PASSWORD],
                 ]
                 ;
             case 'signUp':
                 return [
                     'nama' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max' => 30]],
-                    'password' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max'=> 8]],
+                    'password' => [self::RULE_REQUIRED, [self::RULE_MAX, 'max' => 8]],
                     'no_telepon' => [self::RULE_REQUIRED, self::RULE_NUMBER],
                     'tanggal_lahir' => [self::RULE_REQUIRED, self::RULE_DATE],
                     'lmp' => [self::RULE_REQUIRED, self::RULE_DATE],
                     'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [self::RULE_MAX, 'max' => 50], self::RULE_UNIQUE_EMAIL],
                     'tinggi_badan' => [self::RULE_REQUIRED, self::RULE_NUMBER]
+                ];
+            case 'resetCreatePassword':
+                return [
+                    "password" => [self::RULE_REQUIRED, [self::RULE_MAX, 'max' => 8]],
+                    "confirmPassword" => [self::RULE_REQUIRED, [self::RULE_MAX, 'max' => 8], [self::RULE_MATCH, 'match' => 'password']]
+                ];
+            case 'resetIndex':
+                return [
+                    "email" => [self::RULE_REQUIRED, self::RULE_EMAIL, [self::RULE_MAX, 'max' => 50], self::RULE_REGISTERED_EMAIL]
                 ];
         }
         return [];

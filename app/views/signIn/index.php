@@ -10,7 +10,7 @@
         <h2 class="text-center text-2xl font-bold text-[#4D5A32] mb-6">Log In ke akun anda</h2>
 
         <!-- Form -->
-        <form action="<?= BASEURL ?>/signIn/submit" method="POST">
+        <form action="<?= BASEURL ?>signIn/submit_login" method="POST">
 
             <!-- Email -->
             <div class="mb-4">
@@ -31,7 +31,7 @@
 
             <!-- Lupa Kata Sandi -->
             <div class="text-sm text-[#4D5A32] mb-4">
-                Lupa kata sandi? <a href="<?= BASEURL ?>signIn/forgotPassword" class="font-semibold text-[#4D5A32]">Klik
+                Lupa kata sandi? <a href="<?= BASEURL ?>resetPassword" class="font-semibold text-[#4D5A32]">Klik
                     di sini</a>
             </div>
 
