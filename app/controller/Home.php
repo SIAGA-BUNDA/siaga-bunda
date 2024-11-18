@@ -7,7 +7,7 @@ class home extends Controller{
         $this->view('home/index');
         $this->view('templates/footer');
     }
-    public function sesudahLogin(){
+    public function userIndex(){
         $data ['judul'] = 'HomeAfter';
         $data ['css'] = 'sesudahLogin';
         $this->view('templates/header', $data);
