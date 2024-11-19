@@ -26,7 +26,7 @@
              </div>
 
             <!-- Link Login -->
-            <div class="text-sm text-[#4D5A32] mb-4">
+            <div         class="text-sm text-[#4D5A32] mb-4">
                 Kembali <a href="<?=BASEURL?>signIn" class="font-bold"> login disini</a>
             </div>
 

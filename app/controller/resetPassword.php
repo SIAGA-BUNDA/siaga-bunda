@@ -60,7 +60,7 @@ class ResetPassword extends Controller
                 <a href='" . BASEURL . "resetPassword/createPassword/" . $token . "'>Reset Password</a>";
              
                 $mail->send();
-                echo 'Message has been sent';
+                header('Location: ' . BASEURL .'resetPassword/verifEmail');
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
@@ -69,7 +69,14 @@ class ResetPassword extends Controller
             $this->index($data);
         }
     }
-
+    public function verifEmail()
+    {
+        $data['judul'] = 'verif Email';
+        $data['css'] = 'signIn';
+        $this->view('templates/header', $data);
+        $this->view('resetPassword/verifEmail');
+        $this->view('templates/footer');
+    }
     public function submit_createPassword($token)
     {
         $data = $_POST;
