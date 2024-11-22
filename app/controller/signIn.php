@@ -32,7 +32,7 @@ class signIn extends controller
         if ($model->validate('signIn')) {
             if($_SESSION['phrase'] === $data['user_captcha']) {
                 $_SESSION['user'] = $model->getUserByEmail($data['email'])['ID_USER'];
-                header("Location: " . BASEURL . "signUp");
+                header("Location: " . BASEURL . "Home");
             }
             else {   
                 $this->index($data);

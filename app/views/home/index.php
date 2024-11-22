@@ -9,14 +9,19 @@
     </div>
     <div class="login">
         <div class="loginDaftar">
-            <a href="<?=BASEURL?>signUp">
+            <a href="signUp">
                 <button id="signup">
-                    Daftar Sekarang
+                    Daftar
                 </button>
             </a>
-            <a href="signIn.html">
+            <a href="signIn">
                 <button id="login">
                     Login
+                </button>
+            </a>
+            <a href="skrinning">
+                <button id="login">
+                    Skrinning
                 </button>
             </a>
         </div>
