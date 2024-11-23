@@ -24,6 +24,11 @@
                     Skrinning
                 </button>
             </a>
+            <a href="<?=BASEURL?>tracking">
+                <button id="login">
+                    Tracking Mingguan
+                </button>
+            </a>
         </div>
     </div>
     <div class="content">
