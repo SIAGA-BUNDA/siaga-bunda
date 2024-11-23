@@ -45,7 +45,7 @@ abstract class model
                     $this->addError($attribute, self::RULE_UNIQUE_EMAIL);
                 }
 
-                if($ruleName === self::RULE_REGISTERED_EMAIL && empty($this->getUserByEmail($this->{'email'}))){
+                if($ruleName === self::RULE_REGISTERED_EMAIL && (empty($this->getUserByEmail($this->{'email'})) || $this->getUserByEmail($this->{'email'})['IS_REGISTER'] === '0')){
                     $this->addError($attribute, self::RULE_REGISTERED_EMAIL);
                 }
 
