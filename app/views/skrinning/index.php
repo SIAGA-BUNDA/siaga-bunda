@@ -38,12 +38,12 @@
             <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 0~13</h2>
             <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes kehamilan dini</h3>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu0-13#antibodi">Tes keseluruhan antibodi</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu013#antibodi">Tes keseluruhan antibodi</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu0-13#torch">TORCH</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu013#torch">TORCH</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
@@ -54,17 +54,17 @@
             <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 10~13</h2>
             <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes kelainan janin trimester 1</h3>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu10-13#papp-a">PAPP-A</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu1013#papp-a">PAPP-A</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu10-13#nipt">NIPT</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu1013#nipt">NIPT</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu10-13#cvs">Chorionic Villus Sampling (CVS)</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu1013#cvs">Chorionic Villus Sampling (CVS)</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
@@ -75,12 +75,12 @@
             <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 15~20</h2>
             <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes kelainan janin trimester 2</h3>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu15-20#quad">Quad test</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu1520#quad">Quad test</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu15-20#amniosentesis">Amniosentesis</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu1520#amniosentesis">Amniosentesis</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
@@ -91,7 +91,7 @@
             <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 24~28</h2>
             <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes Diabetes Gestasional</h3>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu24-28#ogtt">75gr OGTT</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu2428#ogtt">75gr OGTT</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
@@ -102,27 +102,27 @@
             <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 34~36</h2>
             <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes prenatal yang komprehensif</h3>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu34-36#liver">Fungsi Liver</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu3436#liver">Fungsi Liver</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu34-36#sipilis">Sipilis</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu3436#sipilis">Sipilis</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu34-36#rontgen">Rontgen dada</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu3436#rontgen">Rontgen dada</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu34-36#std">STD</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu3436#std">STD</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
             <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>minggu34-36#gbs">Guillan Barre Syndrome (GBS)</li>
+                <li><a href="<?=BASEURL?>skrinning/minggu3436#gbs">Guillain Barre Syndrome (GBS)</li>
                 <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
                 </a>
             </ul>
