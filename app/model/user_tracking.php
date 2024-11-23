@@ -15,9 +15,7 @@ class user_tracking extends model
         //belum rules
     }
     public function tambah($data, $id){
-        $query = "SELECT floor((SYSDATE - (LMP + 7)) / 7) AS WEEK FROM useraccount where id_user = '". $id . "'";
-        $this->db->query($query);
-        $week = $this->db->single()['WEEK'];
+        $week = $this->getWeek($id);
         var_dump($week);
         $berat_badan = $data['berat_badan'];
         $tinggi_badan = $data['tinggi_badan'];
@@ -32,5 +30,10 @@ class user_tracking extends model
         $this->db->execute();
         header('Location: ' . BASEURL . '/Home');
     }
+
+    function getWeek ($id) {
+        $query = "SELECT floor((SYSDATE - (LMP + 7)) / 7) AS WEEK FROM useraccount where id_user = '". $id . "'";
+        $this->db->query($query);
+        return $this->db->single()['WEEK'];
+    }
 }
-?>

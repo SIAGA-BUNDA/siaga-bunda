@@ -5,7 +5,7 @@
 
 
         <div class="flex items-left justify-left gap-[385px]"> 
-        <button onclick="window.location.href='<?= BASEURL ?>/skrinning'" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md">
+        <button onclick="window.location.href='<?= BASEURL ?>skrinning'" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md">
             Kembali
         </button>
 

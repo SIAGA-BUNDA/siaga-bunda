@@ -4,7 +4,7 @@
 
         <!-- Logo -->
         <div class="flex justify-center mb-6">
-            <img src="<?=BASEURL?>/img/logo.png" alt="SIAGA BUNDA" class="w-28 h-28 md:w-36 md:h-36">
+            <img src="<?= BASEURL ?>/img/logo.png" alt="SIAGA BUNDA" class="w-28 h-28 md:w-36 md:h-36">
         </div>
 
         <!-- Title -->
@@ -14,117 +14,151 @@
 
         <!-- Week 4-6 -->
         <div class="bg-[#F0F0F0] rounded-lg shadow p-6 mb-6">
-            <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 4~6</h2>
-            <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes konfirmasi kehamilan</h3>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu46#usg">USG</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
-            </ul>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu46#kankerserviks">Skrining Kanker Serviks</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
-            </ul>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu46#hormonkehamilan">Tes Hormon kehamilan melalui darah</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
+            <h2
+                class="text-xl md:text-2xl font-semibold mb-3  <?= $data['week'] >= 4 && $data['week'] <= 6 ? 'text-red-400' : 'text-[#4D5A32]' ?>">
+                Minggu 4~6</h2>
+            <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]">Tes konfirmasi kehamilan</h3>
+            <ul
+                class="list-disc pl-4 text-[#4D5A32] text-lg md:text-2xl p-2 <?= $data['week'] >= 4 && $data['week'] <= 6 ? 'bg-red-200 rounded-lg mt-3' : '' ?>">
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu46#usg" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">USG</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu46#kankerserviks" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">Skrining Kanker Serviks</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu46#hormonkehamilan" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">Tes Hormon kehamilan melalui darah</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
             </ul>
         </div>
 
         <!-- Week 0-13 -->
         <div class="bg-[#F0F0F0] rounded-lg shadow p-6 mb-6">
-            <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 0~13</h2>
-            <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes kehamilan dini</h3>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu013#antibodi">Tes keseluruhan antibodi</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
-            </ul>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu013#torch">TORCH</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 <?= $data['week'] < 4 || ($data['week'] <10 && $data['week'] > 6) ? 'text-red-400' : ' text-[#4D5A32] ' ?>">Minggu 0~13</h2>
+            <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]">Tes kehamilan dini</h3>
+            <ul class="list-disc pl-4 text-[#4D5A32] text-lg md:text-2xl p-2 <?= $data['week'] < 4 || ($data['week'] <10 && $data['week'] > 6) ? 'bg-red-200 rounded-lg mt-3' : ''?> ">
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu013#antibodi" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">Tes keseluruhan antibodi</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu013#torch" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">TORCH</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
             </ul>
         </div>
 
         <!-- Week 10-13 -->
         <div class="bg-[#F0F0F0] rounded-lg shadow p-6 mb-6">
-            <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 10~13</h2>
-            <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes kelainan janin trimester 1</h3>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu1013#papp-a">PAPP-A</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
-            </ul>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu1013#nipt">NIPT</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
-            </ul>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu1013#cvs">Chorionic Villus Sampling (CVS)</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 <?= $data['week'] >= 10 && $data['week'] <= 13 ? 'text-red-400' : ' text-[#4D5A32] ' ?>">Minggu 10~13</h2>
+            <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]">Tes kelainan janin trimester 1</h3>
+
+            <ul class="list-disc pl-4 text-[#4D5A32] text-lg md:text-2xl p-2 <?= $data['week'] >= 10 && $data['week'] <= 13 ? 'bg-red-200 rounded-lg mt-3' : ''?>">
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu1013#ppapp-a" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">PAPP-A</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu1013#nipt" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">NIPT</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu1013#cvs" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">Chorionic Villus Sampling (CVS)</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
             </ul>
         </div>
 
         <!-- Week 15-20 -->
         <div class="bg-[#F0F0F0] rounded-lg shadow p-4 mb-4">
-            <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 15~20</h2>
-            <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes kelainan janin trimester 2</h3>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu1520#quad">Quad test</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
-            </ul>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu1520#amniosentesis">Amniosentesis</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 <?= $data['week'] > 13 && $data['week'] <= 20 ? 'text-red-400' : ' text-[#4D5A32] ' ?>">Minggu 15~20</h2>
+            <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]">Tes kelainan janin trimester 2</h3>
+            <ul class="list-disc pl-4 text-[#4D5A32] text-lg md:text-2xl p-2 <?= $data['week'] > 13 && $data['week'] <= 20 ? 'bg-red-200 rounded-lg mt-3' : ''?>">
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu1520#quad" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">Quad test</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu1520#amniosentesis" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">Amniosentesis</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
             </ul>
         </div>
 
         <!-- Week 24-28 -->
         <div class="bg-[#F0F0F0] rounded-lg shadow p-4 mb-4">
-            <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 24~28</h2>
-            <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes Diabetes Gestasional</h3>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu2428#ogtt">75gr OGTT</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32] <?= $data['week'] > 20 && $data['week'] <= 28 ? 'text-red-400' : ' text-[#4D5A32] ' ?>">Minggu 24~28</h2>
+            <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]">Tes Diabetes Gestasional</h3>
+
+            <ul class="list-disc pl-4 text-[#4D5A32] text-lg md:text-2xl p-2 <?= $data['week'] > 20 && $data['week'] <= 28 ? 'bg-red-200 rounded-lg mt-3' : ''?> ">
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu2428#ogtt" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">75gr OGTT</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
             </ul>
         </div>
 
         <!-- Week 34-36 -->
         <div class="bg-[#F0F0F0] rounded-lg shadow p-4 mb-4">
-            <h2 class="text-xl md:text-2xl font-semibold mb-3 text-[#4D5A32]">Minggu 34~36</h2>
-            <h3 class="text-lg md:text-xl font-medium mb-3 text-[#4D5A32]">Tes prenatal yang komprehensif</h3>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu3436#liver">Fungsi Liver</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
-            </ul>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu3436#sipilis">Sipilis</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
-            </ul>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu3436#rontgen">Rontgen dada</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
-            </ul>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu3436#std">STD</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
-            </ul>
-            <ul class="flex justify-between items-center list-disc pl-6 text-[#4D5A32] text-lg md:text-2xl">
-                <li><a href="<?=BASEURL?>skrinning/minggu3436#gbs">Guillain Barre Syndrome (GBS)</li>
-                <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
-                </a>
+            <h2 class="text-xl md:text-2xl font-semibold mb-3 <?= $data['week'] > 28 && $data['week'] <= 36 ? 'text-red-400' : ' text-[#4D5A32] ' ?>">Minggu 34~36</h2>
+            <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]">Tes prenatal yang komprehensif</h3>
+
+            <ul class="list-disc pl-4 text-[#4D5A32] text-lg md:text-2xl p-2  <?= $data['week'] > 28 && $data['week'] <= 36 ? 'bg-red-200 rounded-lg mt-3' : ''?> ">
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu3436#liver" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">Fungsi Liver</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu3436#sipilis" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">Sipilis</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu3436#rontgen" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">Rontgen dada</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5">
+                    <a href="<?= BASEURL ?>skrinning/minggu3436#std" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">STD</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
+                <li class="hover:bg-stone-300 py-1 px-2 ml-5 list-disc">
+                    <a href="<?= BASEURL ?>skrinning/minggu3436#gbs" class="flex items-center cursor-pointer">
+                        <label class="flex-grow cursor-pointer">Guillain Barre Syndrome (GBS)</label>
+                        <button class="text-[#4D5A32] text-2xl md:text-3xl">&gt;</button>
+                    </a>
+                </li>
             </ul>
         </div>
 
