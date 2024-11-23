@@ -1,13 +1,21 @@
 <?php
 class skrinning extends controller
 {
+    private $id;
     public function index($data = [])
     {
+        session_start(); 
+        if(isset($_SESSION['user'])){
         $data['judul'] = 'skrinning';
         $data['css'] = 'skrinning';
+        $this->id = $_SESSION['user'];
         $this->view('templates/header', $data);
         $this->view('skrinning/index', $data);
         $this->view('templates/footer');
+        }
+        else{
+            header('Location: ' . BASEURL . 'signIn');
+        }
     }
     public function minggu46()
     {
