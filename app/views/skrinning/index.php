@@ -1,6 +1,6 @@
-<body class="bg-[#C1CFA1] flex items-center justify-center pt-[69px] pb-[69px] min-h-screen">
+<body class="bg-[#C1CFA1] min-h-screen py-8 px-4 sm:px-6 lg:px-8">
 
-    <div class="bg-white p-8 rounded-xl shadow-xl w-full max-w-7xl mx-auto">
+    <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-xl shadow-xl w-full max-w-7xl mx-auto">
 
         <!-- Logo -->
         <div class="flex justify-center mb-6">
