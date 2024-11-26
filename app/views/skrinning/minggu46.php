@@ -15,7 +15,7 @@
         <p class="text-lg font-semibold text-gray-500 text-center mb-6">Minggu 4~6</p>
 
         <!-- Form -->
-        <form action="<?=BASEURL?>skrinning/minggu46" method="post">
+        <form action="<?=BASEURL?>skrinning/minggu46" method="POST">
             <!-- Buttons -->
             <div class="flex items-center justify-center gap-4 mb-8">
                 <button type="submit" name="section" value="usg" class="bg-[#E6F4D7] hover:bg-green-300 text-[#4D5A32] px-6 py-3 rounded-lg shadow-md font-semibold w-1/3">
