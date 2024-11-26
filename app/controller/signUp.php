@@ -19,7 +19,7 @@ class signUp extends controller
     public function tambah()
     {
         $data =  $_POST;
-        $model = $this->model("user_model",$data);
+        $model = $this->model("User_model",$data);
         if ($model->validate("signUp")) {
             $email = $data['email'];
             $nama = $data['nama'];
