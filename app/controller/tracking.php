@@ -25,7 +25,7 @@ class tracking extends Controller{
         echo($this->id);
         $data['gejala'] = implode(', ', $_POST['inputGejala']);
         echo $data['gejala'];
-        $this->model('user_tracking')->tambah($data, $this->id);
+        $this->model('User_tracking')->tambah($data, $this->id);
         
         
     }

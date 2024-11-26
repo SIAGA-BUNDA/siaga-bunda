@@ -27,7 +27,7 @@ class signIn extends controller
     public function submit_login()
     {
         $data = $_POST;
-        $model = $this->model('user_model', $data);
+        $model = $this->model('User_model', $data);
         $data['builder'] = $this->builder;
         if ($model->validate('signIn')) {
             if(1<2) {
