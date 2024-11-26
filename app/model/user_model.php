@@ -5,7 +5,7 @@ class user_model extends model
 
     private $db, $data;
 
-    public $id_user, $password, $nama, $email, $no_telepon, $tanggal_lahir, $lmp, $token, $tinggi_badan, $confirmPassword;
+    public $id_user, $password, $nama, $email, $no_telepon, $tanggal_lahir, $lmp, $token, $tinggi_badan, $confirmPassword, $berat_badan;
     public function __construct($data = [])
     {
         $this->db = new database();
@@ -21,6 +21,7 @@ class user_model extends model
         $this->token = $data['token'] ?? null;
         $this->tinggi_badan = $data['tinggi_badan'] ?? null;
         $this->confirmPassword = $data['confirmPassword'] ?? null;
+        $this->berat_badan = $data['berat_badan'] ?? null;
     }
 
     public function getUsers()
@@ -72,7 +73,9 @@ class user_model extends model
         $email = $data['email'];
         $lmp = $data['lmp'];
         $tinggi_badan = $data['tinggi_badan'];
-        $query = "INSERT INTO " . $this->table . " (nama, password, no_telepon, tanggal_lahir, lmp, email, is_register, token, tinggi_badan) VALUES (:nama, :password, :no_telepon, TO_DATE(:tanggal_lahir, 'YYYY-MM-DD'), TO_DATE(:lmp, 'YYYY-MM-DD'), :email, '0', :token, :tinggi_badan)";
+        $berat_badan = $data['berat_badan'];
+
+        $query = "INSERT INTO " . $this->table . " (nama, password, no_telepon, tanggal_lahir, lmp, email, is_register, token, tinggi_badan, pra_berat) VALUES (:nama, :password, :no_telepon, TO_DATE(:tanggal_lahir, 'YYYY-MM-DD'), TO_DATE(:lmp, 'YYYY-MM-DD'), :email, '0', :token, :tinggi_badan, :berat_badan)";
         $this->db->query($query);
         $this->db->bind('nama', $nama);
         $this->db->bind('password', $hashed_password);
@@ -82,7 +85,9 @@ class user_model extends model
         $this->db->bind('email', $email);
         $this->db->bind('token', $token);
         $this->db->bind('tinggi_badan', $tinggi_badan);
+        $this->db->bind('berat_badan', $berat_badan);
         $this->db->execute();
+
     }
 
     public function rules($page): array
@@ -102,6 +107,7 @@ class user_model extends model
                     'tanggal_lahir' => [self::RULE_REQUIRED, self::RULE_DATE],
                     'lmp' => [self::RULE_REQUIRED, self::RULE_DATE],
                     'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [self::RULE_MAX, 'max' => 50], self::RULE_UNIQUE_EMAIL],
+                    'berat_badan' => [self::RULE_REQUIRED, self::RULE_NUMBER],
                     'tinggi_badan' => [self::RULE_REQUIRED, self::RULE_NUMBER]
                 ];
             case 'resetCreatePassword':
