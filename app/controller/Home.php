@@ -17,8 +17,21 @@ class home extends Controller
         }
     }
 
-    public function homeUser()
-    {
+    public function profil(){
+        session_start(); 
+        if(isset($_SESSION['user'])){
+            $data ['judul'] = 'Profil';
+            $data ['css'] = 'sesudahLogin';
+            $this->view('templates/header', $data);
+            $this->view('home/profil');
+            $this->view('templates/footer');
+            $this->id = $_SESSION['user'];
+        }
+        else{
+            header('Location: ' . BASEURL . 'signIn');
+        }
+    }
+    public function sesudahLogin(){
         session_start();
         if (isset($_SESSION['user'])) {
             $data['judul'] = 'Home';
@@ -41,34 +54,6 @@ class home extends Controller
             $this->view('home/sesudahLogin', $data);
             $this->view('templates/footer');
         } else {
-            header('Location: ' . BASEURL . 'signIn');
-        }
-    }
-    public function profil(){
-        session_start(); 
-        if(isset($_SESSION['user'])){
-            $data ['judul'] = 'Profil';
-            $data ['css'] = 'sesudahLogin';
-            $this->view('templates/header', $data);
-            $this->view('home/profil');
-            $this->view('templates/footer');
-            $this->id = $_SESSION['user'];
-        }
-        else{
-            header('Location: ' . BASEURL . 'signIn');
-        }
-    }
-    public function sesudahLogin(){
-        session_start(); 
-        if(isset($_SESSION['user'])){
-            $data ['judul'] = 'Home (Sesudah Login)';
-            $data ['css'] = 'sesudahLogin';
-            $this->view('templates/header', $data);
-            $this->view('home/sesudahLogin');
-            $this->view('templates/footer');
-            $this->id = $_SESSION['user'];
-        }
-        else{
             header('Location: ' . BASEURL . 'signIn');
         }
     }
