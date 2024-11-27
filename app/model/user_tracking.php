@@ -1,5 +1,5 @@
 <?php
-class user_tracking extends model
+class User_tracking extends model
 {
     private $table = 'DATA_MINGGUAN';
 

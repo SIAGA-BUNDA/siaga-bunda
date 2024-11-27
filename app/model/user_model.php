@@ -1,5 +1,5 @@
 <?php
-class user_model extends model
+class User_model extends model
 {
     private $table = 'USERACCOUNT';
 

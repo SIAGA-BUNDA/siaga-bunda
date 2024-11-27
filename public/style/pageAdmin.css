@@ -1,0 +1,17 @@
+/* buat custom tailwind */
+:root {
+    --primary-color: #4D5A32;
+    --bg-color: #C1CFA1;
+  }
+
+  .text-primary {
+    color: var(--primary-color);
+  }
+
+  .bg-primary {
+    background-color: var(--primary-color);
+  }
+
+  .bg-page {
+    background-color: var(--bg-color);
+  }
