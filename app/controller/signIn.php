@@ -32,7 +32,7 @@ class signIn extends controller
         if ($model->validate('signIn')) {
             if(1<2) {
                 $_SESSION['user'] = $model->getUserByEmail($data['email'])['ID_USER'];
-                header("Location: " . BASEURL . "Home");
+                header("Location: " . BASEURL . "home/sesudahLogin");
             }
             else {   
                 $this->index($data);
