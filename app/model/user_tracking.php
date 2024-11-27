@@ -36,4 +36,10 @@ class User_tracking extends model
         $this->db->query($query);
         return $this->db->single()['WEEK'];
     }
+
+    function getDataWeight($id) {
+        $query = "SELECT d.BERAT_BADAN, d.MINGGU, u.PRA_BERAT, u.TINGGI_BADAN FROM ". $this->table . " d join useraccount u using(id_user) where id_user = '". $id . "'";
+        $this->db->query($query);
+        return $this->db->resultSet();
+    }
 }
