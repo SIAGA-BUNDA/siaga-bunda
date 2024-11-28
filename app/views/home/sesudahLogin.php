@@ -5,9 +5,9 @@
             <a href="<?= BASEURL ?>home/sesudahLogin"
                 class="bg-[#4D5A32] text-white text-center rounded-3xl px-4 py-2 hover:bg-white hover:text-[#4D5A32] rounded shadow-lg transition-all duration-300">Home</a>
             <a href="<?= BASEURL ?>home/calculator"
-                class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300">Calculator</a>
+                class="font-semibold px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300">Calculator</a>
             <a href="<?= BASEURL ?>home/komunitas"
-                class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32]  transition-all duration-300">Komunitas</a>
+                class="font-semibold px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32]  transition-all duration-300">Komunitas</a>
         </div>
 
         <div class="flex justify-end space-x-4">
