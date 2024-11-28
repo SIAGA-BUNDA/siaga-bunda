@@ -1,21 +1,20 @@
 <?php
 class pageAdmin extends Controller{
-    private $id;
     public function index(){
         session_start(); 
         if(isset($_SESSION['admin'])){
             $data ['judul'] = 'Page Admin';
             $data ['css'] = 'pageAdmin';
             $username = $_SESSION['admin'];
-            $data ['artikel'] = $this->model('artikel')->getAllArtikel();
-            $data['isi'] = $this->model('artikel')->getIsiArtikel();
-            $data ['user'] = $this->model('user_model')->getUsers();
-            $data ['username'] = $this->model('admin_model')->getName($username);
-            $data ['role'] = $this->model('admin_model')->getRole($username);
-            $data ['laporanPostingan'] = $this->model('laporan')->getLaporanPostingan();
-            $data ['laporanKomentar'] = $this->model('laporan')->getLaporanKomentar();
-            $data ['isiPostingan'] = $this->model('laporan')->getIsiPostingan();
-            $data ['isiKomentar'] = $this->model('laporan')->getIsiKomentar();
+            $data ['artikel'] = $this->model('Artikel')->getAllArtikel();
+            $data['isi'] = $this->model('Artikel')->getIsiArtikel();
+            $data ['user'] = $this->model('User_model')->getUsers();
+            $data ['username'] = $this->model('Admin_model')->getName($username);
+            $data ['role'] = $this->model('Admin_model')->getRole($username);
+            $data ['laporanPostingan'] = $this->model('Laporan')->getLaporanPostingan();
+            $data ['laporanKomentar'] = $this->model('Laporan')->getLaporanKomentar();
+            $data ['isiPostingan'] = $this->model('Laporan')->getIsiPostingan();
+            $data ['isiKomentar'] = $this->model('Laporan')->getIsiKomentar();
             $data ['script'] = "// function untuk ganti-ganti konten
                 function showContent(contentId) {
                 document.querySelectorAll('.content-section').forEach((section) => {
@@ -39,7 +38,6 @@ class pageAdmin extends Controller{
             $this->view('templates/header', $data);
             $this->view('pageAdmin/index', $data);
             $this->view('templates/footer');
-            $this->id = $_SESSION['user'];
         }
         else{
             header('Location: ' . BASEURL . 'pageAdmin/loginAdmin');
@@ -56,8 +54,8 @@ class pageAdmin extends Controller{
     public function submitAdmin(){
         session_start();
         $data = $_POST;
-        if($this->model('admin_model')->validate($data)){
-            $_SESSION['admin'] = $this->model('admin_model')->getId($data['username']);
+        if($this->model('Admin_model')->validate($data)){
+            $_SESSION['admin'] = $this->model('Admin_model')->getId($data['username']);
             header('Location: '. BASEURL.'pageAdmin');
         }
     }
@@ -65,22 +63,22 @@ class pageAdmin extends Controller{
         session_start();
         $data = $_POST;
         $data ['id_admin'] = $_SESSION['admin'];
-        $this->model('artikel')->tambahArtikel($data);
+        $this->model('Artikel')->tambahArtikel($data);
         header('Location: '. BASEURL.'pageAdmin');
     }
     public function hapusArtikel(){
         $id = $_POST['ARTIKEL_ID'];
-        $this->model('artikel')->hapusArtikel($id);
+        $this->model('Artikel')->hapusArtikel($id);
         header('Location: '. BASEURL.'pageAdmin');
     }
     public function hapusLaporanKomentar(){
         $id = $_POST['komentar_id'];
-        $this->model('komentar')->hapusKomentar($id);
+        $this->model('Komentar')->hapusKomentar($id);
         header('Location: '. BASEURL.'pageAdmin');
     }
     public function ignoreLaporanKomentar(){
         $id = $_POST['komentar_id'];
-        $this->model('komentar')->ignoreKomentar($id);
+        $this->model('Komentar')->ignoreKomentar($id);
         header('Location: '. BASEURL.'pageAdmin');
     }
     public function hapusLaporanPostingan(){

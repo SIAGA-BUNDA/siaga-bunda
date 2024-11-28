@@ -38,7 +38,7 @@ class home extends Controller
             $data['css'] = 'sesudahLogin';
 
             $this->id = $_SESSION['user'];
-            $data['weightData'] = $this->model('user_tracking')->getDataWeight($this->id);
+            $data['weightData'] = $this->model('User_tracking')->getDataWeight($this->id);
             $Imt = round($data['weightData'][0]['PRA_BERAT'] / ($data['weightData'][0]['TINGGI_BADAN'] ** 2 / 10000), 1);
             if ($Imt < 18.5) {
                 $data['category'] = 'underweight';
