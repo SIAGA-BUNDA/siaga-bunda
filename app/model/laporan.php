@@ -17,7 +17,7 @@ class Laporan{
                     p.POSTINGAN_ID,
                     p.ISI_POSTINGAN
                     FROM LAPORAN l
-                    RIGHT JOIN POSTINGAN p ON l.POSTINGAN_ID = p.POSTINGAN_ID";
+                    JOIN POSTINGAN p ON l.POSTINGAN_ID = p.POSTINGAN_ID";
         $this->db->query($query);
         $this->db->execute();
         return $this->db->resultSet();
@@ -31,7 +31,7 @@ class Laporan{
                     k.KOMENTAR_ID,
                     k.ISI_KOMENTAR
                     FROM LAPORAN l
-                    RIGHT JOIN KOMENTAR k ON l.KOMENTAR_ID = k.KOMENTAR_ID";
+                    JOIN KOMENTAR k ON l.KOMENTAR_ID = k.KOMENTAR_ID";
         $this->db->query($query);
         $this->db->execute();
         return $this->db->resultSet();

@@ -83,5 +83,15 @@ class pageAdmin extends Controller{
         $this->model('komentar')->ignoreKomentar($id);
         header('Location: '. BASEURL.'pageAdmin');
     }
+    public function hapusLaporanPostingan(){
+        $id = $_POST['postingan_id'];
+        $this->model('postingan')->hapuspostingan($id);
+        header('Location: '. BASEURL.'pageAdmin');
+    }
+    public function ignoreLaporanPostingan(){
+        $id = $_POST['postingan_id'];
+        $this->model('postingan')->ignorePostingan($id);
+        header('Location: '. BASEURL.'pageAdmin');
+    }
 }
 ?>
