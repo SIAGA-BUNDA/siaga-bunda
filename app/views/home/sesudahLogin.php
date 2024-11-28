@@ -109,12 +109,12 @@
 
     <div class="bg-white mx-4 mt-4 sm:p-6 lg:p-8 rounded-3xl">
         <h1 class="text-2xl font-bold text-[#4D5A32] mb-4">Grafik Peningkatan Berat Badan</h1>
-        <div class=" relative w-full  bg-stone-100 rounded-xl p-5">
+        <div class=" relative h-[40rem] w-[80rem] flex justify-center bg-stone-100 rounded-xl p-5">
             <!-- Tambahkan elemen wrapper scrollable -->
-            <canvas id="canvas" class="bg-white mt-3"></canvas>
+            <canvas id="canvas" class="bg-white"></canvas>
         </div>
         <div
-            class=" mt-4 mr-4 px-4 py-2 ml-auto w-max">
+            class=" mt-4 mr-4 px-4 py-2 ml-auto w-full ">
             <a href="<?= BASEURL ?>tracking">
                 <button class="btn text-white btn-primary">
                     Update Berat
