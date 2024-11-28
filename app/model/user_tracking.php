@@ -5,7 +5,6 @@ class User_tracking extends model
 
     private $db, $data;
 
-    public $id_user, $password, $nama, $email, $no_telepon, $tanggal_lahir, $lmp, $token, $tinggi_badan, $confirmPassword;
     public function __construct($data = [])
     {
         $this->db = new database();
