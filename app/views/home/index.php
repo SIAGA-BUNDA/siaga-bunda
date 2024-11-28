@@ -1,36 +1,20 @@
-<div class="container">
-    <div class="menu">
-        <p>Siaga Bunda</p>
-        <div class="menu-list">
-            <a href="#" class="isiMenu home"></a>
-            <a href="#" class="isiMenu">Calc</a>
-            <a href="#" class="isiMenu">Awikwok</a>
+<div class="bg-[#C1CFA1] pt-[20px] pb-[69px] min-h-screen ">    
+    <div class="menu grid grid-cols-2 text-[#4D5A32] items-center w-full px-4 ">
+        <div class="flex justify-start space-x-6">
+            <p class="font-bold text-xl px-10">Siaga Bunda</p>
+            <a href="#" class="bg-[#4D5A32] text-white text-center rounded-3xl px-4 py-2 hover:bg-white hover:text-[#4D5A32] hover:border-[#4D5A32] hover:border rounded shadow-lg transition-all duration-300">Home</a>
+            <a href="#" class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] hover:border-[#4D5A32] hover:border  transition-all duration-300">Calculator</a>
+            <a href="#" class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] hover:border-[#4D5A32] hover:border  transition-all duration-300">Komunitas</a>
+        </div>
+
+        <div class="flex justify-end space-x-4">
+                <div class="flex px-6 py-2 rounded-3xl bg-white space-x-6">
+                    <p>User</p>
+                    <a href="home/profil"><i class=" fa-solid fa-user"></i></a>
+                </div>
         </div>
     </div>
-    <div class="login">
-        <div class="loginDaftar">
-            <a href="<?=BASEURL?>signUp">
-                <button id="signup">
-                    Daftar
-                </button>
-            </a>
-            <a href="<?=BASEURL?>signIn">
-                <button id="login">
-                    Login
-                </button>
-            </a>
-            <a href="<?=BASEURL?>skrinning">
-                <button id="login">
-                    Skrinning
-                </button>
-            </a>
-            <a href="<?=BASEURL?>tracking">
-                <button id="login">
-                    Tracking Mingguan
-                </button>
-            </a>
-        </div>
-    </div>
+
     <div class="content">
         <div class="content1">
             <img src="img/ikon.png" alt="">
@@ -44,6 +28,4 @@
         <div class="content2">
             <img src="<?=BASEURL?>/img/ibuBayi.png" width="100%" alt="">
         </div>
-     
     </div>
-</div>
