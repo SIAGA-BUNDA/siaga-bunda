@@ -9,12 +9,12 @@
 
         <div class="flex justify-end space-x-4">
                 <div class="flex px-6 py-2 rounded-3xl bg-white space-x-6">
-                    <p>User</p>
-                    <a href="home/profil"><i class=" fa-solid fa-user"></i></a>
+                    <a href="<?=BASEURL?>signUp" class="font-semibold bg-[#4D5A32] text-white text-center rounded-3xl px-4 py-2 hover:bg-green-300 hover:text-[#4D5A32] rounded shadow-lg transition-all duration-300">Daftar Sekarang</a>
+                    <a href="<?=BASEURL?>signIn" class="font-semibold px-4 py-2 text-center border-[#4D5A32] rounded-3xl hover:bg-green-300 hover:text-[#4D5A32]  transition-all duration-300">Login</a>
                 </div>
         </div>
     </div>
-
+        
     <div class="bg-white mx-4 mt-2 sm:p-6 lg:p-8 rounded-3xl">
         <div class="flex justify items-center mt-10 relatif">
             <img src="img/ikon.png" alt="">
