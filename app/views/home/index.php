@@ -3,14 +3,14 @@
         <div class="flex justify-start space-x-6">  
             <p class="font-bold text-2xl px-10">Siaga Bunda</p>
             <a href="#" class="font-semibold bg-[#4D5A32] text-white text-center rounded-3xl px-4 py-2 hover:bg-white hover:text-[#4D5A32] rounded shadow-lg transition-all duration-300">Home</a>
-            <a href="#" class="font-semibold px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32]  transition-all duration-300">Calculator</a>
+            <a href="#" class="font-semibold px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32]z  transition-all duration-300">Calculator</a>
             <a href="#" class="font-semibold px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32]  transition-all duration-300">Komunitas</a>
         </div>
 
         <div class="flex justify-end space-x-4">
                 <div class="flex px-6 py-2 rounded-3xl bg-white space-x-6">
-                    <p>User</p>
-                    <a href="home/profil"><i class=" fa-solid fa-user"></i></a>
+                    <a href="#" class="font-semibold bg-[#4D5A32] text-white text-center rounded-3xl px-4 py-2 hover:bg-green-300 hover:text-[#4D5A32] rounded shadow-lg transition-all duration-300">Daftar Sekarang</a>
+                    <a href="#" class="font-semibold px-4 py-2 text-center border-[#4D5A32] rounded-3xl hover:bg-green-300 hover:text-[#4D5A32]  transition-all duration-300">Login</a>
                 </div>
         </div>
     </div>
