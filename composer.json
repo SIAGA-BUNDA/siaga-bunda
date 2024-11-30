@@ -1,6 +1,7 @@
 {
     "require": {
         "phpmailer/phpmailer": "^6.9",
-        "gregwar/captcha": "1.*"
+        "gregwar/captcha": "1.*",
+        "tecnickcom/tcpdf": "^6.7"
     }
 }
