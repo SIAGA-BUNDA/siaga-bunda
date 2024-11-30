@@ -23,8 +23,8 @@
             <!-- <img src="img/ikon.png" alt=""> -->
             <h1 class="text-center text-3xl font-bold text-gray-700 mb-4">Literasi Bunda</h1>
 
-            <div class="relative lg:m-6">
-                <div class="lg:mx-10 swiper ">
+            <div class="relative">
+                <div class="lg:mx-5 swiper relative lg:w-[82rem]">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide ">
                             <div class="card lg:card-side bg-base-100 hover:cursor-pointer  ">
@@ -98,11 +98,11 @@
                             </div>
                         </div>
                     </div>
-                    <button class="swiper-button-prev text-[#607D8B] " id="prevBtn">
-                    </button>
-                    <button class="swiper-button-next text-[#607D8B] " id="nextBtn">
-                    </button>
                 </div>
+                <button class="swiper-button-prev text-[#607D8B] " id="prevBtn">
+                </button>
+                <button class="swiper-button-next text-[#607D8B] " id="nextBtn">
+                </button>
             </div>
         </div>
 

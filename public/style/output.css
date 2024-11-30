@@ -3055,6 +3055,10 @@ html {
   width: max-content;
 }
 
+.w-\[50rem\] {
+  width: 50rem;
+}
+
 .min-w-full {
   min-width: 100%;
 }
@@ -4039,6 +4043,26 @@ html {
 
   .lg\:w-\[30rem\] {
     width: 30rem;
+  }
+
+  .lg\:w-\[20rem\] {
+    width: 20rem;
+  }
+
+  .lg\:w-\[80rem\] {
+    width: 80rem;
+  }
+
+  .lg\:w-\[75rem\] {
+    width: 75rem;
+  }
+
+  .lg\:w-\[85rem\] {
+    width: 85rem;
+  }
+
+  .lg\:w-\[82rem\] {
+    width: 82rem;
   }
 
   .lg\:p-8 {
