@@ -23,7 +23,7 @@ class tracking extends Controller{
         }
         $data = $_POST;
         echo($this->id);
-        $data['gejala'] = implode(', ', $_POST['inputGejala']);
+        $data['gejala'] = isset($_POST['inputGejala'])? implode(', ', $_POST['inputGejala']) : '';
         echo $data['gejala'];
         $this->model('User_tracking')->tambah($data, $this->id);
         
