@@ -89,7 +89,7 @@ class User_model extends model
         $this->db->execute();
 
     }
-
+    
     public function rules($page): array
     {
         switch ($page) {

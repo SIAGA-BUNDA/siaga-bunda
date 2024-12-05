@@ -35,10 +35,30 @@ class User_tracking extends model
         $this->db->query($query);
         return $this->db->single()['WEEK'];
     }
-
-    function getDataWeight($id) {
-        $query = "SELECT d.BERAT_BADAN, d.MINGGU, u.PRA_BERAT, u.TINGGI_BADAN FROM ". $this->table . " d join useraccount u using(id_user) where id_user = '". $id . "'";
+    function getRecords ($id) {
+        $query = "SELECT * FROM ". $this->table . " where id_user = '". $id . "'";
+        // $this->db->bind(':id', $id);
         $this->db->query($query);
         return $this->db->resultSet();
+    }
+
+    function getRecord ($id,$week) {
+        $query = "SELECT * FROM ". $this->table . " where id_user = '". $id . "' and minggu = '". $week . "'";
+        $this->db->query($query);
+        return $this->db->single();
+    }
+
+    function getGejala ($id,$week) {
+        $query = "SELECT gejala FROM ". $this->table . " where id_user = '". $id . "' and minggu = '". $week . "'";
+        $this->db->query($query);
+        $gejala = $this->db->single();
+        return explode(',', $gejala['GEJALA']);
+    }
+    
+  function getPreRecord($id) {
+        $query = "SELECT PRA_BERAT, TINGGI_BADAN FROM useraccount where id_user = '". $id . "'";
+        // $this->db->bind(':id', $id);
+        $this->db->query($query);
+        return $this->db->single();
     }
 }
