@@ -3,7 +3,8 @@
         <div class="timeline-middle">
             <i class="fa-solid fa-circle"></i>
         </div>
-        <div class="timeline-end timeline-box hover:bg-stone-200 active:scale-[0.991] text-center w-full ">USG</div>
+        <a class="timeline-end timeline-box hover:bg-stone-200 active:scale-[0.991] text-center w-full"
+            href="<?= BASEURL ?>skrinning/minggu46#usg">USG</a>
         <hr />
     </li>
     <li class="hover:cursor-pointer">
@@ -11,9 +12,10 @@
         <div class="timeline-middle">
             <i class="fa-solid fa-circle"></i>
         </div>
-        <div class="timeline-end timeline-box hover:bg-stone-200 active:scale-[0.991] text-center w-full ">Skrinning
+        <a class="timeline-end timeline-box hover:bg-stone-200 active:scale-[0.991] text-center w-full"
+            href="<?= BASEURL ?>skrinning/minggu46#kankerserviks">
             Kanker Serviks
-        </div>
+        </a>
         <hr />
     </li>
     <li class="hover:cursor-pointer">
@@ -21,8 +23,9 @@
         <div class="timeline-middle">
             <i class="fa-solid fa-circle"></i>
         </div>
-        <div class="timeline-end timeline-box hover:bg-stone-200 active:scale-[0.991]  text-center w-full ">Tes Hormon
+        <a class="timeline-end timeline-box hover:bg-stone-200 active:scale-[0.991]  text-center w-full"
+            href="<?= BASEURL ?>skrinning/minggu46#hormonkehamilan">Tes Hormon
             Melalui Darah
-        </div>
+        </a>
     </li>
 </ul>

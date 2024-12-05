@@ -1,8 +1,3 @@
-<?php if (in_array("RISIKO TB", $data)) { ?>
-    <tr>
-        masuk
-    </tr>
-<?php } ?>
 <!-- row for Demam Lebih Dari Dua Hari -->
 <tr>
     <th>Demam Lebih Dari Dua Hari</th>
@@ -21,14 +16,14 @@
 <tr>
     <th>Sulit Tidur/Cemas Berlebih</th>
     <td>
-        <?= in_array('SULIT TIDUR/CEMAS BERLEBIH', $data) ? 'ada' : 'tidak ada' ?>
+        <?= in_array('SULIT TIDUR', $data) ? 'ada' : 'tidak ada' ?>
     </td>
 </tr>
 <!-- row for Jantung Berdebar/Nyeri di Dada -->
 <tr>
     <th>Jantung Berdebar/Nyeri di Dada</th>
     <td>
-        <?= in_array('JATUNG BERDEBAR/NYERI DI DADA', $data) ? 'ada' : 'tidak ada' ?>
+        <?= in_array('JATUNG BERDEBAR', $data) ? 'ada' : 'tidak ada' ?>
     </td>
 </tr>
 <!-- row for Risiko TB -->
@@ -61,7 +56,7 @@
 <tr>
     <th>Keluar Cairan dari Jalan Lahir</th>
     <td>
-        <?= in_array('KELUAR CAIRAN DARI JALAN LAHIR', $data) ?
+        <?= in_array('KELUAR CAIRAN', $data) ?
             'Sangat banyak atau berbau' : 'Tidak ada/ Ada dalam jumlah sedikit dan tidak berbau' ?>
     </td>
 </tr>

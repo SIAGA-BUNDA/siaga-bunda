@@ -42,7 +42,30 @@ class home extends Controller
             $this->id = $_SESSION['user'];
             $preRecord = $this->model('user_tracking')->getPreRecord($this->id);
             $records = $this->model('user_tracking')->getRecords($this->id);
-            $data['minggu_kehamilan'] = $this->model('user_tracking')->getWeek($this->id);
+            $data['week'] = $this->model('user_tracking')->getWeek($this->id);
+
+            //Rekomendasi Skrining
+            switch (true) {
+                case $data['week'] >= 4 && $data['week'] <= 6:
+                    $data['skrinning'] = ["title" => "Minggu 4~6", "category" => "Tes Konfirmasi Kehamilan", "medical test" => "konfirmasiKehamilan"];
+                    break;
+                case $data['week'] < 4 || ($data['week'] < 10 && $data['week'] > 6):
+                    $data['skrinning'] = ["title" => "Minggu 0~13", "category" => "Tes Kehamilan Dini", "medical test" => "kehamilanDini"];
+                    break;
+                case $data['week'] >= 10 && $data['week'] <= 13:
+                    $data['skrinning'] = ["title" => "Minggu 10~13", "category" => "Tes Kelainan Janin Trimester 1", "medical test" => "trimester1"];
+                    break;
+                case $data['week'] > 13 && $data['week'] <= 20:
+                    $data['skrinning'] = ["title" => "Minggu 15~20", "category" => "Tes Kelainan Janin Trimester 2", "medical test" => "trimester2"];
+                    break;
+                case $data['week'] > 20 && $data['week'] <= 28:
+                    $data['skrinning'] = ["title" => "Minggu 24~28", "category" => "Tes Diabetes Gestasional", "medical test" => "diabetesGestasional"];
+                    break;
+                case $data['week'] > 28 && $data['week'] <= 36:
+                    $data['skrinning'] = ["title" => "Minggu 34~36", "category" => "Tes Prenetal yang Komprehensif", "medical test" => "prenetal"];
+                    break;
+            }
+
             $data['records'] = $records;
             $data['preRecord'] = $preRecord;
 
@@ -75,95 +98,119 @@ class home extends Controller
             header('Location: ' . BASEURL . 'signIn');
         }
     }
-    
-    function getTable() {
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    function getTable()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             session_start();
             $week = $_POST['week'];
-            $id = $_SESSION['user'];           
+            $id = $_SESSION['user'];
             $record = $this->model('user_tracking')->getGejala($id, $week);
             echo $this->view('report/table', $record);
-        }else{
+        } else {
             header('Location: ' . BASEURL . 'home/sesudahLogin');
         }
     }
 
-    public function generatePDF()
+    public function pemantauan_kondisi()
     {
-        session_start();
-        require '../vendor/autoload.php';
+        // session_start();
+        // require '../vendor/autoload.php';
 
-        // Buat instance TCPDF
-        $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
-        $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('Nama Anda');
-        $pdf->SetTitle('Tabel Kehamilan');
-        $pdf->SetSubject('Tabel Kondisi Kehamilan');
+        // // Buat instance TCPDF
+        // $pdf = new TCPDF('L', 'mm', 'A4', true, 'UTF-8', false);
+        // $pdf->SetCreator(PDF_CREATOR);
+        // $pdf->SetAuthor('Siaga Bunda');
+        // $pdf->SetTitle('Laporan Kondisi Kehamilan');
+        // $pdf->SetSubject('Tabel Kondisi Kehamilan');
 
-        // Tambahkan halaman A4
-        $pdf->AddPage();
+        // // Tambahkan halaman A4
+        // $pdf->AddPage();
 
-        // Set font untuk teks
-        $pdf->SetFont('Helvetica', '', 10);
+        // // Set font untuk teks
+        // $pdf->SetFont('Helvetica', '', 10);
 
-        // Lebar total halaman cetak A4 dalam mm
-        $totalWidth = 190; // Total lebar area cetak (A4 dengan margin default)
+        // // Lebar total halaman cetak A4 dalam mm
+        // $headers = [
+        //     "Demam Lebih dari Dua Hari",
+        //     "Pusing/Sakit Kepala Berat",
+        //     "Sulit Tidur/Cemas Berlebih",
+        //     "Jantung Berdebar/Nyeri di Dada",
+        //     "Risiko TB",
+        //     "Gerakan Janin",
+        //     "Nyeri Perut Hebat",
+        //     "Keluar Cairan dari jalan lahir",
+        //     "Sakit Saat Kencing",
+        //     "Diare Berulang"
+        // ];
 
-        // Data header kolom
-        $headers = [
-            "Demam Lebih dari Dua Hari",
-            "Pusing/Sakit Kepala Berat",
-            "Sulit Tidur/ Cemas Berlebih",
-            "Jantung Berdebar-debar atau Nyeri di Dada",
-            "Risiko TB",
-            "Gerakan Janin",
-            "Nyeri Perut Hebat",
-            "Keluar Cairan dari Jalan Lahir",
-            "Sakit Saat Kencing",
-            "Diare Berulang"
-        ];
+        // $subHeaders = [
+        //     ["Ada","Tidak ada"],
+        //     ["Ada","Tidak ada"],
+        //     ["Ada","Tidak ada"],
+        //     ["Ada","Tidak ada"],
+        //     [ "Batuk >2 minggu/Kontak serumah dengan penderita TB","Tidak ada batuk >2 minggu/Kontak serumah dengan penderita TB"],
+        //     [">10 kali dalam 12 jam","Tidak ada atau <10 kali dalam 12 jam"],
+        //     ["Ada","Tidak ada"],
+        //     ["Sangat banyak atau berbau","Tidak ada/ Ada dalam jumlah sedikit dan tidak berbau"],
+        //     ["Ada","Tidak ada"],
+        //     ["Ada","Tidak ada"]
+        // ];
 
-        // Data isi tabel
-        $data = [
-            ["Tidak ada", "Ada", "Ada", "Tidak ada", "Batuk lebih dari 2 minggu atau kontak serumah dengan penderita TB", ">10 kali dalam 12 jam", "Ada", "Sangat banyak atau berbau", "Sakit saat kencing atau keluar keputihan atau gatal di daerah kemaluan", "Ada"]
-        ];
 
-        // Lebar kolom disesuaikan agar pas dengan A4
-        $columnWidths = [20, 20, 20, 20, 20, 20, 20, 20, 20, 20]; // Total = 190mm
+        // // Data isi tabel
+        // $data = [
+        //     "Demam Lebih dari Dua Hari" => "Tidak ada",
+        //     "Pusing/Sakit Kepala Berat" => "Ada",
+        //     "Sulit Tidur/Cemas Berlebih" => "Ada",
+        //     "Jantung Berdebar/Nyeri di Dada" => "Tidak ada",
+        //     "Risiko TB" => "Batuk lebih dari 2 minggu atau kontak serumah dengan penderita TB",
+        //     "Gerakan Janin" => ">10 kali dalam 12 jam",
+        //     "Nyeri Perut Hebat" => "Tidak ada",
+        //     "Keluar Cairan dari jalan lahir" => "Tidak ada/ Ada dalam jumlah sedikit dan tidak berbau",
+        //     "Sakit Saat Kencing" => "Tidak ada",
+        //     "Diare Berulang" => "Tidak ada"
 
-        // Tinggi baris
-        $rowHeight = 15;
+        // ];
 
-        // Warna header
-        $pdf->SetFillColor(135, 206, 250); // Light blue
-        $pdf->SetTextColor(0, 0, 0);       // Black text
+        // // Lebar kolom disesuaikan agar pas dengan A4
+        // $columnWidths = [30, 25, 31, 40, 42, 20, 20, 27, 20, 20];
+        // // Tinggi baris
+        // $rowHeight = 15;
 
-        // Header tabel
-        foreach ($headers as $key => $header) {
-            $pdf->MultiCell($columnWidths[$key], $rowHeight, $header, 1, 'C', true, 0, '', '', true, 0, false, true, $rowHeight, 'M');
-        }
-        $pdf->Ln();
+        // // Warna header
+        // $pdf->SetFillColor(135, 206, 250); // Light blue
+        // $pdf->SetTextColor(0, 0, 0);       // Black text
 
-        // Warna isi tabel
-        $pdf->SetFillColor(200, 230, 201); // Light green (untuk "Tidak ada")
-        $pdf->SetTextColor(0, 0, 0);       // Black text
+        // // Header tabel
+        // $i = 0;
+        // foreach ($headers as $Header) {
+        //     $pdf->MultiCell($columnWidths[$i], $rowHeight, $Header, 1, 'C', true, 0, '', '', true, 0, false, true, $rowHeight, 'M');
+        //     $i = $i + 1;
+        // }
+        // $pdf->Ln();
+        // $pdf->SetFont('Helvetica', '', 8);
+        // $rowHeight = 40 ;
 
-        // Isi tabel
-        foreach ($data as $row) {
-            foreach ($row as $key => $cell) {
-                // Tentukan warna latar berdasarkan nilai
-                if (strpos(strtolower($cell), 'tidak ada') !== false) {
-                    $pdf->SetFillColor(200, 230, 201); // Hijau muda
-                } else {
-                    $pdf->SetFillColor(255, 205, 210); // Merah muda
-                }
-                $pdf->MultiCell($columnWidths[$key], $rowHeight, $cell, 1, 'C', true, 0, '', '', true, 0, false, true, $rowHeight, 'M');
-            }
-            $pdf->Ln();
-        }
+        // // Warna isi tabel
+        // $pdf->SetFillColor(200, 230, 201); // Light green (untuk "Tidak ada")
+        // $pdf->SetTextColor(0, 0, 0);       // Black text
 
-        // Outputkan PDF dalam ukuran A4
-        $pdf->Output('tabel_kehamilan_a4.pdf', 'I');
+        // // Isi tabel
+        // $i = 0;
+        // foreach ($subHeaders as $subHeader) {
+        //     foreach($subHeader as $sub){
+        //         $pdf->MultiCell($columnWidths[$i]/2, $rowHeight, $sub, 1, 'C', true, 0, '', '', true, 0, false, true, $rowHeight, 'M');
+        //     }
+        //     $i++;
+        // }
+        // $pdf->Ln();
+
+        // $pdf->MultiCell('10', $rowHeight, 'tes', 1, 'C', true, 0, '', '', true, 0, false, true, $rowHeight, 'M');
+        // $pdf->Ln();
+
+        // // Outputkan PDF dalam ukuran A4
+        // $pdf->Output('tabel_pemantauan.pdf', 'I');
 
     }
 

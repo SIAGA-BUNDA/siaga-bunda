@@ -112,11 +112,11 @@
                     <p class="text-[#4D5A32] text-2xl font-semibold">Rekomendasi Skrinning Bunda</p>
                     <div class="bg-[#F0F0F0] rounded-lg shadow p-6 mt-4"">
                         <h2 class=" text-lg lg:text-xl font-semibold mb-3">
-                        Minggu 4~6
+                        <?= $data['skrinning'] ["title"] ?>
                         </h2>
 
-                        <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]">Tes konfirmasi kehamilan</h3>
-                        <?php require_once "../app/views/skrinning/cards/013.php"; ?>
+                        <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]"><?= $data['skrinning']["category"] ?></h3>
+                        <?php require_once "../app/views/skrinning/cards/".$data['skrinning']["medical test"].".php"; ?>
                         <a href="<?= BASEURL ?>skrinning">
                             <button class="btn btn-neutral mt-5 hover:bg-[rgba(77,90,50,1)]  text-white ">
                                 Skrinning Lainnya
@@ -140,8 +140,6 @@
                                 <p class="text-sm">
                                     Indeks Massa Tubuh
                                 </p>
-                                <!-- <h1 class="text-sm mb-0 text-red-500"> 
-                                data minggu ke-5</h1> -->
                             </div>
                         </div>
                         <div class="bg-[#f7c6c6] rounded-3xl py-4 flex flex-col gap-3 px-5">
@@ -154,8 +152,6 @@
                                 <p class="text-sm">
                                     Kenaikan Berat Total
                                 </p>
-                                <!-- <h1 class="text-sm mb-0 text-red-500"> 
-                                data minggu ke-5</h1> -->
                             </div>
                         </div>
                         <div class="bg-[#FFFFCC] rounded-3xl py-4 flex flex-col gap-3 px-5">
@@ -164,7 +160,7 @@
                                 <i class="fa-solid fa-calendar-days text-2xl text-white"></i>
                             </div>
                             <div>
-                                <h1 class="text-lg lg:text-xl font-semibold mb-0"><?= $data['minggu_kehamilan'] ?>
+                                <h1 class="text-lg lg:text-xl font-semibold mb-0"><?= $data['week'] ?>
                                     Minggu</h1>
                                 <p class="text-sm">
                                     Umur Kehamilan

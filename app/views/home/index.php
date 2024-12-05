@@ -9,8 +9,9 @@
 
         <div class="flex justify-end space-x-4">
                 <div class="flex px-6 py-2 rounded-3xl bg-white space-x-6">
-                    <p>User</p>
+                    <p>User </p>
                     <a href="home/profil"><i class=" fa-solid fa-user"></i></a>
+                    
                 </div>
         </div>
     </div>
