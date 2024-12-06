@@ -9,8 +9,8 @@
 
         <div class="flex justify-end space-x-4">
                 <div class="flex px-6 py-2 rounded-3xl bg-white space-x-6">
-                    <a href="<?=BASEURL?>signUp" class="font-semibold bg-[#4D5A32] text-white text-center rounded-3xl px-4 py-2 hover:bg-green-300 hover:text-[#4D5A32] rounded shadow-lg transition-all duration-300">Daftar Sekarang</a>
-                    <a href="<?=BASEURL?>signIn" class="font-semibold px-4 py-2 text-center border-[#4D5A32] rounded-3xl hover:bg-green-300 hover:text-[#4D5A32]  transition-all duration-300">Login</a>
+                    <p>User </p>
+                    <a href="home/profil"><i class=" fa-solid fa-user"></i></a>
                 </div>
         </div>
     </div>
