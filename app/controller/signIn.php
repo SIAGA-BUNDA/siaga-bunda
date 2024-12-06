@@ -30,7 +30,7 @@ class signIn extends controller
         $model = $this->model('User_model', $data);
         $data['builder'] = $this->builder;
         if ($model->validate('signIn')) {
-            if(1<2) {
+            if($_SESSION['phrase'] === $data['user_captcha']) {
                 $_SESSION['user'] = $model->getUserByEmail($data['email'])['ID_USER'];
                 header("Location: " . BASEURL . "home/sesudahLogin");
             }
