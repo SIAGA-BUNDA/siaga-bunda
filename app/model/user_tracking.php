@@ -48,6 +48,12 @@ class User_tracking extends model
         return $this->db->single();
     }
 
+    function getSymptoms ($id) {
+        $query = "SELECT minggu, gejala FROM ". $this->table . " where id_user = '". $id . "'";
+        $this->db->query($query);
+        return $this->db->resultSet();
+    }
+
     function getGejala ($id,$week) {
         $query = "SELECT gejala FROM ". $this->table . " where id_user = '". $id . "' and minggu = '". $week . "'";
         $this->db->query($query);
