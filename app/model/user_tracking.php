@@ -19,10 +19,9 @@ class User_tracking extends model
         $berat_badan = $data['berat_badan'];
         $tinggi_badan = $data['tinggi_badan'];
         $gejala = $data['gejala'];
-        $query = "INSERT INTO ". $this->table . "(berat_badan, tinggi_badan, week, gejala, id_user) VALUES (:berat_badan, :tinggi_badan, :week, :gejala, :id)";
+        $query = "INSERT INTO ". $this->table . "(berat_badan, WEEK, gejala, id_user) VALUES (:berat_badan, :week, :gejala, :id)";
         $this->db->query($query);
         $this->db->bind(':berat_badan', $berat_badan);
-        $this->db->bind(':tinggi_badan', $tinggi_badan);
         $this->db->bind(':week', $week);
         $this->db->bind(':gejala', $gejala);
         $this->db->bind(':id', $id);

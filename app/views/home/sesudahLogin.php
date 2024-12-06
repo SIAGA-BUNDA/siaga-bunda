@@ -10,7 +10,6 @@
                 <a href="<?= BASEURL ?>home/komunitas"
                     class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32]  transition-all duration-300 font-medium">Komunitas</a>
             </div>
-
             <div class="flex justify-end space-x-4 ">
                 <div class="flex px-6 py-2 rounded-3xl bg-white space-x-6">
                     <p>User</p>

@@ -13,7 +13,7 @@ class skrinning extends controller
             $data['css'] = 'skrinning';
             $this->id = $_SESSION['user'];
             $data['id'] = $this->id;
-            $data['week'] = $this->model('user_tracking')->getWeek($this->id);
+            $data['week'] = $this->model('User_tracking')->getWeek($this->id);
             $this->view('templates/header', $data);
             $this->view('skrinning/index', $data);
             $this->view('templates/footer');

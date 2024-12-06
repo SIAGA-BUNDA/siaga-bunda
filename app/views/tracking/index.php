@@ -18,12 +18,6 @@
                     <input type="number" id="berat_badan" name="berat_badan" placeholder="Isi Berat Anda..."
                         class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-[#4D5A32] focus:ring-[#4D5A32]">
                 </div>
-
-                <div class="mb-4">
-                    <label for="tinggi_badan" class="block text-sm font-semibold text-gray-700">Tinggi Badan (cm):</label>
-                    <input type="number" id="tinggi_badan" name="tinggi_badan" placeholder="Isi Tinggi Anda..."
-                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-[#4D5A32] focus:ring-[#4D5A32]">
-                </div>
             </div>
 
             <!-- Container untuk Simptom-simptom -->

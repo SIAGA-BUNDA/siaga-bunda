@@ -28,7 +28,7 @@ class ResetPassword extends Controller
 
     public function submit_index()
     {
-        $model = $this->model('user_model', $_POST);
+        $model = $this->model('User_model', $_POST);
         $user = $model->getUserByEmail($_POST['email']);
         if ($model->validate('resetIndex')) {
             $email = $user['EMAIL'];
@@ -80,7 +80,7 @@ class ResetPassword extends Controller
     public function submit_createPassword($token)
     {
         $data = $_POST;
-        $model = $this->model('user_model', $data);
+        $model = $this->model('User_model', $data);
         if ($model->validate('resetCreatePassword')) {
             $password = password_hash($model->password, PASSWORD_BCRYPT);
             $model->updatePassword($token, $password);
