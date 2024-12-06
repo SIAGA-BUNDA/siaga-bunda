@@ -19,10 +19,10 @@ class User_tracking extends model
         $berat_badan = $data['berat_badan'];
         $tinggi_badan = $data['tinggi_badan'];
         $gejala = $data['gejala'];
-        $query = "INSERT INTO ". $this->table . "(berat_badan, WEEK, gejala, id_user) VALUES (:berat_badan, :week, :gejala, :id)";
+        $query = "INSERT INTO ". $this->table . "(berat_badan, minggu, gejala, id_user) VALUES (:berat_badan, :minggu, :gejala, :id)";
         $this->db->query($query);
         $this->db->bind(':berat_badan', $berat_badan);
-        $this->db->bind(':week', $week);
+        $this->db->bind(':minggu', $week);
         $this->db->bind(':gejala', $gejala);
         $this->db->bind(':id', $id);
         $this->db->execute();
@@ -30,13 +30,13 @@ class User_tracking extends model
     }
 
     function getWeek ($id) {
-        $query = "SELECT floor((SYSDATE - (LMP + 7)) / 7) AS WEEK FROM useraccount where id_user = '". $id . "'";
+        $query = "SELECT floor((SYSDATE - (LMP + 7)) / 7) AS MINGGU FROM useraccount where id_user = '". $id . "'";
         $this->db->query($query);
-        return $this->db->single()['WEEK'];
+        return $this->db->single()['MINGGU'];
     }
 
     function getDataWeight($id) {
-        $query = "SELECT d.BERAT_BADAN, d.WEEK, u.PRA_BERAT, u.TINGGI_BADAN FROM ". $this->table . " d join useraccount u using(id_user) where id_user = '". $id . "'";
+        $query = "SELECT d.BERAT_BADAN, d.MINGGU, u.PRA_BERAT, u.TINGGI_BADAN FROM ". $this->table . " d join useraccount u using(id_user) where id_user = '". $id . "'";
         $this->db->query($query);
         return $this->db->resultSet();
     }
