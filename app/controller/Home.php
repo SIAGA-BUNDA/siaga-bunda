@@ -83,9 +83,10 @@ class home extends Controller
             if (!empty($records)) {
                 $lastRecord = end($records);
                 $data['berat_badan'] = $lastRecord['BERAT_BADAN'];
-                $data['imt'] = round($lastRecord['BERAT_BADAN'] / ($lastRecord['TINGGI_BADAN'] * $lastRecord['TINGGI_BADAN'] / 10000), 1);
+                $data['imt'] = round($lastRecord['BERAT_BADAN'] / ($preRecord['TINGGI_BADAN'] * $preRecord['TINGGI_BADAN'] / 10000), 1);
                 $data['kenaikan_berat'] = $lastRecord['BERAT_BADAN'] - $preRecord['PRA_BERAT'];
             } else {
+                $data['records'] = [];
                 $data['berat_badan'] = $preRecord['PRA_BERAT'];
                 $data['imt'] = round($preRecord['PRA_BERAT'] / ($preRecord['TINGGI_BADAN'] * $preRecord['TINGGI_BADAN'] / 10000), 1);
                 $data['kenaikan_berat'] = 0;
@@ -106,13 +107,13 @@ class home extends Controller
             $week = $_POST['week'];
             $id = $_SESSION['user'];
             $record = $this->model('user_tracking')->getGejala($id, $week);
-            echo $this->view('report/table', $record);
+            echo $this->view('components/tableReport', $record);
         } else {
             header('Location: ' . BASEURL . 'home/sesudahLogin');
         }
     }
 
-    public function pemantauan_kondisi()
+    public function report()
     {
         session_start();
         require '../vendor/autoload.php';
@@ -132,26 +133,31 @@ class home extends Controller
         ];
 
         $data['subHeaders'] = [
-            ["Tidak ada", "Ada"],
-            ["Tidak ada", "Ada"],
-            ["Tidak ada", "Ada"],
-            ["Tidak ada", "Ada"],
-            ["Tidak ada batuk >2 minggu/Kontak serumah dengan penderita TB", "Batuk >2 minggu/Kontak serumah dengan penderita TB"],
-            ["Tidak ada atau <10 kali dalam 12 jam", ">10 kali dalam 12 jam"],
-            ["Tidak ada", "Ada"],
-            ["Tidak ada/ Ada dalam jumlah sedikit dan tidak berbau", "Sangat banyak atau berbau"],
-            ["Tidak ada", "Ada"],
-            ["Tidak ada", "Ada"]
+            "Demam" => ["Tidak ada", "Ada"],
+            "Pusing" => ["Tidak ada", "Ada"],
+            "Sulit Tidur" => ["Tidak ada", "Ada"],
+            "Jantung Berdebar" => ["Tidak ada", "Ada"],
+            "Risiko TB" =>["Tidak ada batuk >2 minggu/Kontak serumah dengan penderita TB", "Batuk >2 minggu/Kontak serumah dengan penderita TB"],
+            "Gerakan Janin" =>["Tidak ada atau <10 kali dalam 12 jam", ">10 kali dalam 12 jam"],
+            "Nyeri Perut" =>["Tidak ada", "Ada"],
+            "Keluar Cairan" => ["Tidak ada/ Ada dalam jumlah sedikit dan tidak berbau", "Sangat banyak atau berbau"],
+            "Sakit Kencing" => ["Tidak ada", "Ada"],
+            "Diare" => ["Tidak ada", "Ada"]
         ];
 
         // Buat instance TCPDF
         $mpdf = new \Mpdf\Mpdf(['orientation' => 'L']);
+        $mpdf->SetAuthor('Siaga Bunda');
+        $mpdf->SetCreator('Siaga Bunda');
+        $mpdf->SetTitle('Laporan Pemantauan Kondisi Kehamilan');
+        $mpdf->setSubject('Kondisi Kehamilan');
+
 
         // Buffer the following html with PHP so we can store it to a variable later
         ob_start();
 
         // This is where your script would normally output the HTML using echo or print
-        echo $this->view('home/pemantauan_kondisi', $data);
+        echo $this->view('home/pdfPemantauan', $data);
 
         // Now collect the output buffer into a variable
         $html = ob_get_contents();
@@ -159,7 +165,7 @@ class home extends Controller
 
         // send the captured HTML from the output buffer to the mPDF class for processing
         $mpdf->WriteHTML($html);
-        $mpdf->Output();
+        $mpdf->Output('Kondisi Kehamilan.pdf','I');
 
     }
 

@@ -112,11 +112,12 @@
                     <p class="text-[#4D5A32] text-2xl font-semibold">Rekomendasi Skrinning Bunda</p>
                     <div class="bg-[#F0F0F0] rounded-lg shadow p-6 mt-4"">
                         <h2 class=" text-lg lg:text-xl font-semibold mb-3">
-                        <?= $data['skrinning'] ["title"] ?>
+                        <?= $data['skrinning']["title"] ?>
                         </h2>
 
-                        <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]"><?= $data['skrinning']["category"] ?></h3>
-                        <?php require_once "../app/views/skrinning/cards/".$data['skrinning']["medical test"].".php"; ?>
+                        <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]"><?= $data['skrinning']["category"] ?>
+                        </h3>
+                        <?php require_once "../app/views/skrinning/cards/" . $data['skrinning']["medical test"] . ".php"; ?>
                         <a href="<?= BASEURL ?>skrinning">
                             <button class="btn btn-neutral mt-5 hover:bg-[rgba(77,90,50,1)]  text-white ">
                                 Skrinning Lainnya
@@ -206,11 +207,11 @@
                     </h1>
                     <div class=" relative h-[25rem] lg:h-[25rem] lg:p-3 bg-white">
                         <canvas id="canvas"></canvas>
-                        <canvas id="canvas copy-canvas" class="hidden w-[50rem] h-[25rem]"></canvas>
+                        <canvas id="copyCanvas" class="hidden w-[50rem] h-[25rem]"></canvas>
                     </div>
                     <div class=" pt-2 ml-auto w-max">
                         <a download="Chart.png" id="downloadLink">
-                            <button class="btn btn-neutral text-white lg mt-3">Unduh Grafik</button>
+                            <button class="btn btn-neutral text-white lg mt-3"> <span class="loading loading-spinner"></span></button>
                         </a>
                     </div>
                 </div>
@@ -219,28 +220,32 @@
                 <div class="w-full bg-slate-100 rounded-3xl p-4 lg:p-6 flex-1">
                     <div class="text-lg lg:text-2xl font-bold text-[#4D5A32] mb-4 flex justify-between items-center">
                         <h1 class="text-2xl font-bold text-[#4D5A32] mb-4">Pemantauan Kondisi Bunda</h1>
-                        <div class="relative">
-                            <button id="dropdownButton" class="btn m-1 !w-[8rem] ">
-                                Pilih Minggu
-                            </button>
-                            <ul id="dropdownContent"
-                                class="absolute hidden menu bg-base-100 rounded-box z-10 w-full p-2 shadow max-h-56 overflow-y-auto overflow-x-hidden box-border">
-                                <?php foreach ($data['records'] as $minggu): ?>
-                                    <li>
-                                        <a class="block px-2  py-2  text-center hover:bg-gray-200 w-full"
-                                            data-value="<?= $minggu['MINGGU'] ?>">
-                                            Minggu <?= $minggu['MINGGU'] ?>
-                                        </a>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
+                        <?php if (!empty($data['records'])) { ?>
+                            <div class="relative">
+                                <button id="dropdownButton" class="btn m-1 !w-[8rem]  bg-gray-400 ">
+                                    Minggu <?= $data['records'][0]['MINGGU'] ?>
+                                </button>
+                                <ul id="dropdownContent"
+                                    class="absolute hidden menu bg-base-100 rounded-box z-10 w-full p-2 shadow max-h-56 overflow-y-auto overflow-x-hidden box-border">
+                                    <?php foreach ($data['records'] as $minggu): ?>
+                                        <li>
+                                            <a class="block px-2  py-2  text-center hover:bg-gray-200 w-full"
+                                                data-value="<?= $minggu['MINGGU'] ?>">
+                                                Minggu <?= $minggu['MINGGU'] ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php } ?>
                     </div>
 
                     <div class="w-full bg-white">
                         <?php if (empty($data['records'])) { ?>
-                            <div class="flex justify-center items-center text-lg lg:text-2xl font-semibold text-stone-300 h-[25rem]">
-                                BELUM ADA DATA
+                            <div
+                                class="flex flex-col justify-center items-center text-lg lg:text-2xl font-semibold text-stone-300 h-[25rem] gap-5">
+                                <img src="<?= BASEURL ?>/img/no-data-icon.svg" alt="" class="w-[10rem] opacity-25">
+                                <h1 class="text-2xl font-bold text-gray-400 mb-4">Belum Ada Data</h1>
                             </div>
                         <?php } else { ?>
                             <table class="table table-zebra table-sm">
@@ -260,8 +265,8 @@
                     </div>
                     <?php if (!empty($data['records'])) { ?>
                         <div class=" pt-2 ml-auto w-max ">
-                            <a download="Pemantauan.png" id="downloadLink">
-                                <button class="btn btn-neutral text-white lg mt-3" onclick="downloadChart()">Unduh
+                            <a href="<?= BASEURL ?>home/report">
+                                <button class="btn btn-neutral text-white lg mt-3">Unduh
                                     Laporan
                                     Pemantauan</button>
                             </a>
@@ -279,55 +284,58 @@
         const dropdownButton = document.getElementById('dropdownButton');
         const dropdownContent = document.getElementById('dropdownContent');
 
-        $('document').ready(function () {
-            $.ajax({
-                type: "POST",
-                url: '<?= BASEURL ?>home/getTable',
-                data: { week: '1' },
-                success: function (data) {
-                    $('#tbody').html(data);
-                },
-                error: function (xhr, status, error) {
-                    console.error(xhr);
-                }
-            })
-        });
-
-
-        dropdownButton.addEventListener('click', () => {
-            if (dropdownContent.classList.contains('hidden')) {
-                dropdownContent.classList.add('block');
-            }
-            dropdownContent.classList.toggle('hidden');
-        });
-
-        document.addEventListener('click', (event) => {
-            if (!dropdownButton.contains(event.target) && !dropdownContent.contains(event.target)) {
-                dropdownContent.classList.add('hidden');
-
-            }
-        });
-
-        // Close dropdown and update button text when an item is clicked
-        dropdownContent.addEventListener('click', (event) => {
-            const target = event.target;
-            if (target.tagName === 'A') {
-                dropdownButton.textContent = target.textContent; // Update button text
-                dropdownContent.classList.add('hidden'); // Hide dropdown
-                console.log(target.dataset.value);
+        <?php if (!empty($data['records'])) { ?>
+            $('document').ready(function () {
                 $.ajax({
                     type: "POST",
                     url: '<?= BASEURL ?>home/getTable',
-                    data: { week: target.dataset.value },
+                    data: { week: <?= $data['records'][0]['MINGGU'] ?> },
                     success: function (data) {
                         $('#tbody').html(data);
                     },
                     error: function (xhr, status, error) {
                         console.error(xhr);
                     }
-                })
-            }
-        });
+                });
+
+            });
+
+
+            dropdownButton.addEventListener('click', () => {
+                if (dropdownContent.classList.contains('hidden')) {
+                    dropdownContent.classList.add('block');
+                }
+                dropdownContent.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!dropdownButton.contains(event.target) && !dropdownContent.contains(event.target)) {
+                    dropdownContent.classList.add('hidden');
+
+                }
+            });
+
+            // Close dropdown and update button text when an item is clicked
+            dropdownContent.addEventListener('click', (event) => {
+                const target = event.target;
+                if (target.tagName === 'A') {
+                    dropdownButton.textContent = target.textContent; // Update button text
+                    dropdownContent.classList.add('hidden'); // Hide dropdown
+                    console.log(target.dataset.value);
+                    $.ajax({
+                        type: "POST",
+                        url: '<?= BASEURL ?>home/getTable',
+                        data: { week: target.dataset.value },
+                        success: function (data) {
+                            $('#tbody').html(data);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error(xhr);
+                        }
+                    })
+                }
+            });
+        <?php } ?>
         //END TABLE RECORD FUNCTION
 
         // SWIPER ARTICLE FUNCTION
@@ -425,6 +433,7 @@
                     tension: 0.1,
                     backgroundColor: "rgba(174, 245, 200,0.2)",
                     fill: +1,
+                    borderWidth: 0.5,
                 },
                 {
                     label: "Batas Atas Rekomendasi Kenaikan",
@@ -433,12 +442,14 @@
                     backgroundColor: "rgba(174, 245, 200,0.2)",
                     tension: 0.1,
                     fill: -1,
+                    borderWidth: 0.5,
                 },
                 {
                     label: "Kenaikan Bunda",
                     data: WeightGain,
-                    backgroundColor: "rgb(255, 99, 132)",
-                    pointRadius: 5
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    borderWidth: 1,
                 },
             ],
         };
@@ -479,11 +490,16 @@
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: "Berat Badan (kg)",
+                            text: "Kenaikan Berat Badan (kg)",
                             font: {
                                 size: 18,
                                 weight: "bold",
                             }
+                        },
+                        min: 0,
+                        max: 18,
+                        ticks: {
+                            stepSize: 1,
                         },
                     },
                 },
@@ -500,14 +516,89 @@
                         }
                         setCanvasBackground(canvas, "white");
                         // Generate base64 image and set it to download link
-                        const base64Image = chart.toBase64Image();
-                        const downloadLink = document.getElementById("downloadLink");
-                        downloadLink.href = base64Image;
                     },
                 },
             },
         });
-        //END CHART REPORT FUNCTION
+        
+        $("document").ready(function () {
+            downloadLink = document.getElementById("downloadLink");
+            // Create a new temporary canvas
+            const tempCanvas = document.createElement("canvas");
+            tempCanvas.width = 1000;
+            tempCanvas.height = 500;
+            const tempCtx = tempCanvas.getContext("2d");
 
+            // Create a new Chart instance on the temporary canvas
+            var tempChart = new Chart(tempCtx, {
+                type: chart.config.type, // Use the same type as the original chart
+                data: chart.data, // Use the same data as the original chart
+                options: {
+                    responsive: false,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            useBorderRadius: true,
+                            borderRadius: 10,
+                            labels: {
+                                font: {
+                                    size: 14
+                                }
+                            }
+
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: "Minggu Kehamilan",
+                                font: {
+                                    size: 18,
+                                    weight: "bold",
+                                }
+                            },
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: "Kenaikan Berat Badan (kg)",
+                                font: {
+                                    size: 18,
+                                    weight: "bold",
+                                }
+                            },
+                            min: 0,
+                            max: 20,
+                            ticks: {
+                                stepSize: 1,
+                            },
+                        },
+                    },
+                    animation: {
+                        onComplete: () => {
+                            const ctx = tempCanvas.getContext("2d");
+                            ctx.save();
+                            ctx.globalCompositeOperation = "destination-over";
+                            ctx.fillStyle = "white";
+                            ctx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+                            ctx.restore();
+
+                            // Generate base64 image and set it to download link
+                            const downloadLink = document.getElementById("downloadLink");
+                            const base64Image = tempCanvas.toDataURL("image/png");
+                            downloadLink.href = base64Image;
+                            downloadLink.download = "chart.png";
+                            $("#downloadLink button").html("Unduh Grafik");
+
+                        },
+                    },
+                },
+            });
+        });
+        //END CHART REPORT FUNCTION
     </script>
 </body>

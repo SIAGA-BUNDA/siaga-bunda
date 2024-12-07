@@ -36,14 +36,14 @@ class User_tracking extends model
         return $this->db->single()['WEEK'];
     }
     function getRecords ($id) {
-        $query = "SELECT * FROM ". $this->table . " where id_user = '". $id . "'";
+        $query = "SELECT minggu, berat_badan, gejala FROM ". $this->table . " where id_user = '". $id . "'";
         // $this->db->bind(':id', $id);
         $this->db->query($query);
         return $this->db->resultSet();
     }
 
     function getRecord ($id,$week) {
-        $query = "SELECT * FROM ". $this->table . " where id_user = '". $id . "' and minggu = '". $week . "'";
+        $query = "SELECT minggu, berat_badan, gejala FROM ". $this->table . " where id_user = '". $id . "' and minggu = '". $week . "'";
         $this->db->query($query);
         return $this->db->single();
     }
