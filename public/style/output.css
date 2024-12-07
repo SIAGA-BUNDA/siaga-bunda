@@ -3083,16 +3083,16 @@ details.collapse summary::-webkit-details-marker {
   width: 2rem;
 }
 
-.w-\[10rem\] {
-  width: 10rem;
-}
-
 .w-\[3rem\] {
   width: 3rem;
 }
 
 .w-\[50rem\] {
   width: 50rem;
+}
+
+.w-\[6rem\] {
+  width: 6rem;
 }
 
 .w-full {
@@ -3196,6 +3196,10 @@ details.collapse summary::-webkit-details-marker {
   gap: 1rem;
 }
 
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .gap-\[300px\] {
   gap: 300px;
 }
@@ -3214,10 +3218,6 @@ details.collapse summary::-webkit-details-marker {
 
 .gap-\[385px\] {
   gap: 385px;
-}
-
-.gap-5 {
-  gap: 1.25rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -3752,12 +3752,12 @@ details.collapse summary::-webkit-details-marker {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.opacity-50 {
-  opacity: 0.5;
-}
-
 .opacity-25 {
   opacity: 0.25;
+}
+
+.opacity-50 {
+  opacity: 0.5;
 }
 
 .shadow {
@@ -4012,6 +4012,10 @@ details.collapse summary::-webkit-details-marker {
     margin-right: 1.5rem;
   }
 
+  .sm\:w-\[8rem\] {
+    width: 8rem;
+  }
+
   .sm\:p-6 {
     padding: 1.5rem;
   }
@@ -4081,12 +4085,20 @@ details.collapse summary::-webkit-details-marker {
     height: 100%;
   }
 
+  .lg\:w-\[10rem\] {
+    width: 10rem;
+  }
+
   .lg\:w-\[30rem\] {
     width: 30rem;
   }
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-\[9rem\] {
+    width: 9rem;
   }
 
   .lg\:flex-row {

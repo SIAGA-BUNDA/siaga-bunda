@@ -244,7 +244,7 @@
                         <?php if (empty($data['records'])) { ?>
                             <div
                                 class="flex flex-col justify-center items-center text-lg lg:text-2xl font-semibold text-stone-300 h-[25rem] gap-5">
-                                <img src="<?= BASEURL ?>/img/no-data-icon.svg" alt="" class="w-[10rem] opacity-25">
+                                <img src="<?= BASEURL ?>/img/no-data-icon.svg" alt="" class="w-[6rem] sm:w-[8rem] opacity-25">
                                 <h1 class="text-2xl font-bold text-gray-400 mb-4">Belum Ada Data</h1>
                             </div>
                         <?php } else { ?>
