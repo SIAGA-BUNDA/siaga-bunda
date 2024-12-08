@@ -1,34 +1,34 @@
 <body>
     <div class="bg-[#FCF1E6] pt-[20px] min-h-screen ">
-        <div class=" grid grid-cols-2 text-[#D4988B] items-center w-full px-8  ">
-            <div class="flex justify-start space-x-6">
-                <p class="font-bold text-xl pl-2 pr-10">Siaga Bunda</p>
-                <a href="<?= BASEURL ?>home/sesudahLogin"
-                    class="bg-[#D4988B] text-white text-center rounded-2xl px-4 py-2 hover:bg-white hover:text-[#4D5A32] shadow-lg transition-all duration-300 font-medium">Home</a>
-                <a href="<?= BASEURL ?>home/calculator"
-                    class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Calculator</a>
-                <a href="<?= BASEURL ?>home/komunitas"
-                    class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32]  transition-all duration-300 font-medium">Komunitas</a>
+        <div class=" flex text-[#D4988B] items-center w-full px-8  ">
+            <div class="flex-grow bg-white ">
+                <div class="flex justify-start items-center space-x-6 bg-[#FCF1E6] rounded-br-3xl py-5">
+                    <p class="font-bold text-xl pl-2 pr-10">Siaga Bunda</p>
+                    <a href="<?= BASEURL ?>home/sesudahLogin"
+                        class="bg-[#D4988B] text-white text-center rounded-[30px] px-4 py-2 hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Home</a>
+                    <a href="<?= BASEURL ?>home/calculator"
+                        class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Calculator</a>
+                    <a href="<?= BASEURL ?>home/komunitas"
+                        class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32]  transition-all duration-300 font-medium">Komunitas</a>
+                </div>
             </div>
-            <div class="flex justify-end space-x-4 ">
-                <div class="flex px-6 py-2 rounded-3xl bg-white space-x-6">
-                    <p>User</p>
-                    <a href="profil"><i class=" fa-solid fa-user"></i></a>
+            <div>
+                <div class="flex px-6 rounded-t-[35px] bg-white space-x-6 py-7">
+                    <p class="font-bold text-gray-700">Hi User! </p>
+                    <a href="profil"><i class=" fa-solid fa-user text-gray-700"></i></a>
                 </div>
             </div>
         </div>
 
         <!-- section literasi bunda -->
-        <div class="mt-4 lg:mx-8  sm:mx-6  p-4 sm:p-6 lg:px-8 rounded-xl bg-gray-300 ">
+        <div class=" lg:mx-8  sm:mx-6  p-4 sm:p-6 lg:px-8 rounded-[35px] rounded-tr-none bg-white ">
             <h1 class="text-center text-3xl font-bold text-gray-700">Literasi Bunda</h1>
             <div class="swiper-container relative px-12 my-5">
                 <div class=" swiper !static">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide ">
-                            <div class="card lg:card-side bg-base-100 hover:cursor-pointer flex flex-col lg:flex-row ">
+                        <div class="swiper-slide">
+                            <div class="card lg:card-side bg-gray-200 hover:cursor-pointer flex flex-col lg:flex-row ">
                                 <figure>
-                                    <img class="object-cover w-full lg:w-[30rem] h-48 lg:h-full"
-                                        src="<?= BASEURL ?>/img/newsExam.png" alt="Album" />
                                 </figure>
                                 <div class="card-body">
                                     <h2 class="card-title">Section Heading 1</h2>
@@ -36,17 +36,15 @@
                                         information
                                         you'd like to display.</p>
                                     <div class="card-actions justify-end">
-                                        <button class="btn tess bg-[#8BC34A] text-white">Lebih Banyak</button>
+                                        <button class="btn tess btn-neutral text-white">Lebih Banyak</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="swiper-slide ">
-                            <div class="card lg:card-side bg-base-100 hover:cursor-pointer flex flex-col lg:flex-row">
+                            <div class="card lg:card-side bg-gray-200 hover:cursor-pointer flex flex-col lg:flex-row">
                                 <figure>
-                                    <img class="object-cover w-full lg:w-[30rem] h-48 lg:h-full"
-                                        src="<?= BASEURL ?>/img/newsExam.png" alt="Album" />
                                 </figure>
                                 <div class="card-body">
                                     <h2 class="card-title">Section Heading 1</h2>
@@ -54,17 +52,15 @@
                                         information
                                         you'd like to display.</p>
                                     <div class="card-actions justify-end">
-                                        <button class="btn bg-[#8BC34A] text-white">Lebih Banyak</button>
+                                        <button class="btn btn-neutral text-white">Lebih Banyak</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="swiper-slide ">
-                            <div class="card lg:card-side bg-base-100 hover:cursor-pointer flex flex-col lg:flex-row">
+                            <div class="card lg:card-side bg-gray-200 hover:cursor-pointer flex flex-col lg:flex-row">
                                 <figure>
-                                    <img class="object-cover w-full lg:w-[30rem] h-48 lg:h-full"
-                                        src="<?= BASEURL ?>/img/newsExam.png" alt="Album" />
                                 </figure>
                                 <div class="card-body">
                                     <h2 class="card-title">Section Heading 1</h2>
@@ -72,17 +68,15 @@
                                         information
                                         you'd like to display.</p>
                                     <div class="card-actions justify-end">
-                                        <button class="btn bg-[#8BC34A] text-white">Lebih Banyak</button>
+                                        <button class="btn btn-neutral text-white">Lebih Banyak</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="swiper-slide ">
-                            <div class="card lg:card-side bg-base-100 hover:cursor-pointer flex flex-col lg:flex-row">
+                            <div class="card lg:card-side bg-gray-200 hover:cursor-pointer flex flex-col lg:flex-row">
                                 <figure>
-                                    <img class="object-cover w-full lg:w-[30rem] h-48 lg:h-full"
-                                        src="<?= BASEURL ?>/img/newsExam.png" alt="Album" />
                                 </figure>
                                 <div class="card-body">
                                     <h2 class="card-title">Section Heading 1</h2>
@@ -90,7 +84,7 @@
                                         information
                                         you'd like to display.</p>
                                     <div class="card-actions justify-end">
-                                        <button class="btn bg-[#8BC34A] text-white">Lebih Banyak</button>
+                                        <button class="btn btn-neutral text-white">Lebih Banyak</button>
                                     </div>
                                 </div>
                             </div>
