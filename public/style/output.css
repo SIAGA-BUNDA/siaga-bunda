@@ -876,6 +876,22 @@ html {
   color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
 }
 
+.checkbox {
+  flex-shrink: 0;
+  --chkbg: var(--fallback-bc,oklch(var(--bc)/1));
+  --chkfg: var(--fallback-b1,oklch(var(--b1)/1));
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: var(--rounded-btn, 0.5rem);
+  border-width: 1px;
+  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
+  --tw-border-opacity: 0.2;
+}
+
 .collapse:not(td):not(tr):not(colgroup) {
   visibility: visible;
 }
@@ -1240,6 +1256,16 @@ html {
   display: flex;
   margin-top: 1.5rem;
   justify-content: flex-end;
+}
+
+.modal-toggle {
+  position: fixed;
+  height: 0px;
+  width: 0px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  opacity: 0;
 }
 
 :root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
@@ -1621,6 +1647,54 @@ html {
 .card.image-full :where(figure) {
   overflow: hidden;
   border-radius: inherit;
+}
+
+.checkbox:focus {
+  box-shadow: none;
+}
+
+.checkbox:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-color: var(--fallback-bc,oklch(var(--bc)/1));
+}
+
+.checkbox:disabled {
+  border-width: 0px;
+  cursor: not-allowed;
+  border-color: transparent;
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+  opacity: 0.2;
+}
+
+.checkbox:checked,
+  .checkbox[aria-checked="true"] {
+  background-repeat: no-repeat;
+  animation: checkmark var(--animation-input, 0.2s) ease-out;
+  background-color: var(--chkbg);
+  background-image: linear-gradient(-45deg, transparent 65%, var(--chkbg) 65.99%),
+      linear-gradient(45deg, transparent 75%, var(--chkbg) 75.99%),
+      linear-gradient(-45deg, var(--chkbg) 40%, transparent 40.99%),
+      linear-gradient(
+        45deg,
+        var(--chkbg) 30%,
+        var(--chkfg) 30.99%,
+        var(--chkfg) 40%,
+        transparent 40.99%
+      ),
+      linear-gradient(-45deg, var(--chkfg) 50%, var(--chkbg) 50.99%);
+}
+
+.checkbox:indeterminate {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+  background-repeat: no-repeat;
+  animation: checkmark var(--animation-input, 0.2s) ease-out;
+  background-image: linear-gradient(90deg, transparent 80%, var(--chkbg) 80%),
+      linear-gradient(-90deg, transparent 80%, var(--chkbg) 80%),
+      linear-gradient(0deg, var(--chkbg) 43%, var(--chkfg) 43%, var(--chkfg) 57%, var(--chkbg) 57%);
 }
 
 @keyframes checkmark {
@@ -2802,6 +2876,10 @@ details.collapse summary::-webkit-details-marker {
   margin: 0.25rem;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -2930,6 +3008,10 @@ details.collapse summary::-webkit-details-marker {
   margin-top: 1.5rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -3012,6 +3094,58 @@ details.collapse summary::-webkit-details-marker {
 
 .h-full {
   height: 100%;
+}
+
+.h-2\/3 {
+  height: 66.666667%;
+}
+
+.h-4\/5 {
+  height: 80%;
+}
+
+.h-5\/6 {
+  height: 83.333333%;
+}
+
+.h-1 {
+  height: 0.25rem;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.h-3\/4 {
+  height: 75%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.h-1\/2 {
+  height: 50%;
+}
+
+.h-1\/3 {
+  height: 33.333333%;
+}
+
+.h-80 {
+  height: 20rem;
+}
+
+.h-64 {
+  height: 16rem;
+}
+
+.h-60 {
+  height: 15rem;
+}
+
+.h-72 {
+  height: 18rem;
 }
 
 .max-h-56 {
@@ -3101,6 +3235,14 @@ details.collapse summary::-webkit-details-marker {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.w-2\/3 {
+  width: 66.666667%;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .min-w-full {
@@ -3513,6 +3655,16 @@ details.collapse summary::-webkit-details-marker {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[\#2B3440\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(43 52 64 / var(--tw-bg-opacity, 1));
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+
 .p-10 {
   padding: 2.5rem;
 }
@@ -3737,6 +3889,10 @@ details.collapse summary::-webkit-details-marker {
   font-weight: 600;
 }
 
+.font-thin {
+  font-weight: 100;
+}
+
 .text-\[\#4D5A32\] {
   --tw-text-opacity: 1;
   color: rgb(77 90 50 / var(--tw-text-opacity, 1));
@@ -3936,6 +4092,11 @@ details.collapse summary::-webkit-details-marker {
   border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
 }
 
+.hover\:border-\[\#2B3440\]:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(43 52 64 / var(--tw-border-opacity, 1));
+}
+
 .hover\:bg-\[rgba\(77\2c 90\2c 50\2c 1\)\]:hover {
   background-color: rgba(77,90,50,1);
 }
@@ -3990,6 +4151,11 @@ details.collapse summary::-webkit-details-marker {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-\[\#2B3440\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(43 52 64 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:text-\[\#4D5A32\]:hover {
   --tw-text-opacity: 1;
   color: rgb(77 90 50 / var(--tw-text-opacity, 1));
@@ -4013,6 +4179,11 @@ details.collapse summary::-webkit-details-marker {
 .hover\:text-green-950:hover {
   --tw-text-opacity: 1;
   color: rgb(5 46 22 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-\[\#2B3440\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(43 52 64 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
