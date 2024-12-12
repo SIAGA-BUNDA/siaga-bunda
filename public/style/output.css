@@ -3521,6 +3521,16 @@ details.collapse summary::-webkit-details-marker {
   border-color: rgb(248 113 113 / var(--tw-border-opacity, 1));
 }
 
+.border-\[\#D4988B\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(212 152 139 / var(--tw-border-opacity, 1));
+}
+
+.border-\[\#FCF1E6\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(252 241 230 / var(--tw-border-opacity, 1));
+}
+
 .bg-\[\#4D5A32\] {
   --tw-bg-opacity: 1;
   background-color: rgb(77 90 50 / var(--tw-bg-opacity, 1));
@@ -3975,6 +3985,11 @@ details.collapse summary::-webkit-details-marker {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.text-\[\#677D85\] {
+  --tw-text-opacity: 1;
+  color: rgb(103 125 133 / var(--tw-text-opacity, 1));
 }
 
 .underline {
