@@ -28,4 +28,9 @@ class Postingan{
         $this->db->bind(':id', $id);
         $this->db->execute();
     }
+    public function getAllPostingan(){
+        $query = "SELECT * FROM ". $this->table. " WHERE status = 'ok'";
+        $this->db->query($query);
+        return $this->db->resultSet();
+    }
 }

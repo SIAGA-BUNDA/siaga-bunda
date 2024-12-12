@@ -2,3 +2,4 @@ app/config/
 vendor/
 node_modules/
 composer.phar
+public/style/output.css
