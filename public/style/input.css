@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pink-progress {
+    --tw-bg-opacity: 1;
+    background-color: #D9D9D9; /* Warna latar belakang */
+}
+
+.pink-progress::-webkit-progress-value {
+    background-color: #D4988B; /* Warna progress */
+}
+
+.pink-progress::-moz-progress-bar {
+    background-color: #D4988B; /* Warna progress */
+}
+
+#active-nav{
+    background-color: #D4988B !important; 
+    color : white !important;
+}
