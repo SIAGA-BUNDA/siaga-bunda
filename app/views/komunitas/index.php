@@ -26,7 +26,7 @@
             </div>
             
             <div class="isiPostingan text-justify mt-4 w-full">
-                <h2 class="font-bold underline truncate">AWIKWOAKWOAKW</h2>
+                <h2 class="hover:cursor-pointer font-bold underline truncate">AWIKWOAKWOAKW</h2>
                 <p class="truncate">' . $value . '</p>
             </div>
             
@@ -46,18 +46,15 @@
             <!-- POP UP KOMEN -->
             <input type="checkbox" id="my_modal_6" class="modal-toggle hidden" />
             <div class="modal" role="dialog">
-            <div class="modal-box bg-white w-full h-screen p-8 rounded-xl shadow-lg relative">
-                <h3 class="text-lg font-thin">user yang posting</h3>
-                <h3 class="text-lg font-thin">caption</h3>
-                <p class="py-4 font-bold">Berikan komentar anda</p>
-                
-                <textarea class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1" placeholder="Tulis komentar..."></textarea>
-                
-                
+                <div class="modal-box bg-white w-full h-screen p-8 rounded-xl shadow-lg relative">
+                    <h3 class="text-lg font-thin">user yang posting</h3>
+                    <h3 class="text-lg font-thin">caption</h3>
+                    <p class="py-4 font-bold">Berikan komentar anda</p>
+                    <textarea class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1" placeholder="Tulis komentar..."></textarea>
                 <div class="modal-action">
-                <label for="#" class="btn bg-[#2B3440] flex rounded-3xl m-0 hover:bg-[#2B3440] hover:border-[#2B3440] hover:text-[#2B3440]">Submit</label>
-                <label for="my_modal_6" class="btn flex rounded-3xl m-0 hover:bg-[#2B3440] hover:border-[#2B3440] hover:text-[#2B3440]">Close</label>
-                </div>
+                <label for="#" class="btn bg-[#2B3440] text-white flex rounded-3xl m-0 hover:bg-white hover:border-[#2B3440] hover:border-2 hover:text-[#2B3440]">Submit</label>
+                <label for="my_modal_6" class="btn flex rounded-3xl m-0 hover:bg-[#2B3440] hover:border-[#2B3440] hover:text-white">Close</label>
+            </div>
             </div>
             </div>
     </div>
