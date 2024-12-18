@@ -1,6 +1,7 @@
 const { default: daisyui } = require("daisyui");
 
 module.exports = {
+  import:true,
   content: ["./app/**/*.{html,js,php}"],
   theme: {
     extend: {

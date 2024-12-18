@@ -1,100 +1,133 @@
 <body>
     <div class="bg-[#FCF1E6] pt-[20px] min-h-screen ">
-        <div class=" flex text-[#D4988B] items-center w-full px-8  ">
-            <div class="flex-grow bg-white ">
-                <div class="flex justify-start items-center space-x-6 bg-[#FCF1E6] rounded-br-3xl py-5">
-                    <p class="font-bold text-xl pl-2 pr-10">Siaga Bunda</p>
-                    <a href="<?= BASEURL ?>home/sesudahLogin"
-                        class="bg-[#D4988B] text-white text-center rounded-[30px] px-4 py-2 hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Home</a>
-                    <a href="<?= BASEURL ?>home/calculator"
-                        class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Calculator</a>
-                    <a href="<?= BASEURL ?>home/komunitas"
-                        class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Komunitas</a>
-                    <a href="<?= BASEURL ?>artikel"
-                        class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Artikel</a>
-                </div>
-            </div>
-            <div>
-                <div class="flex px-6 rounded-t-[35px] bg-white space-x-6 py-7">
-                    <p class="font-bold text-gray-700">Hi User! </p>
-                    <a href="profil"><i class=" fa-solid fa-user text-gray-700"></i></a>
-                </div>
-            </div>
-        </div>
+
+        <?php require_once '../app/views/templates/navbar.php'?>
+
 
         <!-- section literasi bunda -->
-        <div class=" lg:mx-8  sm:mx-6  p-4 sm:p-6 lg:px-8 rounded-[35px] rounded-tr-none bg-white ">
+        <div class="mx-4 sm:mx-6 lg:!mx-8   p-4 sm:p-6 lg:px-8 rounded-[35px] md:rounded-tr-none bg-white">
             <h1 class="text-center text-3xl font-bold text-gray-700">Literasi Bunda</h1>
             <div class="swiper-container relative px-12 my-5">
                 <div class=" swiper !static">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="card lg:card-side bg-gray-200 hover:cursor-pointer flex flex-col lg:flex-row ">
-                                <figure>
+                            <div
+                                class="card xl:card-side bg-[#D9D9D9D9] md:max-h-[30rem] md:max-w-[643px] xl:h-[15rem] xl:max-w-[843px]">
+                                <!-- Tambahkan aspect-ratio pada figure -->
+                                <figure class="my-0 aspect-video max-h-[300px] md:max-h-[450px] xl:max-w-[20rem]">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
+                                        alt="Album" class="object-cover h-full w-full" />
                                 </figure>
-                                <div class="card-body">
-                                    <h2 class="card-title">Section Heading 1</h2>
-                                    <p>Here is the content of your section. Add any text or
-                                        information
-                                        you'd like to display.</p>
-                                    <div class="card-actions justify-end">
-                                        <button class="btn tess btn-neutral text-white">Lebih Banyak</button>
+                                <div class="card-body my-0">
+                                    <h2 class="card-title">New album is released!</h2>
+                                    <p>Click the button to listen on Spotiwhy app.</p>
+                                    <div class="card-actions justify-end mt-5 items-center">
+
+                                        <a class="flex justify-center items-center group hover:cursor-pointer">
+                                            <p class="underline">Selengkapnya</p>
+                                            <svg width="28" height="16" viewBox="0 0 28 16" fill="none"
+                                                class="mt-1 ml-2 group-hover:translate-x-2 duration-700"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M27.7071 8.70711C28.0976 8.31658 28.0976 7.68342 27.7071 7.29289L21.3431 0.928932C20.9526 0.538408 20.3195 0.538408 19.9289 0.928932C19.5384 1.31946 19.5384 1.95262 19.9289 2.34315L25.5858 8L19.9289 13.6569C19.5384 14.0474 19.5384 14.6805 19.9289 15.0711C20.3195 15.4616 20.9526 15.4616 21.3431 15.0711L27.7071 8.70711ZM0 9L27 9V7L0 7L0 9Z"
+                                                    fill="#2B3440" />
+                                            </svg>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="swiper-slide ">
-                            <div class="card lg:card-side bg-gray-200 hover:cursor-pointer flex flex-col lg:flex-row">
-                                <figure>
+                            <div
+                                class="card xl:card-side bg-[#D9D9D9D9] md:max-h-[30rem] md:max-w-[643px] xl:h-[15rem] xl:max-w-[843px] ">
+                                <figure class="my-0 aspect-video max-h-[300px] md:max-h-[450px] xl:max-w-[20rem]">
+                                    <img src="<?= BASEURL ?>img/newsExam.png" alt="Album"
+                                        class="object-cover h-full w-full object-center" />
                                 </figure>
-                                <div class="card-body">
-                                    <h2 class="card-title">Section Heading 1</h2>
-                                    <p>Here is the content of your section. Add any text or
-                                        information
-                                        you'd like to display.</p>
-                                    <div class="card-actions justify-end">
-                                        <button class="btn btn-neutral text-white">Lebih Banyak</button>
+                                <div class="card-body my-0">
+                                    <h2 class="card-title">New album is released!</h2>
+                                    <p>Click the button to listen on Spotiwhy app.</p>
+                                    <div class="card-actions justify-end mt-5 items-center">
+                                        <a class="flex justify-center items-center group hover:cursor-pointer">
+                                            <p class="underline">Selengkapnya</p>
+                                            <svg width="28" height="16" viewBox="0 0 28 16" fill="none"
+                                                class="mt-1 ml-2 group-hover:translate-x-2 duration-700"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M27.7071 8.70711C28.0976 8.31658 28.0976 7.68342 27.7071 7.29289L21.3431 0.928932C20.9526 0.538408 20.3195 0.538408 19.9289 0.928932C19.5384 1.31946 19.5384 1.95262 19.9289 2.34315L25.5858 8L19.9289 13.6569C19.5384 14.0474 19.5384 14.6805 19.9289 15.0711C20.3195 15.4616 20.9526 15.4616 21.3431 15.0711L27.7071 8.70711ZM0 9L27 9V7L0 7L0 9Z"
+                                                    fill="#2B3440" />
+                                            </svg>
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="swiper-slide ">
-                            <div class="card lg:card-side bg-gray-200 hover:cursor-pointer flex flex-col lg:flex-row">
-                                <figure>
+                        <div class="swiper-slide">
+                            <div
+                                class="card xl:card-side bg-[#D9D9D9D9] md:max-h-[30rem] md:max-w-[643px] xl:h-[15rem] xl:max-w-[843px]">
+                                <!-- Tambahkan aspect-ratio pada figure -->
+                                <figure class="my-0 aspect-video max-h-[300px] md:max-h-[450px] xl:max-w-[20rem]">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
+                                        alt="Album" class="object-cover h-full w-full" />
                                 </figure>
-                                <div class="card-body">
-                                    <h2 class="card-title">Section Heading 1</h2>
-                                    <p>Here is the content of your section. Add any text or
-                                        information
-                                        you'd like to display.</p>
-                                    <div class="card-actions justify-end">
-                                        <button class="btn btn-neutral text-white">Lebih Banyak</button>
+                                <div class="card-body my-0">
+                                    <h2 class="card-title">New album is released!</h2>
+                                    <p>Click the button to listen on Spotiwhy app.</p>
+                                    <div class="card-actions justify-end mt-5 items-center">
+                                        <a class="flex justify-center items-center group hover:cursor-pointer">
+                                            <p class="underline">Selengkapnya</p>
+                                            <svg width="28" height="16" viewBox="0 0 28 16" fill="none"
+                                                class="mt-1 ml-2 group-hover:translate-x-2 duration-700"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M27.7071 8.70711C28.0976 8.31658 28.0976 7.68342 27.7071 7.29289L21.3431 0.928932C20.9526 0.538408 20.3195 0.538408 19.9289 0.928932C19.5384 1.31946 19.5384 1.95262 19.9289 2.34315L25.5858 8L19.9289 13.6569C19.5384 14.0474 19.5384 14.6805 19.9289 15.0711C20.3195 15.4616 20.9526 15.4616 21.3431 15.0711L27.7071 8.70711ZM0 9L27 9V7L0 7L0 9Z"
+                                                    fill="#2B3440" />
+                                            </svg>
+                                        </a>
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="swiper-slide ">
-                            <div class="card lg:card-side bg-gray-200 hover:cursor-pointer flex flex-col lg:flex-row">
-                                <figure>
+
+                        <div class="swiper-slide">
+                            <div
+                                class="card xl:card-side bg-[#D9D9D9D9] md:max-h-[30rem] md:max-w-[643px] xl:h-[15rem] xl:max-w-[843px]">
+                                <!-- Tambahkan aspect-ratio pada figure -->
+                                <figure class="my-0 aspect-video max-h-[300px] md:max-h-[450px] xl:max-w-[20rem]">
+                                    <img src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
+                                        alt="Album" class="object-cover h-full w-full" />
                                 </figure>
-                                <div class="card-body">
-                                    <h2 class="card-title">Section Heading 1</h2>
-                                    <p>Here is the content of your section. Add any text or
-                                        information
-                                        you'd like to display.</p>
-                                    <div class="card-actions justify-end">
-                                        <button class="btn btn-neutral text-white">Lebih Banyak</button>
+                                <div class="card-body my-0">
+                                    <h2 class="card-title">New album is released!</h2>
+                                    <p>Click the button to listen on Spotiwhy app.</p>
+                                    <div class="card-actions justify-end mt-5 items-center">
+                                        <a class="flex justify-center items-center group hover:cursor-pointer">
+                                            <p class="underline">Selengkapnya</p>
+                                            <svg width="28" height="16" viewBox="0 0 28 16" fill="none"
+                                                class="mt-1 ml-2 group-hover:translate-x-2 duration-700"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M27.7071 8.70711C28.0976 8.31658 28.0976 7.68342 27.7071 7.29289L21.3431 0.928932C20.9526 0.538408 20.3195 0.538408 19.9289 0.928932C19.5384 1.31946 19.5384 1.95262 19.9289 2.34315L25.5858 8L19.9289 13.6569C19.5384 14.0474 19.5384 14.6805 19.9289 15.0711C20.3195 15.4616 20.9526 15.4616 21.3431 15.0711L27.7071 8.70711ZM0 9L27 9V7L0 7L0 9Z"
+                                                    fill="#2B3440" />
+                                            </svg>
+                                        </a>
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                    <button class="swiper-button-prev text-[#607D8B] " id="prevBtn">
+                    <button class="swiper-button-prev !text-[#607D8B]  " id="prevBtn">
                     </button>
-                    <button class="swiper-button-next text-[#607D8B] " id="nextBtn">
+                    <button class="swiper-button-next !text-[#607D8B] " id="nextBtn">
                     </button>
                 </div>
             </div>
@@ -182,7 +215,7 @@
 
                 <!-- Card Input Button -->
                 <div class="card bg-base-100 image-full shadow-xl w-full  lg:h-[13rem] mt-5">
-                    <div class="card-body">
+                    <div class="card-body my-0">
                         <h2 class="card-title">Ayo!</h2>
                         <p> pantau perjalanan kehamilan Anda setiap minggu untuk kesehatan Ibu dan si kecil!</p>
                         <div class="card-actions justify-end">
@@ -206,7 +239,8 @@
                     </div>
                     <div class=" pt-2 ml-auto w-max">
                         <a download="Chart.png" id="downloadLink">
-                            <button class="btn btn-neutral text-white lg mt-3"> <span class="loading loading-spinner"></span></button>
+                            <button class="btn btn-neutral text-white lg mt-3"> <span
+                                    class="loading loading-spinner"></span></button>
                         </a>
                     </div>
                 </div>
@@ -239,7 +273,8 @@
                         <?php if (empty($data['records'])) { ?>
                             <div
                                 class="flex flex-col justify-center items-center text-lg lg:text-2xl font-semibold text-stone-300 h-[25rem] gap-5">
-                                <img src="<?= BASEURL ?>/img/no-data-icon.svg" alt="" class="w-[6rem] sm:w-[8rem] opacity-25">
+                                <img src="<?= BASEURL ?>/img/no-data-icon.svg" alt=""
+                                    class="w-[6rem] sm:w-[8rem] opacity-25">
                                 <h1 class="text-2xl font-bold text-gray-400 mb-4">Belum Ada Data</h1>
                             </div>
                         <?php } else { ?>
@@ -275,6 +310,20 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        $(document).ready(() => {
+            let activeText = "<?= $data['judul'] ?>"; // Teks yang dicocokkan
+            $('#navbar a').each(function () {
+                if ($(this).text().trim() === activeText) {
+                    $(this).attr("id", "active-nav");
+                    $(this).children('p').removeClass('hidden');
+                }
+            });
+
+            // $('#navbar a').on('click',()=>{
+            //     $('#active-nav').removeAttr('id');
+            //     $(this).attr("id","active-nav");
+            // })
+        });
         // START TABLE RECORD FUNCTION
         const dropdownButton = document.getElementById('dropdownButton');
         const dropdownContent = document.getElementById('dropdownContent');
@@ -337,6 +386,10 @@
         const swiper = new Swiper('.swiper', {
             loop: true,
             spaceBetween: 10,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
             slidesPerView: 1,
             pagination: {
                 el: '.swiper-pagination',
@@ -350,7 +403,7 @@
                     slidesPerView: 1,
                 },
 
-                1024: {
+                768: {
                     slidesPerView: 2,
                 },
             }
@@ -358,6 +411,8 @@
         //END SWIPER ARTICLE FUNCTION
 
         //  START CHART REPORT FUNCTION
+
+        console.log($(window).width());
         let labels = new Array(41);
         for (let i = 0; i <= 40; i++) {
             labels[i] = i;
@@ -515,7 +570,7 @@
                 },
             },
         });
-        
+
         $("document").ready(function () {
             downloadLink = document.getElementById("downloadLink");
             // Create a new temporary canvas

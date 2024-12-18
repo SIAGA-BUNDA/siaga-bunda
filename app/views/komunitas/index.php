@@ -1,19 +1,20 @@
 <body class="flex h-full bg-[#C1CFA1] font-sans items-center justify-center ">
-<div class="main bg-white">
-    <img src="<?=BASEURL?>img/ikon.png" class="ml-3" alt="Komunitas">
-    <h1 class="text-[#4D5A32] text-7xl">Komunitas</h1> 
-    <br>
-    <?php
-    $a = ['aowkaowkaokw', 'tes1', 'tes2'];
-    foreach($a as $key => $value){
-        echo'
-        <div class="flex postingann flex-col items-center justify-center w-full">        
-        <div class="postingan flex flex-col items-center justify-center p-4">
-            <div class="postinganAtas flex flex-row w-full">
-                <div class="profil flex-1 ">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="rounded-full bg-[#DDE4C4] w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                    </svg>
+    <div class="main bg-white">
+        <img src="<?= BASEURL ?>img/ikon.png" class="ml-3" alt="Komunitas">
+        <h1 class="text-[#4D5A32] text-7xl">Komunitas</h1>
+        <br>
+        <?php
+        $a = ['Muhammad'=> 'aowkaowkaokw', 'keyla'=> 'tes1',"irgi aja"=> 'absdja dnjas da w dadsasdasdkasndkasdkasdasd asdasdkasd asd asdasdas asdasjdbjasbdjbajDBJABSDjbSJDbaskdjbasdjbasjdbasjdbasbdjasdbjasdbjasdbjsad asda;sdasdksand'];
+        foreach ($a as $key => $value) { ?>
+            <div class="flex postingann flex-col items-center justify-center w-full">
+                <div class="postingan flex flex-col items-cDenter justify-center p-4">
+                    <div class="postinganAtas flex flex-row w-full">
+                        <div class="profil flex-1 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="rounded-full bg-[#DDE4C4] w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
 
                 </div>
                 <div class="options flex-1 flex items-end justify-end">
@@ -26,7 +27,7 @@
             </div>
             
             <div class="isiPostingan text-justify mt-4 w-full">
-                <h2 class="font-bold underline truncate">AWIKWOAKWOAKW</h2>
+                <h2 class="hover:cursor-pointer font-bold underline truncate">AWIKWOAKWOAKW</h2>
                 <p class="truncate">' . $value . '</p>
             </div>
             
@@ -46,37 +47,50 @@
             <!-- POP UP KOMEN -->
             <input type="checkbox" id="my_modal_6" class="modal-toggle hidden" />
             <div class="modal" role="dialog">
-            <div class="modal-box bg-white w-full h-screen p-8 rounded-xl shadow-lg relative">
-                <h3 class="text-lg font-thin">user yang posting</h3>
-                <h3 class="text-lg font-thin">caption</h3>
-                <p class="py-4 font-bold">Berikan komentar anda</p>
-                
-                <textarea class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1" placeholder="Tulis komentar..."></textarea>
-                
-                
+                <div class="modal-box bg-white w-full h-screen p-8 rounded-xl shadow-lg relative">
+                    <h3 class="text-lg font-thin">user yang posting</h3>
+                    <h3 class="text-lg font-thin">caption</h3>
+                    <p class="py-4 font-bold">Berikan komentar anda</p>
+                    <textarea class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1" placeholder="Tulis komentar..."></textarea>
                 <div class="modal-action">
-                <label for="#" class="btn bg-[#2B3440] flex rounded-3xl m-0 hover:bg-[#2B3440] hover:border-[#2B3440] hover:text-[#2B3440]">Submit</label>
-                <label for="my_modal_6" class="btn flex rounded-3xl m-0 hover:bg-[#2B3440] hover:border-[#2B3440] hover:text-[#2B3440]">Close</label>
-                </div>
+                <label for="#" class="btn bg-[#2B3440] text-white flex rounded-3xl m-0 hover:bg-white hover:border-[#2B3440] hover:border-2 hover:text-[#2B3440]">Submit</label>
+                <label for="my_modal_6" class="btn flex rounded-3xl m-0 hover:bg-[#2B3440] hover:border-[#2B3440] hover:text-white">Close</label>
             </div>
+
             </div>
+            <br>
+            <?php
+        }
+        ?>
     </div>
-</div> <br>
-        ';
-    }
-    ?>
-</div>
 </body>
 <style>
-    .postingan{
-        background-color:  #D1D1D1;
-        width: 75%;
-    };
-    .isiPostingan{
-        width: 75%;
-    }
-    .main{
+    .postingan {
+        background-color: #D1D1D1;
         width: 75%;
     }
 
+    ;
+
+    .isiPostingan {
+        width: 75%;
+    }
+
+    .main {
+        width: 75%;
+    }
 </style>
+
+
+<script>
+    $('.comment').keyup(function() {
+        const box  = $(this).closest('.modal-box')
+        if(this.value.trim() != ""){
+            box.find('#btn-submit').removeClass("btn-disabled")
+        }else{
+            box.find('#btn-submit').addClass("btn-disabled")
+        }
+    })
+
+    $('.btn-submit')
+</script>
