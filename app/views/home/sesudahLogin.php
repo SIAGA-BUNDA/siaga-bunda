@@ -9,7 +9,9 @@
                     <a href="<?= BASEURL ?>home/calculator"
                         class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Calculator</a>
                     <a href="<?= BASEURL ?>home/komunitas"
-                        class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32]  transition-all duration-300 font-medium">Komunitas</a>
+                        class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Komunitas</a>
+                    <a href="<?= BASEURL ?>artikel"
+                        class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Artikel</a>
                 </div>
             </div>
             <div>
