@@ -34,7 +34,7 @@ class Postingan{
         return $this->db->resultSet();
     }
     public function getIsiPostingan(){
-        $query = "SELECT POSTINGAN_ID FROM this->table";
+        $query = "SELECT POSTINGAN_ID FROM $this->table";
         $this->db->query($query);
         $result = $this->db->resultSet();       
         $id = array_column($result, 'POSTINGAN_ID');

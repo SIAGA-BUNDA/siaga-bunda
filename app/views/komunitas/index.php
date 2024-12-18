@@ -1,5 +1,6 @@
-<body class="flex h-full bg-[#FCF1E6] font-sans items-center justify-center ">
-  <div class="main w-full bg-white">
+<body class="flex h-full bg-[#FCF1E6] flex-col font-sans items-center justify-center ">
+<?php require_once '../app/views/templates/navbar.php'?>  
+<div class="main w-full bg-white">
     <div class="justify-center flex items-center flex-col">
       <img src="<?= BASEURL ?>img/ikon.png" class="" alt="Komunitas">
       <h1 class="text-[#4D5A32] text-7xl">Komunitas</h1>
@@ -112,6 +113,6 @@
   }
 
   .main {
-    width: 75%;
+    width: 95%;
   }
 </style>
