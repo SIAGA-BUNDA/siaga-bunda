@@ -1,6 +1,6 @@
 <body>
     <div class="bg-[#FCF1E6] pt-[20px] min-h-screen ">
-        <!-- navbar -->
+
         <?php require_once '../app/views/templates/navbar.php'?>
 
 

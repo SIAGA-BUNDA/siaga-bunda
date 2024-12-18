@@ -3,11 +3,13 @@
         <div class="flex justify-start space-x-6">  
             <p class="  font-bold text-2xl pl-2 pr-10">Siaga Bunda</p>
             <a href="<?= BASEURL ?>home"
-                    class="font-semibold bg-[#D4988B] text-white text-center border-2 border-[#D4988B] rounded-3xl px-4 py-2 hover:bg-white hover:text-[#4D5A32] shadow-lg transition-all duration-300 font-medium">Home</a>
-                <a href="<?= BASEURL ?>home/calculator"
-                    class="font-semibold px-4 py-2 text-center border-2 border-[#FCF1E6] rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Calculator</a>
-                <a href="<?= BASEURL ?>home/komunitas"
-                    class="font-semibold px-4 py-2 text-center border-2 border-[#FCF1E6] rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Komunitas</a>
+                class="font-semibold bg-[#D4988B] text-white text-center border-2 border-[#D4988B] rounded-3xl px-4 py-2 hover:bg-white hover:text-[#4D5A32] shadow-lg transition-all duration-300 font-medium">Home</a>
+            <a href="<?= BASEURL ?>home/calculator"
+                class="font-semibold px-4 py-2 text-center border-2 border-[#FCF1E6] rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Calculator</a>
+            <a href="<?= BASEURL ?>home/komunitas"
+                class="font-semibold px-4 py-2 text-center border-2 border-[#FCF1E6] rounded-3xl hover:bg-white hover:text-[#4D5A3] transition-all duration-300 font-medium">Komunitas</a>
+            <a href="<?= BASEURL ?>home/artikel"
+                class="font-semibold px-4 py-2 text-center border-2 border-[#FCF1E6] rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Artikel</a>
             </div>
 
         <div class="flex justify-end space-x-4">
