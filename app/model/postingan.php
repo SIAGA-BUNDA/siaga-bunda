@@ -48,4 +48,14 @@ class Postingan{
           }
           return $isi;
     }
+    public function tambahPostingan($data, $id){
+        $judul = $data['judulPostingan'];
+        $isi = $data['isiPostingan'];
+        $query = "INSERT INTO ". $this->table . "(ISI_POSTINGAN, JUDUL_POSTINGAN, ID_USER)VALUES (:isi, :judul, :id)";
+        $this->db->query($query);
+        $this->db->bind(':isi', $isi);
+        $this->db->bind(':judul', $judul);
+        $this->db->bind(':id', $id);
+        $this->db->execute();
+    }
 }

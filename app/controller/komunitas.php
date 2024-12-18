@@ -18,4 +18,11 @@ class komunitas extends Controller
             header('Location: ' . BASEURL . 'signIn');
         }
     }
+    public function tambahPostingan(){
+        session_start();
+        $data = $_POST;
+        var_dump($data);
+        $this->model('postingan')->tambahPostingan($data, $_SESSION['user']);
+        header('Location: ' . BASEURL . 'komunitas');
+    }
 }
