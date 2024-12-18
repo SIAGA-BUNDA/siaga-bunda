@@ -38,7 +38,9 @@
     </div>
     <?php
     $a = ['aowkaowkaokw', 'tes1', 'tes2'];
-    foreach ($a as $key => $value) {
+    foreach ($data['postingan'] as $postingan) {
+      $i=0;
+      $postingan_id = $postingan['POSTINGAN_ID'];
       echo '
         <div class="flex postingann flex-col items-center justify-center w-full">        
         <div class="postingan flex flex-col items-center justify-center p-4">
@@ -59,8 +61,8 @@
             </div>
             
             <div class="isiPostingan text-justify mt-4 w-full">
-                <h2 class="font-bold underline truncate">AWIKWOAKWOAKW</h2>
-                <p class="truncate">' . $value . '</p>
+                <h2 class="font-bold underline truncate">'. $postingan['JUDUL_POSTINGAN'] .'</h2>
+                <p class="truncate">' . $data['isiPostingan'][$i] . '</p>
             </div>
             
             <div class="likeComment flex flex-row w-full mt-4">
@@ -96,6 +98,7 @@
     </div>
 </div> <br>
         ';
+        $i++;
     }
     ?>
   </div>

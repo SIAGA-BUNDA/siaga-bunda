@@ -8,7 +8,8 @@ class komunitas extends Controller
         if (isset($_SESSION['user'])) {
             $data['judul'] = 'Komunitas';
             $data['css'] = 'sebelumLogin';
-            $data['postingan'] = $this->model('postingan')->getIsiPostingan(); 
+            $data['isiPostingan'] = $this->model('postingan')->getIsiPostingan(); 
+            $data['postingan'] = $this->model('postingan')->getAllPostingan(); 
             $this->view('templates/header', $data);
             $this->view('komunitas/index', $data);
             $this->view('templates/footer');
