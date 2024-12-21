@@ -8,7 +8,7 @@
                     class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Home</a>
                 <a href="<?= BASEURL ?>home/calculator"
                     class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Calculator</a>
-                <a href="<?= BASEURL ?>home/komunitas"
+                <a href="<?= BASEURL ?>komunitas"
                     class="px-4 py-2 text-center rounded-3xl hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Komunitas</a>
                 <a href="<?= BASEURL ?>artikel"
                     class="bg-[#D4988B] text-white text-center rounded-[30px] px-4 py-2 hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">Artikel</a>
@@ -63,11 +63,9 @@
             <h1 class="text-5xl font-extrabold text-gray-800">Siaga Bunda</h1>
             <p class="text-xl text-gray-600">Scroll kebawah untuk artikel</p>
             </div>
-          <!-- Bagian Gambar dengan Overlay -->
+            <!-- Bagian Gambar dengan Overlay -->
             <div class="w-full lg:w-1/2 flex justify-center ml-auto relative">
                 <img src="<?= BASEURL ?>/img/ibuArtikel.png" alt="Literasi Bunda" class="w-full max-w-[500px] h-auto rounded-lg object-cover shadow-lg z-10">
-                <!-- Overlay Teks -->
-                <p class="absolute bottom-4 left-4 text-white text-3xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded-lg">Literasi Bunda</p>
             </div>
         </div>
     </div>
