@@ -28,4 +28,18 @@ class Komentar{
         $this->db->bind(':id', $id);
         $this->db->execute();
     }
+    public function getAllKomentar(){
+        $query = "SELECT * FROM ". $this->table;
+        $this->db->query($query);
+        return $this->db->resultSet();
+    }
+    public function tambahKomentar($data, $id) {
+        $query = "CALL insert_komentar(:isi_komentar, :user_id, :postingan_id)";
+        $this->db->query($query);
+        $this->db->bind(':isi_komentar', $data['isi_komentar']);
+        $this->db->bind(':user_id', $id);
+        $this->db->bind(':postingan_id', $data['postingan_id']);
+        $this->db->execute();
+    }
+    
 }

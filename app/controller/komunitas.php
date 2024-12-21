@@ -25,4 +25,11 @@ class komunitas extends Controller
         $this->model('postingan')->tambahPostingan($data, $_SESSION['user']);
         header('Location: ' . BASEURL . 'komunitas');
     }
+    public function tambahKomentar(){
+        session_start();
+        $data = $_POST;
+        $this->model('komentar')->tambahKomentar($data, $_SESSION['user']);
+        var_dump($data);
+        var_dump($_SESSION['user']);
+    }
 }
