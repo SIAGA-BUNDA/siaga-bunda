@@ -38,6 +38,13 @@ class User_model extends model
         $this->db->bind('email', $email);
         return $this->db->single();
     }
+
+    public function getUserByToken($token){
+        $query = "SELECT EMAIL,TO_CHAR(TOKEN_EXPIRED, 'YYYY-MM-DD HH24:MI:SS') AS TOKEN_EXPIRED from " . $this->table . " where TOKEN = :token";
+        $this->db->query($query);
+        $this->db->bind('token', $token);
+        return $this->db->single();
+    }
     public function getIdByToken($token)
     {
         $query = "SELECT ID_USER from " . $this->table . " where TOKEN = :token";
@@ -45,6 +52,14 @@ class User_model extends model
         $this->db->bind('token', $token);
         return $this->db->single()['ID_USER'];
     }
+
+    public function getEmailByToken($token){
+        $query = "SELECT EMAIL from " . $this->table . " where TOKEN = :token";
+        $this->db->query($query);
+        $this->db->bind('token', $token);
+        return $this->db->single()['EMAIL'];
+    }
+
     public function updateRegis($id)
     {
         $query = "UPDATE " . $this->table . " SET is_register = '1' WHERE ID_USER = :id";
@@ -60,6 +75,15 @@ class User_model extends model
         $this->db->query($query);
         $this->db->bind('password', $password);
         $this->db->bind('id', $id);
+        $this->db->execute();
+    }
+    public function updateToken($email,$token, $token_expired)
+    {
+        $query = "UPDATE " . $this->table . " SET token = :token, token_expired = TO_DATE (:token_expired, 'YYYY-MM-DD HH24:MI:SS') WHERE EMAIL = :email";
+        $this->db->query($query);
+        $this->db->bind('token', $token);
+        $this->db->bind('token_expired', $token_expired);
+        $this->db->bind('email', $email);
         $this->db->execute();
     }
 

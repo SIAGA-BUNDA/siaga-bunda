@@ -4,7 +4,7 @@ use Gregwar\Captcha\CaptchaBuilder;
 require '../vendor/autoload.php';
 class signIn extends controller
 {
-    private $builder ;
+    private $builder;
     public function __construct()
     {
         session_start();
@@ -18,6 +18,7 @@ class signIn extends controller
         $data['builder'] = $this->builder;
 
         $_SESSION['phrase'] = $this->builder->getPhrase();
+
         $this->view('templates/header', $data);
         $this->view('signIn/index', $data);
         $this->view('templates/footer');
@@ -30,11 +31,10 @@ class signIn extends controller
         $model = $this->model('User_model', $data);
         $data['builder'] = $this->builder;
         if ($model->validate('signIn')) {
-            if($_SESSION['phrase'] === $data['user_captcha']) {
+            if ($_SESSION['phrase'] === $data['user_captcha']) {
                 $_SESSION['user'] = $model->getUserByEmail($data['email'])['ID_USER'];
-                header("Location: " . BASEURL . "home/sesudahLogin");
-            }
-            else {   
+                header("Location: " . BASEURL . "home");
+            } else {
                 $this->index($data);
                 ?>
                 <script>

@@ -23,7 +23,8 @@ class signUp extends controller
         if ($model->validate("signUp")) {
             $email = $data['email'];
             $nama = $data['nama'];
-            $token = md5($email . date('Y-m-d H:i:s'));
+            $time = date('Y-m-d H:i:s');
+            $token = md5($email . $time);
             //email
             $mail = new PHPMailer(true);
 
