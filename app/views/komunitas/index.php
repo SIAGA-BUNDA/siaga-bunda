@@ -76,8 +76,9 @@
     </div>
     <?php
     $a = ['aowkaowkaokw', 'tes1', 'tes2'];
+    $i=0;
     foreach ($data['postingan'] as $postingan) {
-      $i=0;
+      
       $postingan_id = $postingan['POSTINGAN_ID'];
       echo '
         <div class="flex postingann flex-col items-center justify-center w-full">        
