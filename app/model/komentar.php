@@ -59,7 +59,7 @@ ON
 GROUP BY 
     p.postingan_id
 ORDER BY 
-    p.postingan_id";
+    p.postingan_id desc";
     $this->db->query($query);
     return array_column($this->db->resultSet(), 'JUMLAH_KOMENTAR');
   }

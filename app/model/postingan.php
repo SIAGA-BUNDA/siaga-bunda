@@ -33,13 +33,13 @@ class Postingan
   }
   public function getAllPostingan()
   {
-    $query = "SELECT * FROM " . $this->table . " WHERE status = 'ok'";
+    $query = "SELECT * FROM " . $this->table . " WHERE status = 'ok' order by waktu desc";
     $this->db->query($query);
     return $this->db->resultSet();
   }
   public function getIsiPostingan()
   {
-    $query = "SELECT POSTINGAN_ID FROM $this->table";
+    $query = "SELECT POSTINGAN_ID FROM $this->table" . " order by waktu desc";
     $this->db->query($query);
     $result = $this->db->resultSet();
     $id = array_column($result, 'POSTINGAN_ID');

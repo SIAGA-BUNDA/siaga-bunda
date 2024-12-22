@@ -24,7 +24,6 @@ class komunitas extends Controller
   {
     session_start();
     $data = $_POST;
-    var_dump($data);
     $this->model('postingan')->tambahPostingan($data, $_SESSION['user']);
     header('Location: ' . BASEURL . 'komunitas');
   }
@@ -34,7 +33,6 @@ class komunitas extends Controller
     $data = $_POST;
     $this->model('komentar')->tambahKomentar($data, $_SESSION['user']);
     var_dump($data);
-    var_dump($_SESSION['user']);
   }
   // Di controller, tambahkan debugging:
 public function addLike($id)
@@ -52,4 +50,8 @@ public function addLike($id)
 }
 
 }
+
+
+
+
 

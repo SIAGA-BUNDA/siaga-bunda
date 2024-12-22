@@ -56,7 +56,7 @@
             <div class="flex">
               <div class="relative w-full">
                 <input
-                  type="search"
+                  type="text"
                   id="search-dropdown"
                   class="block h-8 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
                   placeholder="Search Mockups, Logos, Design Templates..."
@@ -110,12 +110,12 @@
                 <button 
                   onclick="addLike(\'' . $postingan_id . '\')" 
                   class="like flex flex-row">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" id="loveIcon-'. $postingan_id .'" fill="none" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
                     </svg>
                     <span id="jumlah-suka-'. $postingan_id .'" class="likeCount">' . $postingan['JUMLAH_SUKA'] . '</span>
                 </button>
-                    <label  for="my_modal_6" class="komen flex-2 grow-1 flex  justify-start">
+                    <label  for="my_modal_' . $postingan_id . '" class="komen flex-2 grow-1 flex  justify-start">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" class=" w-6 h-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
                     </svg>
@@ -126,21 +126,21 @@
             </div>
 
             <!-- POP UP KOMEN -->
-            <input type="checkbox" id="my_modal_6" class="modal-toggle hidden" />
+            <input type="checkbox" id="my_modal_' . $postingan_id . '" class="modal-toggle hidden" />
             <div class="modal" role="dialog">
             <div class="modal-box bg-white w-full h-screen p-8 rounded-xl shadow-lg relative">
-            <form method="POST" action= "' . BASEURL . 'komunitas/tambahKomentar">
-                <h3 class="text-lg font-thin">user yang posting</h3>
-                <h3 class="text-lg font-thin">caption</h3>
-                <p class="py-4 font-bold">Berikan komentar anda</p>
-                <textarea name="isi_komentar" class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1" placeholder="Tulis komentar..."></textarea>
-                <div class="modal-action">
-                <input type="hidden" name="postingan_id" value="' . $postingan_id . '"/>
-                <button type="submit" class="btn bg-[#2B3440] flex items-center justify-center rounded-3xl m-0 hover:bg-[#1F2933] hover:border-[#1F2933] hover:text-white">
-                  Submit
-                </button>
-                <label for="my_modal_6" class="btn flex rounded-3xl m-0 hover:bg-[#2B3440] hover:border-[#2B3440] hover:text-[#2B3440]">Close</label>
-                </div>
+            <form id="form-' . $postingan_id . '" method="POST" action= "' . BASEURL . 'komunitas/tambahKomentar"> 
+                <h3 class="text-lg font-thin">user yang posting</h3> 
+                <h3 class="text-lg font-thin">caption</h3> 
+                <p class="py-4 font-bold">Berikan komentar anda</p> 
+                <textarea name="isi_komentar" class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1" placeholder="Tulis komentar..."></textarea> 
+                <div class="modal-action"> 
+                <input type="hidden" id="input-' . $postingan_id . '" name="postingan_id" value="' . $postingan_id . '"/> 
+                <button type="submit" class="btn bg-[#2B3440] flex items-center justify-center rounded-3xl m-0 hover:bg-[#1F2933] hover:border-[#1F2933] hover:text-white"> 
+                  Submit 
+                </button> 
+                <label for="my_modal_' . $postingan_id . '" class="btn flex rounded-3xl m-0 hover:bg-[#2B3440] hover:border-[#2B3440] hover:text-[#2B3440]">Close</label> 
+                </div> 
                 </form>
             </div>
             </div>
