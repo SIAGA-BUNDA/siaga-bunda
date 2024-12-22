@@ -32,7 +32,7 @@ class komunitas extends Controller
     session_start();
     if (isset($_SESSION['user'])) {
         $data = $_POST;
-        $this->model('postingan')->tambahPostingan($data, $_SESSION['user']);
+        $this->model('komentar')->tambahKomentar($data, $_SESSION['user']);
         header('Location: ' . BASEURL . 'komunitas');
     }else{
         header('Location: ' . BASEURL . 'signIn');
