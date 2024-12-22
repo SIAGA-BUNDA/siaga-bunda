@@ -1,4 +1,5 @@
 <?php
+require '../vendor/autoload.php';
 class home extends Controller
 {
     private $id;
@@ -7,38 +8,6 @@ class home extends Controller
         session_start();
         if (isset($_SESSION['user'])) {
             $data['judul'] = 'Home';
-            $data['css'] = 'sebelumLogin';
-            $this->view('templates/header', $data);
-            $this->view('home/index');
-            $this->view('templates/footer');
-            $this->id = $_SESSION['user'];
-        } else {
-            header('Location: ' . BASEURL . 'signIn');
-        }
-    }
-
-    public function profil()
-    {
-        session_start();
-        if (isset($_SESSION['user'])) {
-            $data['judul'] = 'Profil';
-            $data['css'] = 'sesudahLogin';
-            $this->view('templates/header', $data);
-            $this->view('home/profil');
-            $this->view('templates/footer');
-            $this->id = $_SESSION['user'];
-        } else {
-            header('Location: ' . BASEURL . 'signIn');
-        }
-    }
-    public function sesudahLogin()
-    {
-        session_start();
-        require '../vendor/autoload.php';
-        if (isset($_SESSION['user'])) {
-            $data['judul'] = 'Home';
-            $data['css'] = 'sesudahLogin';
-
             $this->id = $_SESSION['user'];
             $preRecord = $this->model('user_tracking')->getPreRecord($this->id);
             $records = $this->model('user_tracking')->getRecords($this->id);
@@ -93,8 +62,27 @@ class home extends Controller
             }
 
             $this->view('templates/header', $data);
-            $this->view('home/sesudahLogin', $data);
+            $this->view('home/dashboard', $data);
             $this->view('templates/footer');
+
+        } else {
+            $data['judul'] = 'Home';
+            $data['css'] = 'sebelumLogin';
+            $this->view('templates/header', $data);
+            $this->view('home/index');
+            $this->view('templates/footer');
+        }
+    }
+
+    public function profil()
+    {
+        session_start();
+        if (isset($_SESSION['user'])) {
+            $data['judul'] = 'Profil';
+            $this->view('templates/header', $data);
+            $this->view('home/profil');
+            $this->view('templates/footer');
+            $this->id = $_SESSION['user'];
         } else {
             header('Location: ' . BASEURL . 'signIn');
         }
@@ -109,7 +97,7 @@ class home extends Controller
             $record = $this->model('user_tracking')->getGejala($id, $week);
             echo $this->view('components/tableReport', $record);
         } else {
-            header('Location: ' . BASEURL . 'home/sesudahLogin');
+            header('Location: ' . BASEURL . 'home');
         }
     }
 
@@ -137,9 +125,9 @@ class home extends Controller
             "Pusing" => ["Tidak ada", "Ada"],
             "Sulit Tidur" => ["Tidak ada", "Ada"],
             "Jantung Berdebar" => ["Tidak ada", "Ada"],
-            "Risiko TB" =>["Tidak ada batuk >2 minggu/Kontak serumah dengan penderita TB", "Batuk >2 minggu/Kontak serumah dengan penderita TB"],
-            "Gerakan Janin" =>["Tidak ada atau <10 kali dalam 12 jam", ">10 kali dalam 12 jam"],
-            "Nyeri Perut" =>["Tidak ada", "Ada"],
+            "Risiko TB" => ["Tidak ada batuk >2 minggu/Kontak serumah dengan penderita TB", "Batuk >2 minggu/Kontak serumah dengan penderita TB"],
+            "Gerakan Janin" => ["Tidak ada atau <10 kali dalam 12 jam", ">10 kali dalam 12 jam"],
+            "Nyeri Perut" => ["Tidak ada", "Ada"],
             "Keluar Cairan" => ["Tidak ada/ Ada dalam jumlah sedikit dan tidak berbau", "Sangat banyak atau berbau"],
             "Sakit Kencing" => ["Tidak ada", "Ada"],
             "Diare" => ["Tidak ada", "Ada"]
@@ -165,7 +153,7 @@ class home extends Controller
 
         // send the captured HTML from the output buffer to the mPDF class for processing
         $mpdf->WriteHTML($html);
-        $mpdf->Output('Kondisi Kehamilan.pdf','I');
+        $mpdf->Output('Kondisi Kehamilan.pdf', 'I');
 
     }
 

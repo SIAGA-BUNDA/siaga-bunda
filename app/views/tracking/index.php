@@ -25,7 +25,7 @@
                     <h1 class="text-[#616465] btn-opt font-bold lg:text-3xl">Berapa Berat Badan Bunda Saat ini?</h1>
                     <input type="number" min="0" id="PRA_BERAT" name="berat_badan"
                         placeholder="Masukkan Berat Badan Anda..."
-                        class="mt-10 px-4 py-2 border w-[30%] border-gray-300 rounded-lg shadow-sm focus:!outline-none focus:!border-[#828381] focus:!ring-[#828381]">
+                        class="mt-10 px-4 py-2 border w-full sm:!w-1/2 lg:!w-[30%] border-gray-300 rounded-lg shadow-sm focus:!outline-none focus:!border-[#828381] focus:!ring-[#828381]">
                 </div>
                 <label
                     class="btn bg-[#D4988B] hover:bg-[#d18270] btn-disabled text-white !rounded-3xl absolute right-20 bottom-8 continue">
@@ -77,7 +77,7 @@
             if (currentStep >= 1) {
                 document.getElementById(`step-${currentStep}`).classList.remove('hidden');
             } else {
-                window.location.href = `<?= BASEURL ?>home/sesudahLogin`
+                window.location.href = `<?= BASEURL ?>home`
             }
         }
         // Function to move to the next step
@@ -89,7 +89,7 @@
                 $(`.progress-${currentStep - 1}`).val(100);
             } else {
                 $(`.progress-${currentStep - 1}`).val(100);
-                window.location.href = `<?= BASEURL ?>home/sesudahLogin`
+                window.location.href = `<?= BASEURL ?>home`
             }
         }
 

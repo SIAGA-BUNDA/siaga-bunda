@@ -1,12 +1,12 @@
 <body>
     <div class="bg-[#FCF1E6] pt-[20px] min-h-screen ">
 
-        <?php require_once '../app/views/templates/navbar.php'?>
+        <?php require_once '../app/views/templates/navbar.php' ?>
 
 
         <!-- section literasi bunda -->
         <div class="mx-4 sm:mx-6 lg:!mx-8   p-4 sm:p-6 lg:px-8 rounded-[35px] md:rounded-tr-none bg-white">
-            <h1 class="text-center text-3xl font-bold text-gray-700">Literasi Bunda</h1>
+            <h1 class="text-center text-3xl font-bold">Literasi Bunda</h1>
             <div class="swiper-container relative px-12 my-5">
                 <div class=" swiper !static">
                     <div class="swiper-wrapper">
@@ -137,7 +137,7 @@
             <div class="flex-none lg:w-full xl:w-[30rem] space-y-4">
                 <!-- section skrinning lainnya -->
                 <div class="p-4 sm:p-6 lg:p-8 rounded-xl bg-gray-300">
-                    <p class="text-[#4D5A32] text-2xl font-semibold">Rekomendasi Skrinning Bunda</p>
+                    <p class=" text-2xl font-semibold">Rekomendasi Skrinning Bunda</p>
                     <div class="bg-[#F0F0F0] rounded-lg shadow p-6 mt-4"">
                         <h2 class=" text-lg lg:text-xl font-semibold mb-3">
                         <?= $data['skrinning']["title"] ?>
@@ -147,7 +147,7 @@
                         </h3>
                         <?php require_once "../app/views/skrinning/cards/" . $data['skrinning']["medical test"] . ".php"; ?>
                         <a href="<?= BASEURL ?>skrinning">
-                            <button class="btn btn-neutral mt-5 hover:bg-[rgba(77,90,50,1)]  text-white ">
+                            <button class="btn btn-neutral mt-5 text-white ">
                                 Skrinning Lainnya
                             </button>
                         </a>
@@ -156,7 +156,7 @@
 
                 <!-- Section Ringkasan Kehamilan -->
                 <div class="p-4 sm:p-6 lg:p-8 rounded-xl bg-gray-300">
-                    <p class=" text-[#4D5A32] text-lg lg:text-2xl font-semibold">Ringkasan Kehamilan Bunda</p>
+                    <p class=" text-lg lg:text-2xl font-semibold">Ringkasan Kehamilan Bunda</p>
                     <hr class="my-3 border-[#4D5A32] opacity-50" />
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-[#b1f3f8] rounded-3xl py-4 flex flex-col gap-3 px-5">
@@ -219,7 +219,8 @@
                         <h2 class="card-title">Ayo!</h2>
                         <p> pantau perjalanan kehamilan Anda setiap minggu untuk kesehatan Ibu dan si kecil!</p>
                         <div class="card-actions justify-end">
-                            <a href="<?= BASEURL ?>tracking" <button class="btn btn-neutral">Isi Data Mingguan</button>
+                            <a href="<?= BASEURL ?>tracking">
+                                <button class="btn btn-neutral">Isi Data Mingguan</button>
                             </a>
                         </div>
                     </div>
@@ -231,7 +232,7 @@
 
                 <!-- Card Grafik Peningkatan Berat Badan -->
                 <div class="bg-slate-100 rounded-3xl p-4 lg:p-6">
-                    <h1 class="text-lg lg:text-2xl font-bold text-[#4D5A32] mb-4">Grafik Peningkatan Berat Badan Bunda
+                    <h1 class="text-lg lg:text-2xl font-bold  mb-4">Grafik Peningkatan Berat Badan Bunda
                     </h1>
                     <div class=" relative h-[25rem] lg:h-[25rem] lg:p-3 bg-white">
                         <canvas id="canvas"></canvas>
@@ -247,8 +248,8 @@
 
                 <!-- Card Pemantauan Kondisi -->
                 <div class="w-full bg-slate-100 rounded-3xl p-4 lg:p-6 flex-1">
-                    <div class="text-lg lg:text-2xl font-bold text-[#4D5A32] mb-4 flex justify-between items-center">
-                        <h1 class="text-2xl font-bold text-[#4D5A32] mb-4">Pemantauan Kondisi Bunda</h1>
+                    <div class="text-lg lg:text-2xl font-bold mb-4 flex justify-between items-center">
+                        <h1 class="text-2xl font-bold mb-4">Pemantauan Kondisi Bunda</h1>
                         <?php if (!empty($data['records'])) { ?>
                             <div class="relative">
                                 <button id="dropdownButton" class="btn m-1 !w-[8rem]  bg-gray-400 ">
@@ -318,11 +319,6 @@
                     $(this).children('p').removeClass('hidden');
                 }
             });
-
-            // $('#navbar a').on('click',()=>{
-            //     $('#active-nav').removeAttr('id');
-            //     $(this).attr("id","active-nav");
-            // })
         });
         // START TABLE RECORD FUNCTION
         const dropdownButton = document.getElementById('dropdownButton');

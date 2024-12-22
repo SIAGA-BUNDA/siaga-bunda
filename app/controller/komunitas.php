@@ -30,9 +30,15 @@ class komunitas extends Controller
   public function tambahKomentar()
   {
     session_start();
-    $data = $_POST;
-    $this->model('komentar')->tambahKomentar($data, $_SESSION['user']);
-    var_dump($data);
+    session_start();
+    if (isset($_SESSION['user'])) {
+        $data = $_POST;
+        var_dump($data);
+        $this->model('postingan')->tambahPostingan($data, $_SESSION['user']);
+        header('Location: ' . BASEURL . 'komunitas');
+    }else{
+        header('Location: ' . BASEURL . 'signIn');
+    }
   }
   // Di controller, tambahkan debugging:
 public function addLike($id)
