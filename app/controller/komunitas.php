@@ -5,16 +5,20 @@ class komunitas extends Controller
     public function index()
     {
         session_start();
-        $data['judul'] = 'Komunitas';
-        $data['css'] = 'sebelumLogin';
-        $data['isiPostingan'] = $this->model('postingan')->getIsiPostingan();
-        $data['postingan'] = $this->model('postingan')->getAllPostingan();
-        $this->view('templates/header', $data);
-        $this->view('komunitas/index', $data);
-        $this->view('templates/footer');
+        if (isset($_SESSION['user'])) {
+            $data['judul'] = 'Komunitas';
+            $data['css'] = 'sebelumLogin';
+            $data['isiPostingan'] = $this->model('postingan')->getIsiPostingan(); 
+            $data['postingan'] = $this->model('postingan')->getAllPostingan(); 
+            $this->view('templates/header', $data);
+            $this->view('komunitas/index', $data);
+            $this->view('templates/footer');
+            $this->id = $_SESSION['user'];
+        } else {
+            header('Location: ' . BASEURL . 'signIn');
+        }
     }
-    public function tambahPostingan()
-    {
+    public function tambahPostingan(){
         session_start();
         if (isset($_SESSION['user'])) {
             $data = $_POST;
@@ -24,5 +28,12 @@ class komunitas extends Controller
         }else{
             header('Location: ' . BASEURL . 'signIn');
         }
+    }
+    public function tambahKomentar(){
+        session_start();
+        $data = $_POST;
+        $this->model('komentar')->tambahKomentar($data, $_SESSION['user']);
+        var_dump($data);
+        var_dump($_SESSION['user']);
     }
 }

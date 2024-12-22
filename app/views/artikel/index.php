@@ -18,6 +18,7 @@
                 <p class="text-xl text-gray-600">Scroll kebawah untuk artikel</p>
             </div>
             <!-- Bagian Gambar dengan Overlay -->
+            <!-- Bagian Gambar dengan Overlay -->
             <div class="w-full lg:w-1/2 flex justify-center ml-auto relative">
                 <img src="<?= BASEURL ?>/img/ibuArtikel.png" alt="Literasi Bunda"
                     class="w-full max-w-[500px] h-auto rounded-lg object-cover shadow-lg z-10">
