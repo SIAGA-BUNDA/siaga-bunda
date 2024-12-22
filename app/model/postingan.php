@@ -74,4 +74,26 @@ class Postingan
     $this->db->bind(':id', $id);
     return $this->db->single()['JUMLAH_SUKA'];
   }
+  public function getIsiPostinganBySearch($searchInput){
+    $query = "SELECT POSTINGAN_ID FROM $this->table" . " where judul_postingan like :search or isi_postingan like :search order by waktu desc";
+    $this->db->query($query);
+    $this->db->bind(':search', "%".$searchInput."%");
+    $result = $this->db->resultSet();
+    $id = array_column($result, 'POSTINGAN_ID');
+    foreach ($id as $r) {
+      $query = 'select ISI_POSTINGAN from POSTINGAN' . " where POSTINGAN_ID = '" . $r . "'";
+      $this->db->query($query);
+      $lobresult = $this->db->single()['ISI_POSTINGAN'];
+      $lob = stream_get_contents($lobresult);
+      $isi[] = $lob;
+      unset($lob);
+    }
+    return isset($isi)? $isi : null;
+  }
+  public function getAllPostinganBySearch($searchInput) {
+    $query = "SELECT * FROM " . $this->table . " WHERE status = 'ok' and judul_postingan LIKE :search OR isi_postingan LIKE :search order by waktu desc";
+    $this->db->query($query);
+    $this->db->bind(':search', "%".$searchInput."%");
+    return $this->db->resultSet();
+  }
 }

@@ -52,15 +52,34 @@ class Komentar
     COUNT(k.komentar_id) AS jumlah_komentar
     FROM 
     postingan p
-LEFT JOIN 
-    komentar k
-ON 
-    p.postingan_id = k.postingan_id
-GROUP BY 
-    p.postingan_id
-ORDER BY 
+    LEFT JOIN 
+        komentar k
+    ON 
+        p.postingan_id = k.postingan_id
+    GROUP BY 
+        p.postingan_id
+    ORDER BY 
     p.postingan_id desc";
     $this->db->query($query);
+    return array_column($this->db->resultSet(), 'JUMLAH_KOMENTAR');
+  }
+  public function getCommentCountBySearch($searchInput){
+    $query = "SELECT 
+    COUNT(k.komentar_id) AS jumlah_komentar
+    FROM 
+    postingan p
+    LEFT JOIN 
+        komentar k
+    ON 
+        p.postingan_id = k.postingan_id
+    WHERE 
+            p.judul_postingan LIKE :search OR p.isi_postingan LIKE :search
+    GROUP BY 
+        p.postingan_id
+    ORDER BY 
+    p.postingan_id desc";
+    $this->db->query($query);
+    $this->db->bind(':search', '%'. $searchInput. '%');
     return array_column($this->db->resultSet(), 'JUMLAH_KOMENTAR');
   }
 }

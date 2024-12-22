@@ -30,10 +30,8 @@ class komunitas extends Controller
   public function tambahKomentar()
   {
     session_start();
-    session_start();
     if (isset($_SESSION['user'])) {
         $data = $_POST;
-        var_dump($data);
         $this->model('postingan')->tambahPostingan($data, $_SESSION['user']);
         header('Location: ' . BASEURL . 'komunitas');
     }else{
@@ -53,6 +51,28 @@ public function addLike($id)
         echo json_encode(['error' => $e->getMessage()]);
         exit;
     }
+}
+public function search()
+{
+    session_start();
+    if (isset($_SESSION['user'])) {
+      $data['judul'] = 'Komunitas';
+      $data['css'] = 'sebelumLogin';
+      if (isset($_POST['search'])) {
+        $searchInput = $_POST['search'];
+        $data['isiPostingan'] = $this->model('postingan')->getIsiPostinganBySearch($searchInput);
+        $data['postingan'] = $this->model('postingan')->getAllPostinganBySearch($searchInput);
+        $data['commentCount'] = $this->model('komentar')->getCommentCountBySearch($searchInput);
+        $data['script'] = BASEURL . 'script/komunitas.js';
+        $this->view('templates/header', $data);
+        $this->view('komunitas/index', $data);
+        $this->view('templates/footer');
+        $this->id = $_SESSION['user'];
+    }
+      
+    } else {
+      header('Location: ' . BASEURL . 'signIn');
+    }   
 }
 
 }
