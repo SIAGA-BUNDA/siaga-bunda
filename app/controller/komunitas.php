@@ -74,6 +74,12 @@ public function search()
       header('Location: ' . BASEURL . 'signIn');
     }   
 }
+public function addLaporanPostingan(){
+    $data = $_POST;
+    session_start();
+    $data['id_user'] = $_SESSION['user'];
+    $this->model('laporan')->addLaporanPostingan($data);
+}
 
 }
 

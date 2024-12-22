@@ -87,7 +87,7 @@
       $postingan_id = $postingan['POSTINGAN_ID'];
       echo '
         <div class="flex postingann flex-col items-center justify-center w-full">        
-        <div class="postingan flex flex-col items-center justify-center p-4">
+        <div class="postingan border rounded-lg p-4 shadow-sm bg-white flex flex-col items-center justify-center p-4">
             <div class="postinganAtas flex flex-row w-full">
                 <div class="profil flex-1 ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="rounded-full bg-[#DDE4C4] w-6 h-6">
@@ -96,11 +96,11 @@
 
                 </div>
                 <div class="options flex-1 flex items-end justify-end">
-                    <button>
+                    <label  for="options_modal_' . $postingan_id . '" class="options flex-2 grow-1 flex  justify-start">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
-                    </button>
+                    </label>
                 </div>
             </div>
             
@@ -148,6 +148,22 @@
                 </form>
             </div>
             </div>
+            <input type="checkbox" id="options_modal_' . $postingan_id . '" class="modal-toggle hidden" />
+            <div class="modal" role="dialog">
+            <div class="modal-box bg-white w-full h-screen p-8 rounded-xl shadow-lg relative">
+            <form id="form-' . $postingan_id . '" method="POST" action= "' . BASEURL . 'komunitas/addLaporanPostingan"> 
+                <p class="py-4 font-bold">Laporkan postingan ini</p> 
+                <textarea name="isi_laporan" class="w-full h-60 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1" placeholder="Tulis Laporan..."></textarea> 
+                <div class="modal-action"> 
+                <input type="hidden" id="input-' . $postingan_id . '" name="postingan_id" value="' . $postingan_id . '"/> 
+                <button type="submit" class="btn bg-[#2B3440] flex items-center justify-center rounded-3xl m-0 hover:bg-[#1F2933] hover:border-[#1F2933] hover:text-white"> 
+                  Submit 
+                </button> 
+                <label for="options_modal_' . $postingan_id . '" class="btn flex rounded-3xl m-0 hover:bg-[#2B3440] hover:border-[#2B3440] hover:text-[#2B3440]">Close</label> 
+                </div> 
+                </form>
+            </div>
+            </div>
     </div>
 </div> <br>
         ';
@@ -158,7 +174,7 @@
 </body>
 <style>
   .postingan {
-    background-color: #D1D1D1;
+    background-color: #ffff;
     width: 75%;
   }
 
