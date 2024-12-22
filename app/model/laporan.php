@@ -69,7 +69,7 @@ class Laporan{
           return $isi;
     }
     public function addLaporanPostingan($data){
-        $query = "INSERT INTO " . $this->table . " (ID_user, postingan_id, isi_laporan) VALUES (:id_user, :postingan_id, :isi_laporan)"; 
+        $query = "call insert_laporan_postingan (:id_user, :postingan_id, :isi_laporan)"; 
         $this->db->query($query);
         $this->db->bind(':id_user', $data['id_user']);
         $this->db->bind(':postingan_id', $data['postingan_id']);
@@ -77,3 +77,4 @@ class Laporan{
         $this->db->execute();
     }
 }
+
