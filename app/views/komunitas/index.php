@@ -52,15 +52,16 @@
         </div>
 
         <div class="flex-[3]">
-          <form class="max-w-lg mx-auto">
+          <form class="max-w-lg mx-auto" action="<?=BASEURL?>komunitas/search" method="POST">
             <div class="flex">
               <div class="relative w-full">
                 <input
                   type="text"
                   id="search-dropdown"
+                  name="search"
                   class="block h-8 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
                   placeholder="Search Mockups, Logos, Design Templates..."
-                  required />
+                   />
                 <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white  rounded-e-lg border  focus:ring-4 focus:outline-none">
                   <svg class="w-4 h-4 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -77,6 +78,9 @@
     <div class="flex w-full flex-row">
     </div>
     <?php
+    if (empty($data['postingan']) or empty($data['isiPostingan'])) {
+      echo '<h1 class="text-center">Tidak ada hasil ditemukan untuk pencarian ini.</p>';
+  } else {
     $i = 0;
     foreach ($data['postingan'] as $postingan) {
 
@@ -148,7 +152,7 @@
 </div> <br>
         ';
       $i++;
-    }
+    }}
     ?>
   </div>
 </body>
