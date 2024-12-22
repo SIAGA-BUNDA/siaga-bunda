@@ -10,7 +10,7 @@
                     </button>
                 </a>
                 <!-- Ultrasound -->
-                <a href="<?= BASEURL ?>kalkulator/ultrasound.php">
+                <a href="<?= BASEURL ?>kalkulator/index.php">
                     <button class="relative flex items-center justify-center w-32 h-12 bg-[#D4988B] rounded-2xl shadow-sm transform transition duration-300 hover:scale-110 hover:shadow-xl hover:bg-[#be7766] cursor-pointer">
                         <span class="text-white text-lg font-semibold">Ultrasound</span>
                     </button>
@@ -21,11 +21,18 @@
             <!-- input tanggal -->
             <div class="flex flex-col items-center">
                 <label for="date" class="mb-2 text-lg font-medium text-gray-700">
-                    LMP Date:
+                Ultrasound Date:
                 </label>
-                <input type="date" id="date" class="border-2 border-[#D4988B] rounded-xl px-4 py-2 w-1/3 h-16 focus:outline-none focus:ring-2 focus:ring-[#D4988B] focus:border-[#D4988B] text-gray-700" placeholder="mm/dd/yyyy">
+                <input type="date" id="date" class="border-2 border-[#D4988B] rounded-xl px-4 py-2 w-1/3 h-16 focus:outline-none focus:ring-2 focus:ring-[#D4988B] focus:border-[#D4988B] text-gray-700 placeholder-transparent sm:placeholder-gray-500" placeholder="mm/dd/yyyy">
             </div>
-            
+
+            <!-- input weeks & days-->
+            <div class="my-8">
+                <div class="flex justify-center items-center space-x-4">
+                    <input type="number" id="weeks" class="border-2 border-[#D4988B] rounded-xl px-4 py-2 w-1/6 h-16 focus:outline-none focus:ring-2 focus:ring-[#D4988B] focus:border-[#D4988B] text-gray-700 placeholder-transparent sm:placeholder-gray-700" placeholder="Weeks">
+                    <input type="number" id="days" class="border-2 border-[#D4988B] rounded-xl px-4 py-2 w-1/6 h-16 focus:outline-none focus:ring-2 focus:ring-[#D4988B] focus:border-[#D4988B] text-gray-700 placeholder-transparent sm:placeholder-gray-700" placeholder="Days">
+                </div>
+            </div>
             <!-- calculate -->
             <div class="flex justify-center my-8">
                 <button class="relative flex items-center justify-center w-32 h-12 bg-gray-700 text-white rounded-2xl shadow-sm transform transition duration-300 hover:scale-110 hover:shadow-xl hover:bg-black cursor-pointer">
