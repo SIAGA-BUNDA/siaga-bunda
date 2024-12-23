@@ -1,17 +1,20 @@
 <script>
     const BASEURL = "<?= BASEURL ?>";
 </script>
-<body class="flex h-full bg-[#FCF1E6] flex-col font-sans items-center justify-center ">
+<body class="bg-[#FCF1E6] pt-[20px] pb-[69px] min-h-screen">
   <?php require_once '../app/views/templates/navbar.php' ?>
-  <div class="main w-full bg-white">
+  <div class="mx-4 sm:mx-6 lg:!mx-8 p-4 sm:p-6 lg:px-8 rounded-[35px] md:rounded-tr-none bg-white">
     <div class="justify-center flex items-center flex-col">
       <img src="<?= BASEURL ?>img/ikon.png" class="" alt="Komunitas">
-      <h1 class="text-[#4D5A32] text-7xl">Komunitas</h1>
+      <h1 class="text-center text-3xl font-bold text-gray-700 pb-5">Komunitas</h1>
       <div class="justify-start flex-1 w-3/4 mt-7 items-start flex gap-4 flex-row text-start">
-        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="bg-[#2B3440] items-center h-7 flex-[1] rounded-lg flex flex-row gap-3">
+        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="bg-[#2B3440] items-center h-7 flex-[1] py-4 rounded-xl flex flex-row gap-3">
           <img src="<?= BASEURL ?>img/plus.svg" class="w-5 pl-2">
-          <p class="text-white">
-            Buat Postingan
+          <p class="text-white hidden sm:block">
+            Buat Postingan Baru
+          </p>
+          <p class="text-white text-xs block sm:hidden">
+            Posting
           </p>
         </button>
         <!-- Main modal -->
@@ -62,8 +65,8 @@
                   type="text"
                   id="search-dropdown"
                   name="search"
-                  class="block h-8 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                  placeholder="Search Mockups, Logos, Design Templates..."
+                  class="block h-8 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                  placeholder="Search here..."
                    />
                 <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white  rounded-e-lg border  focus:ring-4 focus:outline-none">
                   <svg class="w-4 h-4 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -90,17 +93,17 @@
       $postingan_id = $postingan['POSTINGAN_ID'];
       echo '
         <div class="flex postingann flex-col items-center justify-center w-full">        
-        <div class="postingan border rounded-lg p-4 shadow-sm bg-white flex flex-col items-center justify-center p-4">
+        <div class="postingan border rounded-xl shadow-sm bg-white flex flex-col items-center justify-center p-4">
             <div class="postinganAtas flex flex-row w-full">
                 <div class="profil flex flex-row gap-3 flex-1 ">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="rounded-full bg-[#DDE4C4] w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="rounded-full bg-[#DDE4C4] w-7 h-7">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                     </svg>
                     <p>'.$postingan['NAMA'] .'</p>
                 </div>
                 <div class="options flex-1 flex items-end justify-end">
                     <label  for="options_modal_' . $postingan_id . '" class="options flex-2 grow-1 flex  justify-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                     </label>
