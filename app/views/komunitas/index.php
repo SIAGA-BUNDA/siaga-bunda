@@ -157,7 +157,7 @@
           </a>
           <!-- POP UP KOMEN -->
           <input type="checkbox" id="my_modal_<?= $postingan_id ?>" class="modal-toggle hidden" />
-          <div class="modal" role="dialog">
+          <form class="modal" role="dialog" action="<?= BASEURL ?>komunitas/tambahKomentar" method="POST">
             <div class="modal-box bg-white w-full h-50 p-8 rounded-xl shadow-lg relative">
               <div class="w-full mt-10 p-5 rounded-md bg-[#ececec] border border-[#D9D9D9] ">
                 <div class="flex items-center gap-2">
@@ -168,22 +168,24 @@
               </div>
               <div class="mx-2">
                 <p class="py-4 font-semibold">Berikan komentar anda</p>
-                <textarea class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1 comment"
+                <textarea name="isi_komentar"
+                  class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1 comment"
                   placeholder="Tulis komentar..."></textarea>
               </div>
               <div class="modal-action">
+                <input type="hidden" id="input-<?= $postingan_id ?>" name="postingan_id" value="<?= $postingan_id ?>" />
                 <label for="my_modal_<?= $postingan_id ?>"
                   class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
-                <label for="#" class="btn btn-neutral btn-disabled" id="btn-submit">Submit</label>
+                <button type="submit" class="!btn !btn-neutral !btn-disabled" id="btn-submit">Submit</button>
               </div>
             </div>
             <label for="my_modal_<?= $postingan_id ?>" class="modal-backdrop"></label>
-          </div>
+          </form>
 
           <!-- POP UP REPORT -->
           <input type="checkbox" id="options_modal_<?= $postingan_id ?>" class="modal-toggle hidden" />
-          <div class="modal" role="dialog">
-            <div class="modal-box bg-white w-full h-50 p-8 rounded-xl shadow-lg relative">
+          <form class="modal" role="dialog" method="POST" action="<?= BASEURL ?>komunitas/addLaporanPostingan">
+            <div class=" modal-box bg-white w-full h-50 p-8 rounded-xl shadow-lg relative">
               <div class="w-full mt-10 p-5 rounded-md bg-[#ececec] border border-[#D9D9D9] ">
                 <div class="flex items-center gap-2">
                   <i class=" fa-solid fa-user text-gray-700 mt-1"></i>
@@ -193,17 +195,18 @@
               </div>
               <div class="mx-2">
                 <p class="py-4 font-semibold">Berikan Keterangan</p>
-                <textarea class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1 comment"
+                <textarea name="isi_laporan" class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1 comment"
                   placeholder="Tulis komentar..."></textarea>
               </div>
               <div class="modal-action">
+                <input type="hidden" id="input-<?= $postingan_id ?>" name="postingan_id" value="<?= $postingan_id ?>" />
                 <label for="options_modal_<?= $postingan_id ?>"
                   class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
-                <label for="#" class="btn btn-neutral btn-disabled" id="btn-submit">Submit</label>
+                <button type="submit" class="!btn !btn-neutral !btn-disabled" id="btn-submit">Submit</button>
               </div>
             </div>
             <label for="options_modal_<?= $postingan_id ?>" class="modal-backdrop"></label>
-          </div>
+          </form>
         </div> <br>
         <?php
         $i++;

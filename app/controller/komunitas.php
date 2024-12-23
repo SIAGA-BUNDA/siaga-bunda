@@ -76,10 +76,15 @@ class komunitas extends Controller
   }
   public function addLaporanPostingan()
   {
-    $data = $_POST;
     session_start();
-    $data['id_user'] = $_SESSION['user'];
-    $this->model('laporan')->addLaporanPostingan($data);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $data = $_POST;
+      $data['id_user'] = $_SESSION['user'];
+      $this->model('laporan')->addLaporanPostingan($data);
+      header('Location: ' . BASEURL . 'komunitas');
+    }else{
+      
+    }
   }
   public function komentar($id)
   {
