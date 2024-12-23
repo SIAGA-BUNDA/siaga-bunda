@@ -1,3 +1,11 @@
+<script>
+      tinymce.init({
+        selector: 'textarea',
+        license_key: 'gpl',
+        height: 280
+      });
+</script>
+
 <body class="h-full bg-[#C1CFA1] font-sans overflow-hidden">
   <!-- Header -->
   <header class="bg-white shadow-md p-4 flex justify-between items-center rounded-xl mx-6 my-4">

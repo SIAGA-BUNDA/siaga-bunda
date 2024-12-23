@@ -8,7 +8,7 @@
     <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="expires" content="0">
-
+<script src="<?=BASEURL?>script/tinymce/tinymce.js" referrerpolicy="origin"></script>
     <!-- <link rel="stylesheet" href="<?= BASEURL ?>style/<?= $data['css'] ?>.css"> -->
     <link rel="stylesheet" href="<?=BASEURL?>/style/output.css">
     
