@@ -18,3 +18,8 @@ function showContent(contentId) {
     });
     element.classList.add('font-bold', 'text-green-950');
     }
+
+    tinymce.init({
+        selector: 'textarea',
+        license_key: 'gpl'
+      });

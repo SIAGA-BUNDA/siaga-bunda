@@ -119,16 +119,15 @@ class Komentar
     $this->db->bind(':id', $id);
     $result = $this->db->resultSet();
     $id = array_column($result, 'KOMENTAR_ID');
-    foreach ($id as $r) {
-      $query = 'select ISI_KOMENTAR from KOMENTAR' . " where KOMENTAR_ID = '" . $r . "'";
-      $this->db->query($query);
-      $lobresult = $this->db->single()['ISI_KOMENTAR'];
-      $lob = stream_get_contents($lobresult);
-      $isi[] = $lob;
-      unset($lob);
-    }
-    return $isi;
-  }
+
+    foreach($id as $r) {
+        $query = 'select ISI_KOMENTAR from KOMENTAR' ." where KOMENTAR_ID = '" . $r. "'";
+        $this->db->query($query);
+        $lobresult = $this->db->single()['ISI_KOMENTAR'];
+          $lob = stream_get_contents($lobresult);
+          $isi[] = $lob;
+          unset($lob);
+      }
+      return isset($isi)? $isi : null;
 }
-
-
+}

@@ -17,7 +17,14 @@ function addLike(postingan_id) {
     },
   });
 }
-
+$('.comment').keyup(function () {
+  const box = $(this).closest('.modal-box')
+  if (this.value.trim() != "") {
+    box.find('#btn-submit').removeClass("btn-disabled")
+  } else {
+    box.find('#btn-submit').addClass("btn-disabled")
+  }
+})
 $(document).ready(function () {
     let timeout; 
   

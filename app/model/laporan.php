@@ -83,4 +83,3 @@ class Laporan
         $this->db->execute();
     }
 }
-
