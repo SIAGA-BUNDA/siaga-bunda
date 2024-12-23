@@ -36,7 +36,7 @@
         <div class="flex justify-end mb-6 relative">
             <input type="text" id="searchInput" placeholder="Cari Artikel"
                 class="w-full md:w-1/2 border rounded-full py-2 px-6 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#D4988B]">
-            <button onclick="searchArticles()" class="absolute right-[15%] md:right-[26%] top-2.5">
+            <button onclick="searchArticles()" class="absolute right-1 md:right-[2%] top-2.5">
                 <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
             </button>
         </div>
