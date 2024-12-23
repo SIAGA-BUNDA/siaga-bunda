@@ -33,7 +33,7 @@ class Postingan
   }
   public function getAllPostingan()
   {
-    $query = "SELECT * FROM " . $this->table . " WHERE status = 'ok' order by waktu desc";
+    $query = "SELECT * FROM " . $this->table . " p join USERACCOUNT u on p.id_user = u.id_user  WHERE p.status = 'ok' order by waktu desc";
     $this->db->query($query);
     return $this->db->resultSet();
   }

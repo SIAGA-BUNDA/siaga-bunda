@@ -28,20 +28,20 @@
             <p class="text-gray-600 leading-relaxed mb-4"><?=$data['isi_postingan']?></p>
             <!-- tombol laiks -->
             <div class="flex space-x-3 text-gray-500 text-sm">
-                <button class="group hover:text-gray-800 flex items-center space-x-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 group-hover:fill-red-500 group-hover:stroke-red-500">
+                <div class="flex items-center space-x-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
                         <path d="M12 21s-6-5.33-9-9.33C1.13 9.34 2.76 5.5 6.5 5.5c2.04 0 3.54 1.23 4.5 2.68C12.96 6.73 14.46 5.5 16.5 5.5c3.74 0 5.37 3.84 3.5 6.17-3 4-9 9.33-9 9.33z"/>
                     </svg>
                     <span><?=$data['postingan']['JUMLAH_SUKA']?></span>
-                </button>
+                </div>
                 
             <!-- tombol komentar -->
-                <button class="group hover:text-gray-700 flex items-center space-x-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 group-hover:fill-gray-500 group-hover:stroke-gray-500">
+                <div class=" flex items-center space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 ">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.272 9-7.305 0-4.032-4.03-7.305-9-7.305S3 8.913 3 12.945c0 1.49.593 2.882 1.637 4.005a12.147 12.147 0 0 1-.958 3.56c-.074.195.132.383.316.286a11.43 11.43 0 0 0 3.955-2.28 9.015 9.015 0 0 0 4.05.735z"/>
                     </svg>
                     <span><?=$data['commentCount']?></span>
-                </button>
+                </div>
             </div>
         </div>
         
