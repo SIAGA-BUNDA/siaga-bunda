@@ -38,6 +38,8 @@ class pageAdmin extends Controller{
         if($this->model('Admin_model')->validate($data)){
             $_SESSION['admin'] = $this->model('Admin_model')->getId($data['username']);
             header('Location: '. BASEURL.'pageAdmin');
+        }else{
+            header('Location: '. BASEURL.'pageAdmin/loginAdmin');
         }
     }
     public function tambahArtikel(){

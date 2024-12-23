@@ -87,7 +87,7 @@
       $postingan_id = $postingan['POSTINGAN_ID'];
       echo '
         <div class="flex postingann flex-col items-center justify-center w-full">        
-        <div onclick="window.location.href=\''. BASEURL .'komunitas/komentar/'. $postingan_id .'\'" class="postingan border rounded-lg p-4 shadow-sm bg-white flex flex-col items-center justify-center p-4">
+        <div class="postingan border rounded-lg p-4 shadow-sm bg-white flex flex-col items-center justify-center p-4">
             <div class="postinganAtas flex flex-row w-full">
                 <div class="profil flex flex-row gap-3 flex-1 ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="rounded-full bg-[#DDE4C4] w-6 h-6">
@@ -105,8 +105,8 @@
             </div>
             
             <div class="isiPostingan text-justify mt-4 w-full">
-                <h2 class="font-bold underline truncate">' . $postingan['JUDUL_POSTINGAN'] . '</h2>
-                <p class="truncate">' . $data['isiPostingan'][$i] . '</p>
+                <h2 onclick="window.location.href=\''. BASEURL .'komunitas/komentar/'. $postingan_id .'\'" class="font-bold underline truncate">' . $postingan['JUDUL_POSTINGAN'] . '</h2>
+                <p onclick="window.location.href=\''. BASEURL .'komunitas/komentar/'. $postingan_id .'\'" class="truncate">' . $data['isiPostingan'][$i] . '</p>
             </div>
             
             <div class="likeComment flex flex-row w-full mt-4">
