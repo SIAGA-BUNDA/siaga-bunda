@@ -97,7 +97,9 @@ class komunitas extends Controller
       $data['isi_postingan'] = $this->model('postingan')->getIsiPostinganById($id);
       $data['commentCount'] = $this->model('komentar')->getCommentCountById($id);
       $data['komentar'] = $this->model('komentar')->getAllKomentarById($id);
-      $data['isiKomentar'] = $this->model('komentar')->getIsiKomentarById($id);
+      if($this->model('komentar')->getIsiKomentarById($id) !== null){
+        $data['isiKomentar'] = $this->model('komentar')->getIsiKomentarById($id);
+      }
       $this->view('templates/header', $data);
       $this->view('komentar/index', $data);
       $this->view('templates/footer');

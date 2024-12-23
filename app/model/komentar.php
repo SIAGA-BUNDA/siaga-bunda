@@ -124,8 +124,6 @@ class Komentar
           $isi[] = $lob;
           unset($lob);
       }
-      return $isi;
+      return isset($isi)? $isi : null;
 }
 }
-
-

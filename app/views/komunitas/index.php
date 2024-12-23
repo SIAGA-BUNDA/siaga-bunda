@@ -176,7 +176,7 @@
                 <input type="hidden" id="input-<?= $postingan_id ?>" name="postingan_id" value="<?= $postingan_id ?>" />
                 <label for="my_modal_<?= $postingan_id ?>"
                   class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
-                <button type="submit" class="!btn !btn-neutral !btn-disabled" id="btn-submit">Submit</button>
+                <button type="submit" class="!btn !btn-neutral" id="btn-submit">Submit</button>
               </div>
             </div>
             <label for="my_modal_<?= $postingan_id ?>" class="modal-backdrop"></label>
@@ -202,7 +202,7 @@
                 <input type="hidden" id="input-<?= $postingan_id ?>" name="postingan_id" value="<?= $postingan_id ?>" />
                 <label for="options_modal_<?= $postingan_id ?>"
                   class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
-                <button type="submit" class="!btn !btn-neutral !btn-disabled" id="btn-submit">Submit</button>
+                <button type="submit" class="!btn !btn-neutral" id="btn-submit">Submit</button>
               </div>
             </div>
             <label for="options_modal_<?= $postingan_id ?>" class="modal-backdrop"></label>
