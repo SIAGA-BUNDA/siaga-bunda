@@ -1,6 +1,6 @@
 <body class="bg-[#FCF1E6] pt-[20px] min-h-screen">
     <!-- Navbar -->
-    <?php require_once '../app/views/templates/navbar.php'; ?>
+    <?php require_once('../app/views/templates/' . (isset($_SESSION['user']) ? 'navbar.php' : 'navbarUser.php')) ?>
 
     <!-- Hero Section -->
     <div class="lg:mx-8 sm:mx-6 p-4 sm:p-6 lg:px-8 rounded-[35px] rounded-tr-none bg-white mb-10">
@@ -12,7 +12,7 @@
                     <img src="<?= BASEURL ?>/img/logo.png" alt="SIAGA BUNDA" class="w-40 h-40 object-contain">
                 </div>
                 <!-- Teks -->
-                <p class="font-bold text-xl md:text-4xl text-[#4D5A32] leading-relaxed">Temukan dukungan dan informasi
+                <p class="font-bold text-xl md:text-4xl ext-gray-500 leading-relaxed">Temukan dukungan dan informasi
                     terpercaya untuk perjalanan kehamilanmu!</p>
                 <h1 class="text-5xl font-extrabold text-gray-800">Siaga Bunda</h1>
                 <p class="text-xl text-gray-600">Scroll kebawah untuk artikel</p>

@@ -1,5 +1,6 @@
 <?php
-class Artikel{
+class Artikel
+{
     private $table = 'ARTIKEL';
 
     private $db, $data;
@@ -8,6 +9,7 @@ class Artikel{
     {
         $this->db = new database();
     }
+
     public function tambahArtikel($data){
         $query = "INSERT INTO " . $this->table . " (judul_artikel, isi_artikel, admin_id, path) 
                 VALUES (:judul_artikel, :isi_artikel, :admin_id, :path)";
@@ -20,28 +22,31 @@ class Artikel{
         
         return $this->db->execute();
     }
-    public function getAllArtikel(){
-        $query = "SELECT * FROM ". $this->table. " ORDER BY WAKTU DESC";
+    public function getAllArtikel()
+    {
+        $query = "SELECT * FROM " . $this->table . " ORDER BY WAKTU DESC";
         $this->db->query($query);
         return $this->db->resultSet();
     }
-    public function getIsiArtikel(){
+    public function getIsiArtikel()
+    {
         $query = "SELECT ARTIKEL_ID FROM " . $this->table;
         $this->db->query($query);
-        $result = $this->db->resultSet();       
+        $result = $this->db->resultSet();
         $id = array_column($result, 'ARTIKEL_ID');
-        foreach($id as $r) {
-            $query = 'select ISI_ARTIKEL from ' . $this->table ." where ARTIKEL_ID = '" . $r. "'";
+        foreach ($id as $r) {
+            $query = 'select ISI_ARTIKEL from ' . $this->table . " where ARTIKEL_ID = '" . $r . "'";
             $this->db->query($query);
             $lobresult = $this->db->single()['ISI_ARTIKEL'];
-              $lob = stream_get_contents($lobresult);
-              $isi[] = $lob;
-              unset($lob);
-          }
-          return $isi;
+            $lob = stream_get_contents($lobresult);
+            $isi[] = $lob;
+            unset($lob);
+        }
+        return $isi;
     }
-    public function hapusArtikel($id){
-        $query = "UPDATE ". $this->table. " set status = 'hidden' where ARTIKEL_ID = :id";
+    public function hapusArtikel($id)
+    {
+        $query = "UPDATE " . $this->table . " set status = 'hidden' where ARTIKEL_ID = :id";
         $this->db->query($query);
         $this->db->bind(':id', $id);
         $this->db->execute();

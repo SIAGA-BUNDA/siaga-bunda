@@ -10,6 +10,5 @@ class artikel extends Controller
         $this->view('templates/header', $data);
         $this->view('artikel/index');
         $this->view('templates/footer');
-        $this->id = $_SESSION['user'];
     }
 }

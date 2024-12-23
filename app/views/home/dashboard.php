@@ -212,13 +212,14 @@
                 </div>
 
                 <!-- Card Input Button -->
-                <div class="card bg-base-100 shadow-xl w-full mt-5 <?= $data['isRecorded'] ? 'hidden' : '' ?>">
+                <div class="card bg-base-100 shadow-xl w-full mt-5">
                     <div class="card-body my-0">
                         <h2 class="card-title">Ayo!</h2>
                         <p>Pantau perjalanan kehamilan Anda setiap minggu untuk kesehatan Ibu dan si kecil!
                         </p>
                         <div class="card-actions justify-end">
-                            <a href="<?= BASEURL ?>tracking/<?= $data['week'] ?>">
+                            <a href="<?= BASEURL . 'tracking/' . $data['week'] ?>"
+                                class="<?= $data['isRecorded'] ? 'hidden' : '' ?>">
                                 <button class="btn btn-neutral">Isi Data Mingguan</button>
                             </a>
                         </div>
@@ -406,8 +407,6 @@
         //END SWIPER ARTICLE FUNCTION
 
         //  START CHART REPORT FUNCTION
-
-        console.log($(window).width());
         let labels = new Array(41);
         for (let i = 0; i <= 40; i++) {
             labels[i] = i;
@@ -416,6 +415,7 @@
         let MinValue = new Array(41);
         let MaxValue = new Array(41);
         let WeightGain = new Array(41).fill(null);
+
 
         <?php foreach ($data['records'] as $row) {
             echo "WeightGain[" . $row['MINGGU'] . " ] = " . $row['BERAT_BADAN'] - $data['preRecord']['PRA_BERAT'] . ";";
@@ -512,7 +512,6 @@
                         useBorderRadius: true,
                         borderRadius: 10,
                         labels: {
-                            // This more specific font property overrides the global property
                             font: {
                                 size: 14
                             }
@@ -541,8 +540,6 @@
                                 weight: "bold",
                             }
                         },
-                        min: 0,
-                        max: 18,
                         ticks: {
                             stepSize: 1,
                         },
@@ -616,8 +613,6 @@
                                     weight: "bold",
                                 }
                             },
-                            min: 0,
-                            max: 20,
                             ticks: {
                                 stepSize: 1,
                             },
