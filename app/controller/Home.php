@@ -12,6 +12,7 @@ class home extends Controller
             $preRecord = $this->model('user_tracking')->getPreRecord($this->id);
             $records = $this->model('user_tracking')->getRecords($this->id);
             $data['week'] = $this->model('user_tracking')->getWeek($this->id);
+            $data['isRecorded'] = empty($this->model('user_tracking')->getRecord($this->id, $data['week'])) ? false : true;
 
             //Rekomendasi Skrining
             switch (true) {
@@ -78,9 +79,31 @@ class home extends Controller
     {
         session_start();
         if (isset($_SESSION['user'])) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $data = $_POST;
+                $nama = $data['NAMA'];
+                $no_telepon = $data['NO_TELEPON'];
+                $lmp = $data['LMP'];
+                $tanggal_lahir = $data['TANGGAL_LAHIR'];
+                $tinggi = $data['TINGGI_BADAN'];
+                $berat = $data['PRA_BERAT'];
+                $id = $_SESSION['user'];
+                $this->model('user_model')->updateUser($id, $nama, $no_telepon, $lmp, $tanggal_lahir, $tinggi, $berat);
+                $_SESSION['username']= $nama;
+            }
             $data['judul'] = 'Profil';
+            $user = $this->model('user_model')->getUserById($_SESSION['user']);
+            $data['email'] = $user['EMAIL'];
+            $data['nama'] = $user['NAMA'];
+            $data['no_telepon'] = $user['NO_TELEPON'];
+            $data['tanggal_lahir'] = $user['TANGGAL_LAHIR'];
+            $data['tinggi'] = $user['TINGGI_BADAN'];
+            $data['berat'] = $user['PRA_BERAT'];
+            $data['lmp'] = $user['LMP'];
+
+
             $this->view('templates/header', $data);
-            $this->view('home/profil');
+            $this->view('home/profil', $data);
             $this->view('templates/footer');
             $this->id = $_SESSION['user'];
         } else {

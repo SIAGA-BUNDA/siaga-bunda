@@ -13,12 +13,7 @@ class User_tracking extends model
     {
         //belum rules
     }
-    public function tambah($data, $id){
-        $week = $this->getWeek($id);
-        var_dump($week);
-        $berat_badan = $data['berat_badan'];
-        $tinggi_badan = $data['tinggi_badan'];
-        $gejala = $data['gejala'];
+    public function addTracking($berat_badan, $week, $gejala, $id){
         $query = "INSERT INTO ". $this->table . "(berat_badan, minggu, gejala, id_user) VALUES (:berat_badan, :minggu, :gejala, :id)";
         $this->db->query($query);
         $this->db->bind(':berat_badan', $berat_badan);
@@ -26,7 +21,7 @@ class User_tracking extends model
         $this->db->bind(':gejala', $gejala);
         $this->db->bind(':id', $id);
         $this->db->execute();
-        header('Location: ' . BASEURL . '/Home');
+        
     }
 
     function getWeek ($id) {

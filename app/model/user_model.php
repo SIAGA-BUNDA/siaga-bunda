@@ -39,6 +39,12 @@ class User_model extends model
         return $this->db->single();
     }
 
+    public function getUserById($id){
+        $query = "SELECT NAMA, EMAIL, NO_TELEPON, TO_CHAR(TANGGAL_LAHIR, 'YYYY-MM-DD') AS TANGGAL_LAHIR, TO_CHAR(LMP, 'YYYY-MM-DD') AS LMP, PRA_BERAT, TINGGI_BADAN from " . $this->table . " where ID_USER = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
     public function getUserByToken($token){
         $query = "SELECT EMAIL,TO_CHAR(TOKEN_EXPIRED, 'YYYY-MM-DD HH24:MI:SS') AS TOKEN_EXPIRED from " . $this->table . " where TOKEN = :token";
         $this->db->query($query);
@@ -65,6 +71,18 @@ class User_model extends model
         $query = "UPDATE " . $this->table . " SET is_register = '1' WHERE ID_USER = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
+        $this->db->execute();
+    }
+    public function updateUser($id, $nama, $no_telepon, $tanggal_lahir, $lmp, $tinggi_badan, $berat_badan){
+        $query = "UPDATE ".$this->table ." SET NAMA = :nama, NO_TELEPON = :no_telepon, TANGGAL_LAHIR = TO_DATE(:tanggal_lahir, 'YYYY-MM-DD'), LMP = TO_DATE(:lmp, 'YYYY-MM-DD'), TINGGI_BADAN = :tinggi_badan, PRA_BERAT = :berat_badan WHERE ID_USER = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        $this->db->bind('nama', $nama);
+        $this->db->bind('no_telepon', $no_telepon); 
+        $this->db->bind('tanggal_lahir', $tanggal_lahir);
+        $this->db->bind('lmp', $lmp);
+        $this->db->bind('tinggi_badan', $tinggi_badan);
+        $this->db->bind('berat_badan', $berat_badan);
         $this->db->execute();
     }
 

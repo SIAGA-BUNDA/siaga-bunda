@@ -206,20 +206,19 @@
                                 <p class="text-sm">
                                     Berat Badan Terakhir
                                 </p>
-                                <!-- <h1 class="text-sm mb-0 text-red-500"> 
-                                    data minggu ke-5</h1> -->
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card Input Button -->
-                <div class="card bg-base-100 image-full shadow-xl w-full  lg:h-[13rem] mt-5">
+                <div class="card bg-base-100 shadow-xl w-full mt-5 <?= $data['isRecorded'] ? 'hidden' : '' ?>">
                     <div class="card-body my-0">
                         <h2 class="card-title">Ayo!</h2>
-                        <p> pantau perjalanan kehamilan Anda setiap minggu untuk kesehatan Ibu dan si kecil!</p>
+                        <p>Pantau perjalanan kehamilan Anda setiap minggu untuk kesehatan Ibu dan si kecil!
+                        </p>
                         <div class="card-actions justify-end">
-                            <a href="<?= BASEURL ?>tracking">
+                            <a href="<?= BASEURL ?>tracking/<?= $data['week'] ?>">
                                 <button class="btn btn-neutral">Isi Data Mingguan</button>
                             </a>
                         </div>

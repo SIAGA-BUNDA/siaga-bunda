@@ -39,7 +39,9 @@
                 class=" bg-[#585858] text-white rounded-full py-3 px-3 flex space-x-3 items-center hover:cursor-pointer ">
                 <i class="fa-solid fa-user"></i>
             </div>
-            <p class="md:font-bold md:text-sm text-gray-700 hover:cursor-pointer">Username Aja ya</p>
+            <p class="md:font-bold md:text-sm text-gray-700 hover:cursor-pointer">
+                <?= strlen($_SESSION['username']) > 10 ? substr($_SESSION['username'], 0, 10) . '...' : $_SESSION['username'] ?>
+            </p>
             <label class="px-0  bg-white shadow-none border-none swap swap-rotate hover:cursor-pointer pt-1">
                 <!-- this hidden checkbox controls the state -->
                 <input type="checkbox" class="hidden" id="dropdown-icon" disabled />
@@ -151,6 +153,7 @@
         ) {
             $('#sm-dropdown-menu').addClass('hidden');
             $('#dropdown-menu').addClass('hidden');
+            $('#dropdown-icon').prop('checked', false);
         }
     });
     $('#sm-logout-btn, #logout-btn').on('click', () => {
