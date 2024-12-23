@@ -12,7 +12,7 @@
                     <img src="<?= BASEURL ?>/img/logo.png" alt="SIAGA BUNDA" class="w-40 h-40 object-contain">
                 </div>
                 <!-- Teks -->
-                <p class="font-bold text-xl md:text-4xl text-[#4D5A32] leading-relaxed">Temukan dukungan dan informasi
+                <p class="font-bold text-xl md:text-4xl ext-gray-500 leading-relaxed">Temukan dukungan dan informasi
                     terpercaya untuk perjalanan kehamilanmu!</p>
                 <h1 class="text-5xl font-extrabold text-gray-800">Siaga Bunda</h1>
                 <p class="text-xl text-gray-600">Scroll kebawah untuk artikel</p>

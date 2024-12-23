@@ -6,7 +6,7 @@ class kalkulator extends Controller
     {
         session_start();
         if (isset($_SESSION['user'])) {
-            $data['judul'] = 'Home';
+            $data['judul'] = 'Kalkulator';
             $data['css'] = 'sebelumLogin';
             $data['script'] = BASEURL . 'script/kalkulator.js';
             $this->view('templates/header', $data);

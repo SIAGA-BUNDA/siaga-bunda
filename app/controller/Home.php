@@ -45,7 +45,7 @@ class home extends Controller
             } else if ($PreImt >= 18.5 && $PreImt <= 24.9) {
                 $data['category'] = 'normal';
             } else if ($PreImt >= 25 && $PreImt <= 29.9) {
-                $data['category'] = 'over';
+                $data['category'] = 'overweight';
             } else if ($PreImt >= 30) {
                 $data['category'] = 'obese';
             }

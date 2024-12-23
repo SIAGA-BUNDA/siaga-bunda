@@ -31,29 +31,29 @@ class komunitas extends Controller
   {
     session_start();
     if (isset($_SESSION['user'])) {
-        $data = $_POST;
-        $this->model('komentar')->tambahKomentar($data, $_SESSION['user']);
-        header('Location: ' . BASEURL . 'komunitas');
-    }else{
-        header('Location: ' . BASEURL . 'signIn');
+      $data = $_POST;
+      $this->model('komentar')->tambahKomentar($data, $_SESSION['user']);
+      header('Location: ' . BASEURL . 'komunitas');
+    } else {
+      header('Location: ' . BASEURL . 'signIn');
     }
   }
   // Di controller, tambahkan debugging:
-public function addLike($id)
-{
+  public function addLike($id)
+  {
     try {
-        $result = $this->model('postingan')->addLike($id);       
-        header('Content-Type: application/json');
-        echo json_encode(['jumlah_suka' => $result]);
-        exit;
+      $result = $this->model('postingan')->addLike($id);
+      header('Content-Type: application/json');
+      echo json_encode(['jumlah_suka' => $result]);
+      exit;
     } catch (Exception $e) {
-        header('Content-Type: application/json');
-        echo json_encode(['error' => $e->getMessage()]);
-        exit;
+      header('Content-Type: application/json');
+      echo json_encode(['error' => $e->getMessage()]);
+      exit;
     }
-}
-public function search()
-{
+  }
+  public function search()
+  {
     session_start();
     if (isset($_SESSION['user'])) {
       $data['judul'] = 'Komunitas';
@@ -68,36 +68,37 @@ public function search()
         $this->view('komunitas/index', $data);
         $this->view('templates/footer');
         $this->id = $_SESSION['user'];
-    }
-      
+      }
+
     } else {
       header('Location: ' . BASEURL . 'signIn');
-    }   
-}
-public function addLaporanPostingan(){
+    }
+  }
+  public function addLaporanPostingan()
+  {
     $data = $_POST;
     session_start();
     $data['id_user'] = $_SESSION['user'];
     $this->model('laporan')->addLaporanPostingan($data);
-}
-public function komentar($id){
-  session_start(); 
-  if(isset($_SESSION['user'])){
+  }
+  public function komentar($id)
+  {
+    session_start();
+    if (isset($_SESSION['user'])) {
       $data['id_postingan'] = $id;
-      $data ['judul'] = 'Komentar';
-      $data ['css'] = 'sesudahLogin';
-      $data ['postingan']= $this->model('postingan')->getAllPostinganById($id);
-      $data ['isi_postingan'] = $this->model('postingan')->getIsiPostinganById($id);
+      $data['judul'] = 'Komentar';
+      $data['css'] = 'sesudahLogin';
+      $data['postingan'] = $this->model('postingan')->getAllPostinganById($id);
+      $data['isi_postingan'] = $this->model('postingan')->getIsiPostinganById($id);
       $data['commentCount'] = $this->model('komentar')->getCommentCountById($id);
       $this->view('templates/header', $data);
       $this->view('komentar/index', $data);
       $this->view('templates/footer');
       $this->id = $_SESSION['user'];
-  }
-  else{
+    } else {
       header('Location: ' . BASEURL . 'signIn');
+    }
   }
-}
 
 }
 
