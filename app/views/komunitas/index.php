@@ -1,9 +1,5 @@
-<script>
-  const BASEURL = "<?= BASEURL ?>";
-</script>
-
 <body class="bg-[#FCF1E6] pt-[20px] pb-[2rem] min-h-screen">
-  <?php require_once '../app/views/templates/navbar.php' ?>
+  <?php require_once('../app/views/templates/' . (isset($_SESSION['user']) ? 'navbar.php' : 'navbarUser.php')) ?>
   <div class="mx-4 sm:mx-6 lg:!mx-8 p-4 sm:p-6 lg:px-8 rounded-[35px] md:rounded-tr-none bg-white">
     <div class="justify-center flex items-center flex-col lg:px-8">
       <img src="<?= BASEURL ?>img/ikon.png" class="" alt="Komunitas">
@@ -176,7 +172,7 @@
                 <input type="hidden" id="input-<?= $postingan_id ?>" name="postingan_id" value="<?= $postingan_id ?>" />
                 <label for="my_modal_<?= $postingan_id ?>"
                   class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
-                <button type="submit" class="!btn !btn-neutral !btn-disabled" id="btn-submit">Submit</button>
+                <button type="submit" class="!btn !btn-neutral btn-disabled" id="btn-submit">Submit</button>
               </div>
             </div>
             <label for="my_modal_<?= $postingan_id ?>" class="modal-backdrop"></label>
@@ -195,14 +191,15 @@
               </div>
               <div class="mx-2">
                 <p class="py-4 font-semibold">Berikan Keterangan</p>
-                <textarea name="isi_laporan" class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1 comment"
+                <textarea name="isi_laporan"
+                  class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1 comment"
                   placeholder="Tulis komentar..."></textarea>
               </div>
               <div class="modal-action">
                 <input type="hidden" id="input-<?= $postingan_id ?>" name="postingan_id" value="<?= $postingan_id ?>" />
                 <label for="options_modal_<?= $postingan_id ?>"
                   class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
-                <button type="submit" class="!btn !btn-neutral !btn-disabled" id="btn-submit">Submit</button>
+                <button type="submit" class="!btn !btn-neutral btn-disabled" id="btn-submit">Submit</button>
               </div>
             </div>
             <label for="options_modal_<?= $postingan_id ?>" class="modal-backdrop"></label>

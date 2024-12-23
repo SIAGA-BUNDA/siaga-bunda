@@ -65,7 +65,8 @@ class Komentar
     $this->db->query($query);
     return array_column($this->db->resultSet(), 'JUMLAH_KOMENTAR');
   }
-  public function getCommentCountBySearch($searchInput){
+  public function getCommentCountBySearch($searchInput)
+  {
     $query = "SELECT 
     COUNT(k.komentar_id) AS jumlah_komentar
     FROM 
@@ -81,10 +82,11 @@ class Komentar
     ORDER BY 
     p.postingan_id desc";
     $this->db->query($query);
-    $this->db->bind(':search', '%'. $searchInput. '%');
+    $this->db->bind(':search', '%' . $searchInput . '%');
     return array_column($this->db->resultSet(), 'JUMLAH_KOMENTAR');
   }
-  public function getCommentCountById($id){
+  public function getCommentCountById($id)
+  {
     $query = "SELECT 
     COUNT(k.komentar_id) AS jumlah_komentar
     FROM 
@@ -110,22 +112,23 @@ class Komentar
     return $this->db->resultSet();
   }
 
-  public function getIsiKomentarById($id){
-    $query = "SELECT k.KOMENTAR_ID FROM " . $this->table ." k join postingan p on p.postingan_id = k.postingan_id where k.postingan_id = :id";
+  public function getIsiKomentarById($id)
+  {
+    $query = "SELECT k.KOMENTAR_ID FROM " . $this->table . " k join postingan p on p.postingan_id = k.postingan_id where k.postingan_id = :id";
     $this->db->query($query);
     $this->db->bind(':id', $id);
-    $result = $this->db->resultSet();       
+    $result = $this->db->resultSet();
     $id = array_column($result, 'KOMENTAR_ID');
-    foreach($id as $r) {
-        $query = 'select ISI_KOMENTAR from KOMENTAR' ." where KOMENTAR_ID = '" . $r. "'";
-        $this->db->query($query);
-        $lobresult = $this->db->single()['ISI_KOMENTAR'];
-          $lob = stream_get_contents($lobresult);
-          $isi[] = $lob;
-          unset($lob);
-      }
-      return $isi;
-}
+    foreach ($id as $r) {
+      $query = 'select ISI_KOMENTAR from KOMENTAR' . " where KOMENTAR_ID = '" . $r . "'";
+      $this->db->query($query);
+      $lobresult = $this->db->single()['ISI_KOMENTAR'];
+      $lob = stream_get_contents($lobresult);
+      $isi[] = $lob;
+      unset($lob);
+    }
+    return $isi;
+  }
 }
 
 

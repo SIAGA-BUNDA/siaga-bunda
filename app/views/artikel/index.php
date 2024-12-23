@@ -1,6 +1,6 @@
 <body class="bg-[#FCF1E6] pt-[20px] min-h-screen">
     <!-- Navbar -->
-    <?php require_once '../app/views/templates/navbar.php'; ?>
+    <?php require_once('../app/views/templates/' . (isset($_SESSION['user']) ? 'navbar.php' : 'navbarUser.php')) ?>
 
     <!-- Hero Section -->
     <div class="lg:mx-8 sm:mx-6 p-4 sm:p-6 lg:px-8 rounded-[35px] rounded-tr-none bg-white mb-10">
