@@ -14,13 +14,7 @@
         <!-- postingan -->
         <div class="relative bg-white rounded-xl border-2 p-5 mb-6">
             <!-- tombol lapor -->
-            <div class="absolute to-3 right-3">
-                <label for="lapor-modal" class="text-gray-400 hover:text-gray-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                    </svg>
-                </label> 
-            </div>
+            
 
             <!-- nama usernya -->
             <div class="flex items-center mb-3">
@@ -28,22 +22,25 @@
                     <span class="font-bold">X</span>
                 </div>
                 <div>
-                    <h3 class="font-bold text-gray-700">Xeyla Arfithri</h3>
+                    <h3 class="font-bold text-gray-700"><?=$data['postingan']['NAMA']?></h3>
                 </div>
             </div>
-            <p class="text-gray-600 leading-relaxed mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum asperiores accusantium sint dolor nemo saepe tempora quibusdam aspernatur assumenda illo delectus, aliquid, culpa quae itaque porro temporibus id voluptate repellat?</p>
+            <p class="text-gray-600 leading-relaxed mb-4"><?=$data['isi_postingan']?></p>
             <!-- tombol laiks -->
-            <div class="flex space-x-5 text-gray-500 text-sm">
-                <button class="group hover:text-gray-800 flex items-center space-x-1">
+            <div class="flex space-x-3 text-gray-500 text-sm">
+                <button class="group hover:text-gray-800 flex items-center space-x-0">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 group-hover:fill-red-500 group-hover:stroke-red-500">
                         <path d="M12 21s-6-5.33-9-9.33C1.13 9.34 2.76 5.5 6.5 5.5c2.04 0 3.54 1.23 4.5 2.68C12.96 6.73 14.46 5.5 16.5 5.5c3.74 0 5.37 3.84 3.5 6.17-3 4-9 9.33-9 9.33z"/>
                     </svg>
+                    <span><?=$data['postingan']['JUMLAH_SUKA']?></span>
                 </button>
+                
             <!-- tombol komentar -->
                 <button class="group hover:text-gray-700 flex items-center space-x-1">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6 group-hover:fill-gray-500 group-hover:stroke-gray-500">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.272 9-7.305 0-4.032-4.03-7.305-9-7.305S3 8.913 3 12.945c0 1.49.593 2.882 1.637 4.005a12.147 12.147 0 0 1-.958 3.56c-.074.195.132.383.316.286a11.43 11.43 0 0 0 3.955-2.28 9.015 9.015 0 0 0 4.05.735z"/>
                     </svg>
+                    <span><?=$data['commentCount']?></span>
                 </button>
             </div>
         </div>

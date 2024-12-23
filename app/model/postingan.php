@@ -96,4 +96,24 @@ class Postingan
     $this->db->bind(':search', "%".$searchInput."%");
     return $this->db->resultSet();
   }
+  public function getIsiPostinganById($id){
+    $query = "SELECT POSTINGAN_ID FROM $this->table" . " where postingan_id = :id";
+    $this->db->query($query);
+    $this->db->bind(':id', $id);
+    $result = $this->db->resultSet();
+    $id = array_column($result, 'POSTINGAN_ID');
+    foreach ($id as $r) {
+      $query = 'select ISI_POSTINGAN from POSTINGAN' . " where POSTINGAN_ID = '" . $r . "'";
+      $this->db->query($query);
+      $lobresult = $this->db->single()['ISI_POSTINGAN'];
+      $lob = stream_get_contents($lobresult);
+    }
+    return isset($lob)? $lob : null;
+  }
+  public function getAllPostinganById($id) {
+    $query = "SELECT * FROM " . $this->table . " p join USERACCOUNT u on p.id_user = u.id_user  WHERE p.status = 'ok' and p.postingan_id = :id";
+    $this->db->query($query);
+    $this->db->bind(':id', $id);
+    return $this->db->single();
+  }
 }

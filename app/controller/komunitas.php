@@ -86,8 +86,11 @@ public function komentar($id){
       $data['id_postingan'] = $id;
       $data ['judul'] = 'Komentar';
       $data ['css'] = 'sesudahLogin';
+      $data ['postingan']= $this->model('postingan')->getAllPostinganById($id);
+      $data ['isi_postingan'] = $this->model('postingan')->getIsiPostinganById($id);
+      $data['commentCount'] = $this->model('komentar')->getCommentCountById($id);
       $this->view('templates/header', $data);
-      $this->view('komentar/index');
+      $this->view('komentar/index', $data);
       $this->view('templates/footer');
       $this->id = $_SESSION['user'];
   }

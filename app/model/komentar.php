@@ -82,6 +82,23 @@ class Komentar
     $this->db->bind(':search', '%'. $searchInput. '%');
     return array_column($this->db->resultSet(), 'JUMLAH_KOMENTAR');
   }
+  public function getCommentCountById($id){
+    $query = "SELECT 
+    COUNT(k.komentar_id) AS jumlah_komentar
+    FROM 
+    postingan p
+    LEFT JOIN 
+        komentar k
+    ON 
+        p.postingan_id = k.postingan_id
+    WHERE 
+            p.postingan_id = :id
+    GROUP BY 
+        p.postingan_id";
+    $this->db->query($query);
+    $this->db->bind(':id', $id);
+    return $this->db->single()['JUMLAH_KOMENTAR'];
+  }
 }
 
 
