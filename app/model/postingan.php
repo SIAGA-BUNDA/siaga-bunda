@@ -39,7 +39,7 @@ class Postingan
   }
   public function getIsiPostingan()
   {
-    $query = "SELECT POSTINGAN_ID FROM $this->table" . " order by waktu desc";
+    $query = "SELECT POSTINGAN_ID FROM $this->table" . " where status = 'ok' order by waktu desc";
     $this->db->query($query);
     $result = $this->db->resultSet();
     $id = array_column($result, 'POSTINGAN_ID');

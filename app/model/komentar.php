@@ -56,6 +56,8 @@ class Komentar
         komentar k
     ON 
         p.postingan_id = k.postingan_id
+    WHERE 
+        p.status = 'ok'
     GROUP BY 
         p.postingan_id
     ORDER BY 
