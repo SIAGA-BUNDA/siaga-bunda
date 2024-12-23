@@ -1,3 +1,6 @@
+<script>
+    const BASEURL = "<?= BASEURL ?>";
+</script>
 <body class="flex h-full bg-[#FCF1E6] flex-col font-sans items-center justify-center ">
   <?php require_once '../app/views/templates/navbar.php' ?>
   <div class="main w-full bg-white">

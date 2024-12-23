@@ -91,7 +91,13 @@ class Postingan
     return isset($isi)? $isi : null;
   }
   public function getAllPostinganBySearch($searchInput) {
-    $query = "SELECT * FROM " . $this->table . " WHERE status = 'ok' and judul_postingan LIKE :search OR isi_postingan LIKE :search order by waktu desc";
+    $query = "SELECT * 
+          FROM " . $this->table . " p 
+          JOIN USERACCOUNT u ON p.id_user = u.id_user 
+          WHERE p.status = 'ok' 
+          AND (p.judul_postingan LIKE :search OR p.isi_postingan LIKE :search)
+          ORDER BY waktu DESC";
+
     $this->db->query($query);
     $this->db->bind(':search', "%".$searchInput."%");
     return $this->db->resultSet();

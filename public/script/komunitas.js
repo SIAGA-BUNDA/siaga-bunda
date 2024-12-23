@@ -1,6 +1,6 @@
 function addLike(postingan_id) {
   $.ajax({
-    url: "/siaga-bunda/web/public/komunitas/addLike/" + postingan_id,
+    url: BASEURL + "komunitas/addLike/" + postingan_id,
     type: "GET",
     dataType: "json", 
     success: function (response) {
@@ -32,7 +32,7 @@ $(document).ready(function () {
       timeout = setTimeout(function () {
           console.log("AJAX request would be sent here with input:", searchInput); 
           $.ajax({
-            url: "/siaga-bunda/web/public/komunitas/search",
+            url: BASEURL + "komunitas/search",
             type: "POST",
             data: { search: searchInput },
             success: function (response) {
