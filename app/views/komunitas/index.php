@@ -87,7 +87,7 @@
       $postingan_id = $postingan['POSTINGAN_ID'];
       echo '
         <div class="flex postingann flex-col items-center justify-center w-full">        
-        <div class="postingan border rounded-lg p-4 shadow-sm bg-white flex flex-col items-center justify-center p-4">
+        <div onclick="window.location.href=\''. BASEURL .'komunitas/komentar/'. $postingan_id .'\'" class="postingan border rounded-lg p-4 shadow-sm bg-white flex flex-col items-center justify-center p-4">
             <div class="postinganAtas flex flex-row w-full">
                 <div class="profil flex-1 ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="rounded-full bg-[#DDE4C4] w-6 h-6">

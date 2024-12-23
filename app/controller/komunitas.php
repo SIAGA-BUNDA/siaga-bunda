@@ -80,6 +80,21 @@ public function addLaporanPostingan(){
     $data['id_user'] = $_SESSION['user'];
     $this->model('laporan')->addLaporanPostingan($data);
 }
+public function komentar($id){
+  session_start(); 
+  if(isset($_SESSION['user'])){
+      $data['id_postingan'] = $id;
+      $data ['judul'] = 'Komentar';
+      $data ['css'] = 'sesudahLogin';
+      $this->view('templates/header', $data);
+      $this->view('komentar/index');
+      $this->view('templates/footer');
+      $this->id = $_SESSION['user'];
+  }
+  else{
+      header('Location: ' . BASEURL . 'signIn');
+  }
+}
 
 }
 

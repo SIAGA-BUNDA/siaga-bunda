@@ -2,13 +2,10 @@ function addLike(postingan_id) {
   $.ajax({
     url: "/siaga-bunda/web/public/komunitas/addLike/" + postingan_id,
     type: "GET",
-    dataType: "json", // Pastikan respons diparse sebagai JSON
+    dataType: "json", 
     success: function (response) {
       if (response && response.jumlah_suka !== undefined) {
-        // Perbarui jumlah suka
-        $("#jumlah-suka-" + postingan_id).text(response.jumlah_suka);
-
-        // Ubah warna ikon menjadi merah
+        $("#jumlah-suka-" + postingan_id).text(response.jumlah_suka);        
         $("#loveIcon-" + postingan_id)
           .attr("fill", "red")
           .attr("stroke", "red");
@@ -16,24 +13,24 @@ function addLike(postingan_id) {
     },
     error: function (xhr, status, error) {
       console.error("Terjadi kesalahan:", error);
-      console.log(xhr.responseText); // Untuk debugging
+      console.log(xhr.responseText); 
     },
   });
 }
 
 $(document).ready(function () {
-    let timeout; // Variabel untuk menyimpan timeout
+    let timeout; 
   
     $("#search-dropdown").on("input", function () {
-      const searchInput = $(this).val(); // Ambil nilai dari input
-      console.log("Input: " + searchInput); // Tampilkan nilai input di console
+      const searchInput = $(this).val(); 
+      console.log("Input: " + searchInput); 
   
-      // Hapus timeout sebelumnya jika ada
+      
       clearTimeout(timeout);
   
-      // Set timeout baru
+      
       timeout = setTimeout(function () {
-          console.log("AJAX request would be sent here with input:", searchInput); // Menandakan bahwa AJAX akan dijalankan
+          console.log("AJAX request would be sent here with input:", searchInput); 
           $.ajax({
             url: "/siaga-bunda/web/public/komunitas/search",
             type: "POST",
@@ -41,18 +38,18 @@ $(document).ready(function () {
             success: function (response) {
               const currentInput = $("#search-dropdown").val();
   
-              // Ganti seluruh konten HTML
-              document.open(); // Bersihkan dokumen
-              document.write(response); // Tulis respons HTML baru
-              document.close(); // Selesaikan proses penulisan
+              
+              document.open(); 
+              document.write(response); 
+              document.close(); 
   
-              // Tetapkan kembali nilai input setelah konten diperbarui
+              
               $("#search-dropdown").val(currentInput);
             },
             error: function (xhr, status, error) {
-              console.error("AJAX error:", error); // Tangani kesalahan AJAX
+              console.error("AJAX error:", error); 
             },
           });
-      }, 1000); // Tunggu 2000 ms (2 detik) sebelum mengirim permintaan
+      }, 1000); 
     });
   });
