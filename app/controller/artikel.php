@@ -2,6 +2,7 @@
 class artikel extends Controller
 {
     private $id;
+
     public function index()
     {
         session_start();
