@@ -58,38 +58,37 @@
                         </svg>
                     </label>
                 </div>
-                <!-- nama user -->
-                <div class="flex items-center mb-2">
-                    <div class="avatar placeholder w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center mr-2">
-                        <span class="font-bold text-xs">X</span>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-gray-800 text-sm">Xeyla Arfithri</h4>
-                    </div>
-                </div>
-                <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, sequi blanditiis neque exercitationem nam eaque animi debitis unde nostrum maxime et dolores magni velit impedit mollitia magnam distinctio. Excepturi, et.</p>
-            </div>
 
-            <div class="relative bg-white border-2 rounded-xl p-4">
-                <!-- tombol lapor -->
-                <div class="absolute top-3 right-3">
-                    <label for="lapor-modal" class="text-gray-400 hover:text-gray-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                        </svg>
-                    </label>
-                </div>
-                <!-- nama user -->
-                <div class="flex items-center mb-2">
-                    <div class="avatar placeholder w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center mr-2">
-                        <span class="font-bold text-xs">X</span>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-gray-800 text-sm">Xeyla Arfithri</h4>
-                    </div>
-                </div>
-                <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, sequi blanditiis neque exercitationem nam eaque animi debitis unde nostrum maxime et dolores magni velit impedit mollitia magnam distinctio. Excepturi, et.</p>
-            </div>
+                <?php
+                    $i = 0;
+                    foreach ($data['komentar'] as $komentar) { ?>
+                        <!-- nama user -->
+                        <div class="relative bg-white border-2 rounded-xl p-4">
+                        <div class="flex items-center mb-2">
+                            <div class="avatar placeholder w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center mr-2">
+                                <span class="font-bold text-xs">X</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-sm"><?= htmlspecialchars($komentar['NAMA'], ENT_QUOTES, 'UTF-8') ?></h4>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed"><?= htmlspecialchars($data['isiKomentar'][$i], ENT_QUOTES, 'UTF-8') ?></p>
+
+                        
+                            <!-- tombol lapor -->
+                            <div class="absolute top-3 right-3">
+                                <label for="lapor-modal" class="text-gray-400 hover:text-gray-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+                    <?php
+                        $i++;
+                    }
+                ?>
+
         </div>
     </div>
 

@@ -63,7 +63,7 @@ class User_model extends model
         $query = "SELECT EMAIL from " . $this->table . " where TOKEN = :token";
         $this->db->query($query);
         $this->db->bind('token', $token);
-        return $this->db->single()['EMAIL'];
+        return $this->db->single();
     }
 
     public function updateRegis($id)
