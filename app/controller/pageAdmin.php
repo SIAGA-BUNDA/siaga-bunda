@@ -45,9 +45,30 @@ class pageAdmin extends Controller{
     public function tambahArtikel(){
         session_start();
         $data = $_POST;
+        $file_name = $_FILES['image']['name'];
+        $tempname = $_FILES['image']['tmp_name'];
+        $folder = 'img/artikel/' . $file_name;
+
+        move_uploaded_file($tempname, $folder);
+
+        $folder = 'img/artikel/';
+    
+        if (!file_exists($folder)) {
+            echo "Folder doesn't exist";
+            mkdir($folder, 0777, true);
+        }
+        
+        if (!is_writable($folder)) {
+            echo "Folder not writable";
+            chmod($folder, 0777);
+        }
+        echo '<pre>';
+        // Check file upload
+        var_dump($tempname);
+        $data['path'] = $tempname;
         $data ['id_admin'] = $_SESSION['admin'];
         $this->model('Artikel')->tambahArtikel($data);
-        header('Location: '. BASEURL.'pageAdmin');
+        
     }
     public function hapusArtikel(){
         $id = $_POST['ARTIKEL_ID'];

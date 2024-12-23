@@ -1,10 +1,10 @@
-<body class="h-full bg-[#C1CFA1] font-sans overflow-hidden">
+<body class="h-full bg-[#FCF1E6] font-sans overflow-hidden">
   <!-- Header -->
-  <header class="bg-white shadow-md p-4 flex justify-between items-center rounded-xl mx-6 my-4">
+  <header class="bg-white shadow-md p-4 flex justify-between items-center rounded-xl mx-6 mb-4">
   
     <!-- Profil Admin -->
   <div class="flex items-center gap-3">
-    <div class="w-10 h-10 bg-[#DDE4C4] flex justify-center items-center rounded-full">
+    <div class="bg-[#585858] text-white rounded-full py-3 px-3 flex space-x-3 items-center hover:cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[var(--text-color)]">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 20.25v-2.047a7.501 7.501 0 0115 0v2.047" />
@@ -24,7 +24,7 @@
   </div>
   
   <!-- Logo -->
-    <img src="img/logo.png" alt="Logo Siaga Bunda" class="w-14 h-14">
+    <img src="img/logo.png" alt="Logo Siaga Bunda" class="w-16 h-18">
 </header>
 
 
@@ -56,7 +56,7 @@
       <!-- Tombol ke landing page -->
       <footer class="w-full gap-4 mt-5 flex-shrink-0">
         <div class="bg-white rounded-xl shadow-md p-10 text-center">
-          <a href="#" class="text-[#4D5A32] font-medium hover:underline">
+          <a href="<?= BASEURL ?>home" class="text-[#4D5A32] font-medium hover:underline">
             Menuju halaman utama ➤
           </a>
         </div>
@@ -64,27 +64,64 @@
     </div>
 
     <!-- Content Section -->
-    <div class="flex gap-4 p-6 w-full">
-      <!-- Tambah artikel -->
-      <div id="tambah-artikel" class="content-section hidden w-full">
-        <main class="flex-1 bg-white rounded-xl shadow-md p-8">
-          <div class="bg-[#C1CFA1] rounded-xl border-[#C1CFA1] border-2 py-3 h-full">
-            <form action="<?=BASEURL?>pageAdmin/tambahArtikel" method="POST">
+    <div id="tambah-artikel" class="content-section hidden w-full">
+      <main class="flex-1 bg-white rounded-xl shadow-md p-8">
+        <div class="bg-[#C1CFA1] rounded-xl border-[#C1CFA1] border-2 py-3">
+          <form action="<?=BASEURL?>pageAdmin/tambahArtikel" method="POST" enctype="multipart/form-data">
             <h2 class="text-lg text-center font-medium text-[#4D5A32] mb-4">Tambahkan artikel baru</h2>
             <div class="border-[#C1CFA1]">
-              <input type="text" name="judul_artikel" placeholder="  Buat judul artikel..." class="w-full my-0 border-b border-color text-sm p-2  outline-none">
-              <textarea name="isi_artikel" placeholder="  Ketik artikel anda di sini..." rows="10" class="w-full my-0 border-b border-color text-sm p-2 outline-none resize-none"></textarea>
-              <div class="flex justify-center items-center ">
-                <button type="submit" class="bg-[#4D5A32] text-white py-2 px-4 rounded-full shadow-lg hover:bg-green-950">
+              <!-- Judul Artikel -->
+              <input 
+                type="text" 
+                name="judul_artikel" 
+                placeholder="  Buat judul artikel..." 
+                class="w-full my-0 border-b border-[#C1CFA1] text-sm p-2 outline-none"
+                required>
+
+              <!-- Drag and Drop Image Upload -->
+              <div 
+                id="drop-area" 
+                class="relative flex flex-col items-center justify-center w-full h-48 border-[#C1CFA1] border-2 bg-gray-50 my-4">
+                <input 
+                  type="file" 
+                  name="image" 
+                  id="file-input" 
+                  class="absolute inset-0 opacity-0 cursor-pointer" 
+                  accept=".jpg,.jpeg,.png,.gif,.svg" 
+                  onchange="previewFile(event)" 
+                  required>
+                <div id="drop-message" class="text-center">
+                  <div class="flex justify-center items-center rounded-full">
+                    <i class="fa-solid fa-cloud-arrow-up text-4xl text-gray-600"></i>
+                  </div>
+                  <p class="mt-3 text-sm text-gray-500">Click to upload or drag and drop</p>
+                  <p class="text-xs text-gray-400">SVG, PNG, JPG or GIF (MAX 800x400px)</p>
+                </div>
+                  <img id="preview" class="hidden absolute inset-0 object-contain w-full h-full z-0" />
+              </div>
+
+              <!-- Isi Artikel -->
+              <textarea 
+                name="isi_artikel" 
+                placeholder="  Ketik artikel anda di sini..." 
+                rows="10" 
+                class="w-full my-0 border-b border-[#C1CFA1] text-sm p-2 outline-none resize-none"
+                required>
+              </textarea>
+
+              <!-- Submit Button -->
+              <div class="flex justify-center items-center">
+                <button 
+                  type="submit" 
+                  class="bg-white text-[#4D5A32] py-2 px-4 rounded-full shadow-lg hover:bg-green-950 hover:text-white">
                   Kirim
                 </button>
-                </form>
               </div>
             </div>
-          </div>
-        </main>
-      </div>
-
+          </form>
+        </div>
+      </main>
+    </div>
       <!-- Lihat Semua Artikel -->
       <div id="lihat-artikel" class="content-section hidden w-full">
         <main class="flex-1 bg-white rounded-xl shadow-md p-8">
@@ -381,5 +418,25 @@ foreach ($data['artikel'] as $artikel) {
       document.getElementById('current-date').textContent = formattedDate;
     }
     updateDate();
+    
+    //preview img
+    function previewFile(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById('preview');
+
+    // Show the image preview if file is selected
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function() {
+        preview.src = reader.result;
+        preview.classList.remove('hidden'); // Show the image preview
+      }
+
+      reader.readAsDataURL(file);
+        } else {
+          preview.classList.add('hidden'); // Hide the image preview if no file selected
+        }
+      }
   </script>
 </body>
