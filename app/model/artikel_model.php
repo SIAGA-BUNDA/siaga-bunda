@@ -1,5 +1,5 @@
 <?php
-class Artikel
+class Artikel_model
 {
     private $table = 'ARTIKEL';
 

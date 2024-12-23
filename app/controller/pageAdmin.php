@@ -6,8 +6,8 @@ class pageAdmin extends Controller{
             $data ['judul'] = 'Page Admin';
             $data ['css'] = 'pageAdmin';
             $username = $_SESSION['admin'];
-            $data ['artikel'] = $this->model('Artikel')->getAllArtikel();
-            $data['isi'] = $this->model('Artikel')->getIsiArtikel();
+            $data ['artikel'] = $this->model('artikel_model')->getAllArtikel();
+            $data['isi'] = $this->model('artikel_model')->getIsiArtikel();
             $data ['user'] = $this->model('User_model')->getUsers();
             $data ['username'] = $this->model('Admin_model')->getName($username);
             $data ['role'] = $this->model('Admin_model')->getRole($username);
@@ -46,12 +46,12 @@ class pageAdmin extends Controller{
         session_start();
         $data = $_POST;
         $data ['id_admin'] = $_SESSION['admin'];
-        $this->model('Artikel')->tambahArtikel($data);
+        $this->model('artikel_model')->tambahArtikel($data);
         header('Location: '. BASEURL.'pageAdmin');
     }
     public function hapusArtikel(){
         $id = $_POST['ARTIKEL_ID'];
-        $this->model('Artikel')->hapusArtikel($id);
+        $this->model('artikel_model')->hapusArtikel($id);
         header('Location: '. BASEURL.'pageAdmin');
     }
     public function hapusLaporanKomentar(){
