@@ -101,6 +101,31 @@ class Komentar
     $this->db->bind(':id', $id);
     return $this->db->single()['JUMLAH_KOMENTAR'];
   }
+
+  public function getAllKomentarById($id)
+  {
+    $query = "SELECT * FROM " . $this->table . " k join postingan p on p.postingan_id = k.postingan_id join useraccount u on u.id_user = k.id_user where k.postingan_id = :id";
+    $this->db->query($query);
+    $this->db->bind(':id', $id);
+    return $this->db->resultSet();
+  }
+
+  public function getIsiKomentarById($id){
+    $query = "SELECT k.KOMENTAR_ID FROM " . $this->table ." k join postingan p on p.postingan_id = k.postingan_id where k.postingan_id = :id";
+    $this->db->query($query);
+    $this->db->bind(':id', $id);
+    $result = $this->db->resultSet();       
+    $id = array_column($result, 'KOMENTAR_ID');
+    foreach($id as $r) {
+        $query = 'select ISI_KOMENTAR from KOMENTAR' ." where KOMENTAR_ID = '" . $r. "'";
+        $this->db->query($query);
+        $lobresult = $this->db->single()['ISI_KOMENTAR'];
+          $lob = stream_get_contents($lobresult);
+          $isi[] = $lob;
+          unset($lob);
+      }
+      return $isi;
+}
 }
 
 
