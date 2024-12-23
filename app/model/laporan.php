@@ -82,4 +82,13 @@ class Laporan
         $this->db->bind(':isi_laporan', $data['isi_laporan']);
         $this->db->execute();
     }
+    public function addLaporanKomentar($data)
+    {
+        $query = "call insert_laporan_komentar (:id_user, :komentar_id, :isi_laporan)";
+        $this->db->query($query);
+        $this->db->bind(':id_user', $data['id_user']);
+        $this->db->bind(':komentar_id', $data['komentar_id']);
+        $this->db->bind(':isi_laporan', $data['isi_laporan']);
+        $this->db->execute();
+    }
 }

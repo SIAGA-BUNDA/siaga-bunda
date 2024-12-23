@@ -112,7 +112,7 @@
                   placeholder="Tulis komentar..."></textarea>
               </div>
               <div class="modal-action">
-                <input type="hidden" id="input-<?= $komentar_id ?>" name="komentar$komentar_id" value="<?= $komentar_id ?>" />
+                <input type="hidden" id="input-<?= $komentar_id ?>" name="komentar_id" value="<?= $komentar_id ?>" />
                 <label for="options_modal_<?= $komentar_id ?>"
                   class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
                 <button type="submit" class="!btn !btn-neutral" id="btn-submit">Submit</button>

@@ -86,6 +86,22 @@ class komunitas extends Controller
       header('Location: ' . BASEURL . 'signIn');
     }
   }
+  public function addLaporanKomentar()
+  {
+    session_start();
+    if (isset($_SESSION['user'])) {
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $data = $_POST;
+        $data['id_user'] = $_SESSION['user'];
+        $this->model('laporan')->addLaporanKomentar($data);
+        header('Location: ' . BASEURL . 'komunitas');
+      } else {
+        header('Location: ' . BASEURL . 'komunitas');
+      }
+    } else {
+      header('Location: ' . BASEURL . 'signIn');
+    }
+  }
   public function komentar($id)
   {
     session_start();
@@ -94,7 +110,7 @@ class komunitas extends Controller
     $data['css'] = 'sesudahLogin';
     $data['postingan'] = $this->model('postingan')->getAllPostinganById($id);
     $data['isi_postingan'] = $this->model('postingan')->getIsiPostinganById($id);
-    $data['commentCount'] = $this->model('komentar')->getCommentCountById($id);
+    $data['commentCount'] = $this->model('komentar')->getCommentCountById($id) == false? 0: $this->model('komentar')->getCommentCountById($id)['JUMLAH_KOMENTAR'];
     $data['komentar'] = $this->model('komentar')->getAllKomentarById($id);
     $data['isiKomentar'] = $this->model('komentar')->getIsiKomentarById($id);
     $this->view('templates/header', $data);
