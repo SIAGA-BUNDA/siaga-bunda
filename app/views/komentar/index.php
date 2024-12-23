@@ -52,16 +52,13 @@
             <div class="relative bg-white border-2 rounded-xl p-4">
                 <!-- tombol lapor -->
                 <div class="absolute top-3 right-3">
-                    <label for="lapor-modal" class="text-gray-400 hover:text-gray-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                        </svg>
-                    </label>
+                
                 </div>
 
                 <?php
                     $i = 0;
                     foreach ($data['komentar'] as $komentar) { ?>
+                        <?php $komentar_id = $komentar['KOMENTAR_ID'];?>
                         <!-- nama user -->
                         <div class="relative bg-white border-2 rounded-xl p-4">
                         <div class="flex items-center mb-2">
@@ -77,13 +74,37 @@
                         
                             <!-- tombol lapor -->
                             <div class="absolute top-3 right-3">
-                                <label for="lapor-modal" class="text-gray-400 hover:text-gray-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                                    </svg>
-                                </label>
+                            <label for="options_modal_<?= $komentar_id ?>"
+                  class="options flex-2 grow-1 flex hover:cursor-pointer justify-start tooltip tooltip-bottom"
+                  data-tip="Report">
+                  <i class="fa-regular fa-flag"></i>
+                </label>
                             </div>
                         </div>
+                        <input type="checkbox" id="options_modal_<?= $komentar_id ?>" class="modal-toggle hidden" />
+          <form class="modal" role="dialog" method="POST" action="<?= BASEURL ?>komunitas/addLaporanKomentar">
+            <div class=" modal-box bg-white w-full h-50 p-8 rounded-xl shadow-lg relative">
+              <div class="w-full mt-10 p-5 rounded-md bg-[#ececec] border border-[#D9D9D9] ">
+                <div class="flex items-center gap-2">
+                  <i class=" fa-solid fa-user text-gray-700 mt-1"></i>
+                  <h1 class="text-lg font-bold"><?= $komentar['NAMA'] ?></h1>
+                </div>
+                <h3 class="text-lg font-thin text-wrap truncate"><?= $data['isiKomentar'][$i] ?></h3>
+              </div>
+              <div class="mx-2">
+                <p class="py-4 font-semibold">Berikan Keterangan</p>
+                <textarea name="isi_laporan" class="w-full h-72 p-5 text-sm border border-gray-300 rounded-lg resize-none mb-1 comment"
+                  placeholder="Tulis komentar..."></textarea>
+              </div>
+              <div class="modal-action">
+                <input type="hidden" id="input-<?= $komentar_id ?>" name="komentar$komentar_id" value="<?= $komentar_id ?>" />
+                <label for="options_modal_<?= $komentar_id ?>"
+                  class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</label>
+                <button type="submit" class="!btn !btn-neutral" id="btn-submit">Submit</button>
+              </div>
+            </div>
+            <label for="options_modal_<?= $komentar_id ?>" class="modal-backdrop"></label>
+          </form>
                     <?php
                         $i++;
                     }
@@ -93,15 +114,5 @@
     </div>
 
     <!-- desain ngelapor -->
-    <input type="checkbox" id="lapor-modal" class="modal-toggle" />
-    <div class="modal">
-        <div class="modal-box">
-            <h3 class="font-bold text-lg">Laporkan Ini</h3>
-            <p class="py-4">Apakah Anda yakin ingin melaporkan komentar ini?</p>
-            <div class="modal-action">
-                <label for="lapor-modal" class="btn rounded-2xl bg-red-600 text-white hover:text-gray-800">Laporkan</label>
-                <label for="lapor-modal" class="btn bg-gray-600 text-white hover:bg-gray-300 hover:text-gray-800 rounded-2xl">Tidak</label>
-            </div>
-        </div>
-    </div>
+    
 </body>
