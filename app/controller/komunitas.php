@@ -38,7 +38,6 @@ class komunitas extends Controller
       header('Location: ' . BASEURL . 'signIn');
     }
   }
-  // Di controller, tambahkan debugging:
   public function addLike($id)
   {
     try {
