@@ -9,14 +9,18 @@ class Artikel_model
     {
         $this->db = new database();
     }
-    public function tambahArtikel($data)
-    {
-        $query = "INSERT INTO " . $this->table . " (judul_artikel, isi_artikel, admin_id) VALUES (:judul_artikel, :isi_artikel, :admin_id)";
+
+    public function tambahArtikel($data){
+        $query = "INSERT INTO " . $this->table . " (judul_artikel, isi_artikel, admin_id, path) 
+                VALUES (:judul_artikel, :isi_artikel, :admin_id, :path)";
+        
         $this->db->query($query);
         $this->db->bind(':judul_artikel', $data['judul_artikel']);
         $this->db->bind(':isi_artikel', $data['isi_artikel']);
         $this->db->bind(':admin_id', $data['id_admin']);
-        $this->db->execute();
+        $this->db->bind(':path', $data['path']);
+        
+        return $this->db->execute();
     }
     public function getAllArtikel()
     {
