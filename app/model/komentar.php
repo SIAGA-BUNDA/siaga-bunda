@@ -33,7 +33,7 @@ class Komentar
   }
   public function getAllKomentar()
   {
-    $query = "SELECT * FROM " . $this->table;
+    $query = "SELECT * FROM " . $this->table . " WHERE status = 'ok'";
     $this->db->query($query);
     return $this->db->resultSet();
   }
@@ -56,8 +56,10 @@ class Komentar
         komentar k
     ON 
         p.postingan_id = k.postingan_id
+        AND k.status = 'ok'
     WHERE 
         p.status = 'ok'
+        
     GROUP BY 
         p.postingan_id
     ORDER BY 
@@ -77,6 +79,7 @@ class Komentar
         p.postingan_id = k.postingan_id
     WHERE 
             p.judul_postingan LIKE :search OR p.isi_postingan LIKE :search
+            and k.status = 'ok'
     GROUP BY 
         p.postingan_id
     ORDER BY 
@@ -97,16 +100,17 @@ class Komentar
         p.postingan_id = k.postingan_id
     WHERE 
             p.postingan_id = :id
+            and k.status = 'ok'
     GROUP BY 
         p.postingan_id";
     $this->db->query($query);
     $this->db->bind(':id', $id);
-    return $this->db->single()['JUMLAH_KOMENTAR'];
+    return $this->db->single();
   }
 
   public function getAllKomentarById($id)
   {
-    $query = "SELECT * FROM " . $this->table . " k join postingan p on p.postingan_id = k.postingan_id join useraccount u on u.id_user = k.id_user where k.postingan_id = :id";
+    $query = "SELECT * FROM " . $this->table . " k join postingan p on p.postingan_id = k.postingan_id join useraccount u on u.id_user = k.id_user where k.postingan_id = :id and k.status = 'ok'";
     $this->db->query($query);
     $this->db->bind(':id', $id);
     return $this->db->resultSet();
@@ -114,7 +118,7 @@ class Komentar
 
   public function getIsiKomentarById($id)
   {
-    $query = "SELECT k.KOMENTAR_ID FROM " . $this->table . " k join postingan p on p.postingan_id = k.postingan_id where k.postingan_id = :id";
+    $query = "SELECT k.KOMENTAR_ID FROM " . $this->table . " k join postingan p on p.postingan_id = k.postingan_id where k.postingan_id = :id and k.status = 'ok'";
     $this->db->query($query);
     $this->db->bind(':id', $id);
     $result = $this->db->resultSet();

@@ -8,25 +8,25 @@
             <!-- Home -->
 
             <a href="<?= BASEURL ?>home"
-                class="md:px-3 text-[#D4988B] text-center rounded-full md:rounded-2xl lg:rounded-3xl sm:px-2 py-2 hover:bg-white hover:text-[#4D5A32] transition-all duration-300 font-medium">
+                class="md:px-3 text-[#D4988B] text-center rounded-full md:rounded-2xl lg:rounded-3xl sm:px-2 py-2 hover:bg-white hover:text-gray-700 transition-all duration-300 font-medium">
                 <p class="hidden md:block lg:font-bold">Home</p>
             </a>
 
             <!-- Kalkulator -->
             <a href="<?= BASEURL ?>Kalkulator"
-                class="md:px-3 text-[#D4988B] py-2 text-center rounded-full md:rounded-2xl lg:rounded-3xl hover:bg-white hover:text-[#4D5A32] font-medium">
+                class="md:px-3 text-[#D4988B] py-2 text-center rounded-full md:rounded-2xl lg:rounded-3xl hover:bg-white hover:text-gray-700 font-medium">
                 <p class="hidden md:block lg:font-bold">Kalkulator</p>
             </a>
 
             <!-- Komunitas -->
             <a href="<?= BASEURL ?>komunitas"
-                class="md:px-3 py-2 text-[#D4988B] text-center rounded-full md:rounded-2xl lg:rounded-3xl hover:bg-white hover:text-[#4D5A32] font-medium">
+                class="md:px-3 py-2 text-[#D4988B] text-center rounded-full md:rounded-2xl lg:rounded-3xl hover:bg-white hover:text-gray-700 font-medium">
                 <p class="hidden md:block lg:font-bold">Komunitas</p>
             </a>
 
             <!-- Artikel -->
             <a href="<?= BASEURL ?>artikel"
-                class="md:px-3 py-2 text-[#D4988B] text-center rounded-full md:rounded-2xl lg:rounded-3xl hover:bg-white hover:text-[#4D5A32] font-medium">
+                class="md:px-3 py-2 text-[#D4988B] text-center rounded-full md:rounded-2xl lg:rounded-3xl hover:bg-white hover:text-gray-700 font-medium">
                 <p class="hidden md:block lg:font-bold">Artikel</p>
             </a>
         </div>

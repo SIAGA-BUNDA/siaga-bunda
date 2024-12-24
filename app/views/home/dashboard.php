@@ -61,7 +61,7 @@
                         <?= $data['skrinning']["title"] ?>
                         </h2>
 
-                        <h3 class="text-lg md:text-xl font-medium text-[#4D5A32]"><?= $data['skrinning']["category"] ?>
+                        <h3 class="text-lg md:text-xl font-medium text-text-gray-500"><?= $data['skrinning']["category"] ?>
                         </h3>
                         <?php require_once "../app/views/skrinning/cards/" . $data['skrinning']["medical test"] . ".php"; ?>
                         <a href="<?= BASEURL ?>skrinning">
@@ -75,7 +75,7 @@
                 <!-- Section Ringkasan Kehamilan -->
                 <div class="p-4 sm:p-6 lg:p-8 rounded-xl bg-gray-300">
                     <p class=" text-lg lg:text-2xl font-semibold">Ringkasan Kehamilan Bunda</p>
-                    <hr class="my-3 border-[#4D5A32] opacity-50" />
+                    <hr class="my-3 border-text-gray-500 opacity-50" />
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-[#b1f3f8] rounded-3xl py-4 flex flex-col gap-3 px-5">
                             <div
@@ -200,7 +200,7 @@
                             <table class="table table-zebra table-sm">
                                 <!-- head -->
                                 <thead>
-                                    <tr class="bg-[#4D5A32] text-white text-center">
+                                    <tr class="bg-text-gray-500 text-white text-center">
                                         <th class="w-1/2">Pemantauan</th>
                                         <th class="w-1/2">Deskripsi</th>
                                     </tr>
