@@ -1,4 +1,4 @@
-<body class="bg-[#FCF1E6] pt-[20px] pb-[69px] min-h-screen">
+    <body class="bg-[#FCF1E6] pt-[20px] pb-[69px] min-h-screen">
     <?php require_once('../app/views/templates/' . (isset($_SESSION['user']) ? 'navbar.php' : 'navbarUser.php')) ?>
 
     <div class="mx-4 sm:mx-6 lg:!mx-8 p-4 sm:p-6 lg:px-8 rounded-[35px] md:rounded-tr-none bg-white">
