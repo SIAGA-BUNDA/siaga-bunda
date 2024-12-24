@@ -2,7 +2,7 @@
     <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-xl shadow-xl w-full max-w-7xl mx-auto">
         <!-- Back Button -->
         <button onclick="window.location.href='<?= BASEURL ?>home'"
-            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold text-2xl py-3 px-10 rounded-lg shadow-md">
+            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold text-2xl py-3 px-10 rounded-lg shadow-md !text-sm">
             Kembali
         </button>
 

@@ -10,119 +10,37 @@
             <div class="swiper-container relative px-12 my-5">
                 <div class=" swiper !static">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div
-                                class="card xl:card-side bg-[#D9D9D9D9] md:max-h-[30rem] md:max-w-[643px] xl:h-[15rem] xl:max-w-[843px]">
-                                <!-- Tambahkan aspect-ratio pada figure -->
-                                <figure class="my-0 aspect-video max-h-[300px] md:max-h-[450px] xl:max-w-[20rem]">
-                                    <img src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-                                        alt="Album" class="object-cover h-full w-full" />
-                                </figure>
-                                <div class="card-body my-0">
-                                    <h2 class="card-title">New album is released!</h2>
-                                    <p>Click the button to listen on Spotiwhy app.</p>
-                                    <div class="card-actions justify-end mt-5 items-center">
+                        <?php foreach ($data['articles'] as $key => $artikel) { ?>
+                            <div class="swiper-slide">
+                                <div
+                                    class="card xl:card-side bg-[#D9D9D9D9] md:max-h-[30rem] md:max-w-[643px] xl:h-[15rem] xl:max-w-[843px]">
+                                    <!-- Tambahkan aspect-ratio pada figure -->
+                                    <figure class="my-0 aspect-video max-h-[300px] md:max-h-[450px] xl:max-w-[20rem]">
+                                        <img src="<?= BASEURL . $artikel['PATH'] ?>" alt="Album"
+                                            class="object-cover h-full w-full" />
+                                    </figure>
+                                    <div class="card-body my-0">
+                                        <h2 class="card-title"><?= $artikel['JUDUL_ARTIKEL'] ?></h2>
+                                        <p><?= substr(strip_tags($data['contents'][count($data['contents']) - 1 - $key]), 0, 50) ?>....
+                                        </p>
+                                        <div class="card-actions justify-end mt-5 items-center">
 
-                                        <a class="flex justify-center items-center group hover:cursor-pointer">
-                                            <p class="underline">Selengkapnya</p>
-                                            <svg width="28" height="16" viewBox="0 0 28 16" fill="none"
-                                                class="mt-1 ml-2 group-hover:translate-x-2 duration-700"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M27.7071 8.70711C28.0976 8.31658 28.0976 7.68342 27.7071 7.29289L21.3431 0.928932C20.9526 0.538408 20.3195 0.538408 19.9289 0.928932C19.5384 1.31946 19.5384 1.95262 19.9289 2.34315L25.5858 8L19.9289 13.6569C19.5384 14.0474 19.5384 14.6805 19.9289 15.0711C20.3195 15.4616 20.9526 15.4616 21.3431 15.0711L27.7071 8.70711ZM0 9L27 9V7L0 7L0 9Z"
-                                                    fill="#2B3440" />
-                                            </svg>
-                                        </a>
+                                            <a class="flex justify-center items-center group hover:cursor-pointer"
+                                                href="<?= BASEURL . 'artikel/' . base64_encode($artikel['ARTIKEL_ID']) ?> ">
+                                                <p class="underline">Selengkapnya</p>
+                                                <svg width="28" height="16" viewBox="0 0 28 16" fill="none"
+                                                    class="mt-1 ml-2 group-hover:translate-x-2 duration-700"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M27.7071 8.70711C28.0976 8.31658 28.0976 7.68342 27.7071 7.29289L21.3431 0.928932C20.9526 0.538408 20.3195 0.538408 19.9289 0.928932C19.5384 1.31946 19.5384 1.95262 19.9289 2.34315L25.5858 8L19.9289 13.6569C19.5384 14.0474 19.5384 14.6805 19.9289 15.0711C20.3195 15.4616 20.9526 15.4616 21.3431 15.0711L27.7071 8.70711ZM0 9L27 9V7L0 7L0 9Z"
+                                                        fill="#2B3440" />
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="swiper-slide ">
-                            <div
-                                class="card xl:card-side bg-[#D9D9D9D9] md:max-h-[30rem] md:max-w-[643px] xl:h-[15rem] xl:max-w-[843px] ">
-                                <figure class="my-0 aspect-video max-h-[300px] md:max-h-[450px] xl:max-w-[20rem]">
-                                    <img src="<?= BASEURL ?>img/newsExam.png" alt="Album"
-                                        class="object-cover h-full w-full object-center" />
-                                </figure>
-                                <div class="card-body my-0">
-                                    <h2 class="card-title">New album is released!</h2>
-                                    <p>Click the button to listen on Spotiwhy app.</p>
-                                    <div class="card-actions justify-end mt-5 items-center">
-                                        <a class="flex justify-center items-center group hover:cursor-pointer">
-                                            <p class="underline">Selengkapnya</p>
-                                            <svg width="28" height="16" viewBox="0 0 28 16" fill="none"
-                                                class="mt-1 ml-2 group-hover:translate-x-2 duration-700"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M27.7071 8.70711C28.0976 8.31658 28.0976 7.68342 27.7071 7.29289L21.3431 0.928932C20.9526 0.538408 20.3195 0.538408 19.9289 0.928932C19.5384 1.31946 19.5384 1.95262 19.9289 2.34315L25.5858 8L19.9289 13.6569C19.5384 14.0474 19.5384 14.6805 19.9289 15.0711C20.3195 15.4616 20.9526 15.4616 21.3431 15.0711L27.7071 8.70711ZM0 9L27 9V7L0 7L0 9Z"
-                                                    fill="#2B3440" />
-                                            </svg>
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div
-                                class="card xl:card-side bg-[#D9D9D9D9] md:max-h-[30rem] md:max-w-[643px] xl:h-[15rem] xl:max-w-[843px]">
-                                <!-- Tambahkan aspect-ratio pada figure -->
-                                <figure class="my-0 aspect-video max-h-[300px] md:max-h-[450px] xl:max-w-[20rem]">
-                                    <img src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-                                        alt="Album" class="object-cover h-full w-full" />
-                                </figure>
-                                <div class="card-body my-0">
-                                    <h2 class="card-title">New album is released!</h2>
-                                    <p>Click the button to listen on Spotiwhy app.</p>
-                                    <div class="card-actions justify-end mt-5 items-center">
-                                        <a class="flex justify-center items-center group hover:cursor-pointer">
-                                            <p class="underline">Selengkapnya</p>
-                                            <svg width="28" height="16" viewBox="0 0 28 16" fill="none"
-                                                class="mt-1 ml-2 group-hover:translate-x-2 duration-700"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M27.7071 8.70711C28.0976 8.31658 28.0976 7.68342 27.7071 7.29289L21.3431 0.928932C20.9526 0.538408 20.3195 0.538408 19.9289 0.928932C19.5384 1.31946 19.5384 1.95262 19.9289 2.34315L25.5858 8L19.9289 13.6569C19.5384 14.0474 19.5384 14.6805 19.9289 15.0711C20.3195 15.4616 20.9526 15.4616 21.3431 15.0711L27.7071 8.70711ZM0 9L27 9V7L0 7L0 9Z"
-                                                    fill="#2B3440" />
-                                            </svg>
-                                        </a>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="swiper-slide">
-                            <div
-                                class="card xl:card-side bg-[#D9D9D9D9] md:max-h-[30rem] md:max-w-[643px] xl:h-[15rem] xl:max-w-[843px]">
-                                <!-- Tambahkan aspect-ratio pada figure -->
-                                <figure class="my-0 aspect-video max-h-[300px] md:max-h-[450px] xl:max-w-[20rem]">
-                                    <img src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-                                        alt="Album" class="object-cover h-full w-full" />
-                                </figure>
-                                <div class="card-body my-0">
-                                    <h2 class="card-title">New album is released!</h2>
-                                    <p>Click the button to listen on Spotiwhy app.</p>
-                                    <div class="card-actions justify-end mt-5 items-center">
-                                        <a class="flex justify-center items-center group hover:cursor-pointer">
-                                            <p class="underline">Selengkapnya</p>
-                                            <svg width="28" height="16" viewBox="0 0 28 16" fill="none"
-                                                class="mt-1 ml-2 group-hover:translate-x-2 duration-700"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M27.7071 8.70711C28.0976 8.31658 28.0976 7.68342 27.7071 7.29289L21.3431 0.928932C20.9526 0.538408 20.3195 0.538408 19.9289 0.928932C19.5384 1.31946 19.5384 1.95262 19.9289 2.34315L25.5858 8L19.9289 13.6569C19.5384 14.0474 19.5384 14.6805 19.9289 15.0711C20.3195 15.4616 20.9526 15.4616 21.3431 15.0711L27.7071 8.70711ZM0 9L27 9V7L0 7L0 9Z"
-                                                    fill="#2B3440" />
-                                            </svg>
-                                        </a>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
 
                     </div>
                     <button class="swiper-button-prev !text-[#607D8B]  " id="prevBtn">

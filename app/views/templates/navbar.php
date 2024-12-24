@@ -52,7 +52,7 @@
                 <i class="fa-solid fa-chevron-up text-gray-700 swap-on fill-current"></i>
             </label>
         </div>
-        <ul class="rounded-box bg-white  z-[2]  w-52 py-4 p-2 z-50 shadow absolute top-[90%] right-4 hidden"
+        <ul class="rounded-box bg-white  z-[2]  w-52 py-4 p-2 shadow absolute top-[90%] right-4 hidden"
             id="dropdown-menu">
             <li class="px-2 hover:cursor-pointer">
                 <a class="flex justify-between font-semibold hover:bg-gray-200 rounded-lg py-2 px-3 text-gray-700 items-center"

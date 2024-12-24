@@ -1,5 +1,5 @@
 <html class="scroll-smooth">
-<body class="bg-[#C1CFA1] flex items-center justify-center pt-[69px] pb-[69px] min-h-screen scroll-smooth">
+<body class="bg-[#FCF1E6] flex items-center justify-center pt-[69px] pb-[69px] min-h-screen scroll-smooth">
 
     <div class="bg-white p-8 rounded-xl shadow-xl w-full max-w-7xl mx-auto">
 
