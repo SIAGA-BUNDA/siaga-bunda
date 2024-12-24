@@ -24,8 +24,9 @@ class komunitas extends Controller
         $this->model('postingan')->tambahPostingan($data, $_SESSION['user']);
       }
       header('Location: ' . BASEURL . 'komunitas');
+    }else{
+      header('Location: ' . BASEURL . 'signIn');
     }
-    header('Location: ' . BASEURL . 'signIn');
   }
   public function tambahKomentar()
   {
@@ -110,7 +111,7 @@ class komunitas extends Controller
     $data['css'] = 'sesudahLogin';
     $data['postingan'] = $this->model('postingan')->getAllPostinganById($id);
     $data['isi_postingan'] = $this->model('postingan')->getIsiPostinganById($id);
-    $data['commentCount'] = $this->model('komentar')->getCommentCountById($id) == false? 0: $this->model('komentar')->getCommentCountById($id)['JUMLAH_KOMENTAR'];
+    $data['commentCount'] = $this->model('komentar')->getCommentCountById($id) == false ? 0 : $this->model('komentar')->getCommentCountById($id)['JUMLAH_KOMENTAR'];
     $data['komentar'] = $this->model('komentar')->getAllKomentarById($id);
     $data['isiKomentar'] = $this->model('komentar')->getIsiKomentarById($id);
     $this->view('templates/header', $data);
