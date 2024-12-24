@@ -51,6 +51,19 @@ class komunitas extends Controller
       exit;
     }
   }
+  public function changeStatus()
+  {
+      $laporanId = $_POST['laporan_id'];
+      $newStatus = $_POST['new_status'];
+
+      $data = [
+          'laporan_id' => $laporanId,
+          'new_status' => $newStatus,
+      ];
+
+      $this->model('LaporanModel')->updateStatus($data);
+      header('Location: ' . BASEURL . '/pageAdmin');
+  }
   public function search()
   {
     session_start();

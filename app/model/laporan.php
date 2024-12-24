@@ -9,6 +9,40 @@ class Laporan
     {
         $this->db = new database();
     }
+    public function updateStatus($data)
+    {
+        // Fetch the current status
+        $query = "SELECT status FROM laporan WHERE laporan_id = :laporan_id";
+        $this->db->query($query);
+        $this->db->bind(':laporan_id', $data['laporan_id']);
+        $currentStatus = $this->db->single()['status'];
+
+        // Update the status
+        $updateQuery = "UPDATE laporan SET status = :new_status WHERE laporan_id = :laporan_id";
+        $this->db->query($updateQuery);
+        $this->db->bind(':new_status', $data['new_status']);
+        $this->db->bind(':laporan_id', $data['laporan_id']);
+        $this->db->execute();
+
+        // Log the status change
+        $logData = [
+            'laporan_id' => $data['laporan_id'],
+            'old_status' => $currentStatus,
+            'new_status' => $data['new_status'],
+        ];
+        $this->logStatusChange($logData);
+    }
+    // Log status changes
+    private function logStatusChange($data)
+    {
+        $query = "INSERT INTO laporan_status_log (laporan_id, old_status, new_status, change_time) 
+                VALUES (:laporan_id, :old_status, :new_status, SYSTIMESTAMP)";
+        $this->db->query($query);
+        $this->db->bind(':laporan_id', $data['laporan_id']);
+        $this->db->bind(':old_status', $data['old_status']);
+        $this->db->bind(':new_status', $data['new_status']);
+        $this->db->execute();
+    }
     public function getLaporanPostingan()
     {
         $query = "SELECT 
