@@ -1,9 +1,9 @@
-<body class="bg-[#C1CFA1] min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+<body class="bg-[#FCF1E6] min-h-screen py-8 px-4 sm:px-6 lg:px-8">
 
     <div class="bg-white p-4 sm:p-6 lg:p-8 rounded-xl shadow-xl w-full max-w-7xl mx-auto">
 
         <button onclick="window.location.href='<?= BASEURL ?>home'"
-            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold text-2xl py-3 px-10 rounded-lg shadow-md">
+            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold text-2xl py-3 px-10 rounded-lg shadow-md !text-sm">
             Kembali
         </button>
         <!-- Logo -->

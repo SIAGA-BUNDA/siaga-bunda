@@ -62,6 +62,9 @@ class home extends Controller
                 $data['kenaikan_berat'] = 0;
             }
 
+            $data['articles'] = $this->model('artikel_model')->getAllArtikel();
+            $data['contents'] = $this->model('artikel_model')->getIsiArtikel();
+
             $this->view('templates/header', $data);
             $this->view('home/dashboard', $data);
             $this->view('templates/footer');
@@ -89,7 +92,7 @@ class home extends Controller
                 $berat = $data['PRA_BERAT'];
                 $id = $_SESSION['user'];
                 $this->model('user_model')->updateUser($id, $nama, $no_telepon, $lmp, $tanggal_lahir, $tinggi, $berat);
-                $_SESSION['username']= $nama;
+                $_SESSION['username'] = $nama;
             }
             $data['judul'] = 'Profil';
             $user = $this->model('user_model')->getUserById($_SESSION['user']);
