@@ -2,7 +2,7 @@
     <div class="md:flex text-[#D4988B] items-end w-full px-4 sm:px-6 lg:px-8 flex-wrap ">
         <?php require_once '../app/views/templates/navbarUser.php' ?>
         <div class="mx-4 sm:mx-6 lg:!mx-8 p-4 sm:p-6 lg:px-8 rounded-[35px] md:rounded-tr-none bg-white">
-            <<div class="container flex items-center justify-start mt-1 text-left md:text-center md:flex-row flex-col md:gap-2 gap-2">
+            <div class="container flex items-center justify-start mt-1 text-left md:text-center md:flex-row flex-col md:gap-2 gap-2">
                 <img src="img/ikon.png" alt="Logo" 
                     class="logo w-20 h-auto pt-0 md:w-32 md:h-32">
                 <div class="content">
@@ -10,7 +10,7 @@
                         Selamat Datang Bunda!
                     </h1>
                     <p class="description text-md md:text-base text-gray-700 mt-2 md:mt-0 py-4 md:px-0">
-                        Platform yang dirancang khusus untuk mendukung kesehatan para bapak hamil.
+                        Platform yang dirancang khusus untuk mendukung kesehatan para ibu hamil.
                         Kami memahami bahwa masa kehamilan adalah perjalanan yang istimewa, namun juga penuh tantangan.
                     </p>
                 </div>

@@ -22,6 +22,5 @@ class kalkulator extends Controller
         $this->view('templates/header', $data);
         $this->view('kalkulator/ultrasound');
         $this->view('templates/footer');
-        $this->id = $_SESSION['user'];
     }
 }

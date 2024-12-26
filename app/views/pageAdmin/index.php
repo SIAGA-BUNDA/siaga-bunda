@@ -1,4 +1,4 @@
-<body class="h-full bg-[#FCF1E6] font-sans overflow-hidden">
+<body class="h-full bg-[#FCF1E6] font-sans ">
   <!-- Header -->
   <header class="bg-white shadow-md p-4 flex justify-between items-center rounded-xl mx-6 mb-4">
 

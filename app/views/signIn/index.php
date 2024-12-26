@@ -40,7 +40,7 @@
 
             <!-- Register Link -->
             <div class="text-sm text-[#0B2027] mb-6">
-                Belum memiliki akun? <a href="signUp" class="font-semibold text-[#2B3440]">Daftar di sini</a>
+                Belum memiliki akun? <a href="<?= BASEURL ?>signUp" class="font-semibold text-[#2B3440]">Daftar di sini</a>
             </div>
 
 
