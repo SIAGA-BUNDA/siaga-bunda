@@ -1,9 +1,24 @@
-**create config**
+# Siaga Bunda - Aplikasi Kesehatan ibu hamil
 
-**composer install**
+## Description
+Aplikasi berbasis online yang dirancang untuk mendukung kesehatan ibu
+hamil dengan menyediakan berbagai fitur, seperti pencatatan kesehatan, skrining, kalkulator
+kehamilan, artikel edukatif, dan forum komunitas. Aplikasi ini membantu ibu hamil
+memantau kondisi kesehatan dan mendapatkan informasi yang relevan selama kehamilan.
 
-**npm i**
+## Screenshot
 
-**npm start**
+## Features
+- ✅ Tracking kehamilan
+- ✅ Skrinning kehamilan
+- ✅ Artikel dan edukasi
+- ✅ Forum/komunitas
+- ✅ Kalkulator kehamilan
 
-**turn on your apache server and run web from localhost**
+## Architecture
+- PHP Native
+- Javascript
+- TailwindCSS
+- Oracle SQL
+
+## Figma
