@@ -22,3 +22,4 @@ memantau kondisi kesehatan dan mendapatkan informasi yang relevan selama kehamil
 - Oracle SQL
 
 ## Figma
+https://www.figma.com/design/E18gAeEUKBNt2MoZ8iAB8X/siaga-bunda?node-id=800-165&t=JF2tAiELrPPx8xPy-1
